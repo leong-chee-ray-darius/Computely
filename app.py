@@ -88,21 +88,15 @@ STATIONERY_DATA = {
     }
 }
 
-# --- UI LAYOUT ---
 st.title("Computing Study Companion")
 topic = st.sidebar.selectbox("Select a Chapter:", list(STATIONERY_DATA.keys()))
 mode = st.sidebar.radio("Activity:", ["Review", "Active Recall", "AI bot"])
-
-# --- TOKEN FIX: Filter content by keyword ---
 def get_filtered_context(selected_topic):
     keywords = STATIONERY_DATA[selected_topic].get("keywords", [])
     matches = []
     for page in raw_data:
-        # Only grab pages that mention keywords to save tokens
         if any(key.lower() in page['content'].lower() for key in keywords):
             matches.append(page['content'])
-
-    # Join only the first 10 matching pages (roughly 5,000 - 10,000 tokens max)
     return "\n\n".join(matches[:10])
 tb_content = get_filtered_context(topic)
 
@@ -128,6 +122,9 @@ elif mode == "AI bot":
     TEXTBOOK CONTEXT:
     {tb_content}
 
+    List of content:
+    {STATIONARY_DATA}
+
     RULES:
     1. Use the provided context to answer the user's question.
     2. Maintain a robotic, neutral tone. No emotions, no fluff.
@@ -136,7 +133,7 @@ elif mode == "AI bot":
     6. Secondary Source: If the topic is clearly about Computing (e.g., Privacy, Hardware, Internet) but not in the context, use your general knowledge to answer.
     7. Decline: Only decline if the user asks about non-computing topics (e.g., "How do I bake a cake?").
     8. Use the exact keywords from the context
-    9. There are 14 topics
+    9. There are 14 chapters
 
     EXAMPLES:
 

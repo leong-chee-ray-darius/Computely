@@ -1,0 +1,9 @@
+# Ignore the Streamlit secrets file (Safety First!)
+.streamlit/secrets.toml
+
+# Ignore Python cache and environment files
+__pycache__/
+*.pyc
+.env
+venv/
+.DS_Store
