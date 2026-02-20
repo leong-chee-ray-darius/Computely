@@ -126,6 +126,7 @@ elif mode == "AI bot":
     {STATIONERY_DATA}
 
     RULES:
+    Use the exact keywords from the context and content to answer the user's question.
     1. Use the provided context to answer the user's question.
     2. Maintain a robotic, neutral tone. No emotions, no fluff.
     3. Keep answers concise and structured (use bullet points for processes).
