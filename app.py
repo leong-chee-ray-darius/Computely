@@ -122,9 +122,6 @@ elif mode == "AI bot":
     TEXTBOOK CONTEXT:
     {tb_content}
 
-    List of content:
-    {STATIONARY_DATA}
-
     RULES:
     1. Use the provided context to answer the user's question.
     2. Maintain a robotic, neutral tone. No emotions, no fluff.
@@ -133,7 +130,7 @@ elif mode == "AI bot":
     6. Secondary Source: If the topic is clearly about Computing (e.g., Privacy, Hardware, Internet) but not in the context, use your general knowledge to answer.
     7. Decline: Only decline if the user asks about non-computing topics (e.g., "How do I bake a cake?").
     8. Use the exact keywords from the context
-    9. There are 14 chapters
+    9. There are 14 topics
 
     EXAMPLES:
 
