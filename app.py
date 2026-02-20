@@ -122,6 +122,9 @@ elif mode == "AI bot":
     TEXTBOOK CONTEXT:
     {tb_content}
 
+    List of content:
+    {STATIONERY_DATA}
+
     RULES:
     1. Use the provided context to answer the user's question.
     2. Maintain a robotic, neutral tone. No emotions, no fluff.
