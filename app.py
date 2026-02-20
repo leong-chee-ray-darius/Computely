@@ -133,8 +133,6 @@ elif mode == "AI bot":
     5. Primary Source: Use the provided textbook context.
     6. Secondary Source: If the topic is clearly about Computing (e.g., Privacy, Hardware, Internet) but not in the context, use your general knowledge to answer.
     7. Decline: Only decline if the user asks about non-computing topics (e.g., "How do I bake a cake?").
-    8. Use the exact keywords from the context
-    9. There are 14 topics
 
     EXAMPLES:
 
