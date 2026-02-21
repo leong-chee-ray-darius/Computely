@@ -233,7 +233,7 @@ if mode == "Review":
     st.subheader("Reference Material")
     col1, col2 = st.columns([1, 3])
     with col1:
-        pdf_url = STATIONERY_DATA[topic].get("pdf_url", "#")
+        pdf_url = STATIONERY_DATA[topic].get("drive_link", "#")
         st.link_button("📂 Open Textbook Page", pdf_url)
     with col2:
         st.caption("This will open the textbook PDF in a new tab at the relevant chapter.")
