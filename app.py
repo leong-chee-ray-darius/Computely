@@ -14,6 +14,17 @@ def load_textbook_data():
     except:
         return []
 raw_data = load_textbook_data()
+def get_filtered_context(selected_topic):
+    if not raw_data:
+        return ""
+    search_terms = STATIONERY_DATA[selected_topic].get("keywords", []) + [selected_topic]
+    matches = []
+    for page in raw_data:
+        content = str(page) # Adjust based on your JSON structure
+        if any(term.lower() in content.lower() for term in search_terms):
+            matches.append(content)
+    return "\n\n".join(matches[:10])
+tb_content = get_filtered_context(topic)
 if "selected_topic" not in st.session_state:
     st.session_state["selected_topic"] = "Computer Architecture"
 STATIONERY_DATA = {
