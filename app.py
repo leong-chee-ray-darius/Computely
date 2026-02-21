@@ -89,16 +89,6 @@ STATIONERY_DATA = {
             "Text Encoding": {
                 "ASCII": "7-bit character encoding.",
                 "Unicode": "Global encoding supporting many languages."
-            },
-            "Image Representation": {
-                "Pixels": "Smallest dot in an image.",
-                "Resolution": "Total number of pixels.",
-                "Colour Depth": "Bits per pixel determining number of colours."
-            },
-            "Sound Representation": {
-                "Sampling": "Taking sound measurements at regular intervals.",
-                "Sample Rate": "Number of samples per second.",
-                "Bit Depth": "Accuracy of each sample."
             }
         },
         "glossary": {
