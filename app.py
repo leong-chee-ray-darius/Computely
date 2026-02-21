@@ -14,267 +14,247 @@ TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZE
 STATIONERY_DATA = {
 
     "Computer Architecture": {
-        "summary": "Study of how computers are designed, built, organized, and how their components interact to process data.",
+        "summary": "The study of how computer systems are structured, how hardware components interact, and how data is processed and transferred inside a computer.",
         "detailed_notes": {
             "Overview": {
-                "Computer System": "A device that receives, processes, and outputs data according to instructions.",
-                "Historical Context": "Early computers used mechanical parts such as gears, pulleys, and levers before electronics."
+                "Computer System": "An electronic device that accepts input, processes data according to stored instructions, stores data, and produces output.",
+                "Von Neumann Architecture": "A design model where program instructions and data share the same memory.",
+                "Fetch-Decode-Execute Cycle": {
+                    "Fetch": "Instruction retrieved from memory using the Program Counter (PC).",
+                    "Decode": "Control Unit interprets the instruction.",
+                    "Execute": "ALU or other components perform the required operation."
+                }
             },
             "Units of Data": {
-                "Digital System": "Computers use binary (0 and 1).",
-                "Bit": "Smallest unit of data (0 or 1).",
+                "Bit": "Smallest unit of data represented as 0 or 1.",
+                "Nibble": "4 bits.",
                 "Byte": "8 bits.",
-                "Measurement": [
-                    "SI Prefixes (1000): kB, MB, GB, TB, PB",
-                    "Binary Prefixes (1024): KiB, MiB, GiB, TiB, PiB"
-                ]
+                "Word": "Group of bits processed together by CPU (e.g., 32-bit or 64-bit).",
+                "Storage Measurement": {
+                    "SI": ["kB", "MB", "GB", "TB", "PB"],
+                    "Binary": ["KiB", "MiB", "GiB", "TiB", "PiB"]
+                }
             },
             "Hardware Components": {
-                "CPU": "Processes data and executes instructions. Speed measured in MHz or GHz. Multi-core CPUs can execute multiple instructions simultaneously.",
-                "GPU": "Specialized processor for graphics and AI tasks.",
-                "Main Memory": "RAM is volatile and stores running programs. ROM is non-volatile and stores startup instructions.",
-                "Storage": {
-                    "Magnetic": "High capacity, low cost, vulnerable to shock and magnets.",
-                    "Optical": "Laser-based, portable, scratch-sensitive.",
-                    "Solid State": "Fast, durable, no moving parts, higher cost."
+                "CPU": {
+                    "Description": "Processes instructions and performs calculations.",
+                    "Components": ["ALU", "Control Unit", "Registers", "Cache"],
+                    "Clock Speed": "Measured in GHz, determines number of cycles per second.",
+                    "Cores": "Multiple cores allow parallel execution."
+                },
+                "GPU": "Handles graphics rendering and parallel computations such as AI training.",
+                "Main Memory": {
+                    "RAM": "Volatile memory storing programs and data currently in use.",
+                    "ROM": "Non-volatile memory storing firmware and boot instructions."
+                },
+                "Secondary Storage": {
+                    "HDD": "Magnetic disks, cheap, slow, mechanical parts.",
+                    "SSD": "Solid-state, fast, durable, no moving parts.",
+                    "Optical": "CD, DVD, Blu-ray, portable but slow."
                 },
                 "Buses": {
-                    "Data Bus": "Bi-directional, transfers data.",
-                    "Address Bus": "Uni-directional, transfers memory addresses."
+                    "Data Bus": "Transfers actual data.",
+                    "Address Bus": "Transfers memory locations.",
+                    "Control Bus": "Transfers control signals."
                 }
             },
             "Interfaces": {
-                "USB": "External device connection (480 Mbit/s – 80 Gbit/s).",
-                "HDMI": "High-definition audio/video output.",
-                "PCIe": "Internal expansion using lanes x1 to x16."
+                "USB": "Universal connection for peripherals.",
+                "HDMI": "High-definition video and audio transmission.",
+                "PCIe": "High-speed internal expansion interface.",
+                "Ethernet": "Wired network communication."
             }
         },
         "glossary": {
-            "CPU": "Central Processing Unit that executes instructions.",
-            "Volatile": "Memory that loses data when power is lost.",
-            "ROM": "Non-volatile memory storing startup instructions.",
-            "Data Bus": "Transfers data between components.",
-            "Address Bus": "Transfers memory addresses."
+            "CPU": "Central Processing Unit responsible for executing instructions.",
+            "ALU": "Performs arithmetic and logical operations.",
+            "Register": "Extremely fast storage inside CPU.",
+            "RAM": "Volatile main memory.",
+            "ROM": "Permanent memory storing boot data."
         },
-        "keywords": ["CPU", "RAM", "ROM", "GPU", "Data Bus", "Address Bus", "PCIe", "Solid State"]
+        "keywords": ["CPU", "ALU", "Registers", "RAM", "ROM", "Fetch Decode Execute", "Buses", "Cache"]
     },
 
     "Data Representation": {
-        "summary": "All data in computers is represented using binary numbers (0 and 1).",
+        "summary": "All computer data is stored and processed using binary numbers and encoding systems.",
         "detailed_notes": {
             "Number Systems": {
-                "Denary": "Base-10 using digits 0–9.",
-                "Binary": "Base-2 using digits 0 and 1.",
-                "Hexadecimal": "Base-16 using digits 0–9 and A–F."
+                "Denary": "Base-10 system used by humans.",
+                "Binary": "Base-2 system used internally by computers.",
+                "Hexadecimal": "Base-16 compact representation of binary."
             },
             "Conversions": {
-                "Binary ↔ Denary": "Use place values or repeated division.",
-                "Binary ↔ Hex": "Group binary into 4-bit sections.",
-                "Largest Number": "2^N - 1"
+                "Binary to Denary": "Multiply each bit by its place value and sum.",
+                "Denary to Binary": "Repeated division by 2.",
+                "Binary to Hex": "Group bits into 4s."
             },
             "Negative Numbers": {
-                "System": "Two's Complement",
-                "Sign Bit": "MSB determines sign (0 positive, 1 negative).",
-                "Range": "-2^(N-1) to 2^(N-1) - 1",
-                "Steps": [
-                    "Convert to binary",
-                    "Add leading zeros",
-                    "Invert bits",
-                    "Add 1"
-                ]
+                "Method": "Two's Complement",
+                "Range": "-2^(n-1) to 2^(n-1) - 1",
+                "Process": ["Invert bits", "Add 1"]
             },
+            "Overflow": "Occurs when a result exceeds the available number of bits.",
             "Text Encoding": {
-                "ASCII": "7-bit (128 chars), Extended 8-bit (256 chars).",
-                "Unicode": "8–32 bits, supports global languages."
+                "ASCII": "7-bit character encoding.",
+                "Unicode": "Global encoding supporting many languages."
+            },
+            "Image Representation": {
+                "Pixels": "Smallest dot in an image.",
+                "Resolution": "Total number of pixels.",
+                "Colour Depth": "Bits per pixel determining number of colours."
+            },
+            "Sound Representation": {
+                "Sampling": "Taking sound measurements at regular intervals.",
+                "Sample Rate": "Number of samples per second.",
+                "Bit Depth": "Accuracy of each sample."
             }
         },
         "glossary": {
-            "Binary": "Base-2 number system.",
-            "Hexadecimal": "Base-16 number system.",
-            "Two's Complement": "Binary system for negative numbers.",
-            "MSB": "Most Significant Bit.",
-            "Overflow": "Result exceeds allowed bit size."
+            "Binary": "Base-2 numbering system.",
+            "Hexadecimal": "Base-16 numbering system.",
+            "Two's Complement": "Method for representing negative binary numbers.",
+            "Overflow": "When binary result exceeds bit limit."
         },
-        "keywords": ["Binary", "Denary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode"]
+        "keywords": ["Binary", "Denary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode", "Resolution", "Sampling"]
     },
 
     "Boolean Logic": {
-        "summary": "Uses logical values and gates to perform decision-making operations in computers.",
+        "summary": "Logical operations used inside computers to make decisions and control data flow.",
         "detailed_notes": {
-            "Boolean Values": ["True/False", "1/0", "On/Off"],
-            "Truth Tables": "Shows output for all input combinations. Rows = 2^n.",
+            "Logic Levels": ["1 / True / On", "0 / False / Off"],
             "Logic Gates": {
-                "AND": "Output 1 only if both inputs are 1.",
-                "OR": "Output 1 if any input is 1.",
-                "NOT": "Inverts input.",
+                "AND": "Outputs 1 only if both inputs are 1.",
+                "OR": "Outputs 1 if any input is 1.",
+                "NOT": "Inverts the input.",
                 "NAND": "NOT AND.",
                 "NOR": "NOT OR.",
-                "XOR": "Output 1 only when inputs differ."
+                "XOR": "Outputs 1 only if inputs differ."
             },
+            "Truth Tables": "Lists all possible input combinations and outputs.",
             "Boolean Laws": {
-                "Double Negation": "¬(¬A) = A",
-                "De Morgan": ["¬(A · B) = ¬A + ¬B", "¬(A + B) = ¬A · ¬B"],
-                "Absorption": ["A · (A + B) = A", "A + (A · B) = A"]
+                "Identity": ["A + 0 = A", "A · 1 = A"],
+                "Null": ["A + 1 = 1", "A · 0 = 0"],
+                "De Morgan": ["¬(A·B)=¬A+¬B", "¬(A+B)=¬A·¬B"]
             },
-            "Logic Circuits": "Built by connecting logic gates to perform tasks."
+            "Logic Circuits": "Combination of logic gates forming hardware decision systems."
         },
         "glossary": {
-            "Truth Table": "Table showing outputs for all input combinations.",
-            "Logic Gate": "Electronic circuit performing logical operations.",
-            "XOR": "Exclusive OR gate."
+            "Truth Table": "Table showing outputs for all possible inputs.",
+            "Logic Gate": "Electronic decision-making circuit."
         },
-        "keywords": ["Truth Table", "Logic Gates", "XOR", "NAND", "Boolean Algebra"]
+        "keywords": ["AND", "OR", "NOT", "XOR", "Truth Table", "Boolean Algebra"]
     },
 
     "Programming Concepts": {
-        "summary": "Algorithms and programming techniques used to create computer programs.",
+        "summary": "Core programming principles used to design, write, and test programs.",
         "detailed_notes": {
             "Algorithms": "Step-by-step solution to a problem.",
-            "Variables": "Named storage locations referencing memory.",
-            "Data Types": ["bool", "int", "float", "str", "list", "dict"],
-            "Operators": ["+", "-", "*", "/", "//", "%", "**"],
-            "Control Flow": {
-                "Sequence": "Statements run in order.",
-                "Selection": "if / elif / else branching.",
-                "Iteration": ["while loop", "for loop"]
+            "Variables": "Named memory storage.",
+            "Data Types": ["Integer", "Float", "Boolean", "String", "List", "Dictionary"],
+            "Operators": {
+                "Arithmetic": ["+", "-", "*", "/", "%", "**"],
+                "Comparison": ["==", "!=", ">", "<", ">=", "<="],
+                "Logical": ["and", "or", "not"]
             },
-            "Functions": "Reusable blocks of code.",
-            "Scope": {
-                "Local": "Inside function.",
-                "Global": "Outside function."
-            }
-        },
-        "glossary": {
-            "Algorithm": "Step-by-step instructions.",
-            "Variable": "Stores changeable values.",
-            "Function": "Reusable code block.",
-            "Scope": "Where variables can be accessed."
-        },
-        "keywords": ["Algorithm", "Variables", "Loops", "Functions", "Data Types", "Scope"]
-    },
-
-    "Validation and Testing": {
-        "summary": "Methods to ensure correct data input and program correctness.",
-        "detailed_notes": {
-            "Validation Checks": ["Length", "Range", "Presence", "Format", "Existence", "Check Digit"],
-            "Error Types": {
-                "Syntax": "Language rule violations.",
-                "Logic": "Incorrect output.",
-                "Run-time": "Errors during execution."
+            "Control Structures": {
+                "Sequence": "Instructions run in order.",
+                "Selection": "if, elif, else.",
+                "Iteration": ["for loop", "while loop"]
             },
-            "Testing": "Compare actual output with expected output using normal, boundary, and error cases.",
-            "Debugging": "Identifying and removing bugs."
+            "Functions": "Reusable blocks of code performing specific tasks.",
+            "Testing": ["Normal", "Boundary", "Erroneous"]
         },
         "glossary": {
-            "Validation": "Ensuring correct input.",
-            "Debugging": "Removing errors.",
-            "Test Case": "Input + expected output."
+            "Algorithm": "Set of instructions.",
+            "Iteration": "Repeating a block of code."
         },
-        "keywords": ["Validation", "Debugging", "Syntax Error", "Logic Error", "Test Case"]
-    },
-
-    "Development Models": {
-        "summary": "Structured approaches to software development.",
-        "detailed_notes": {
-            "Waterfall": "Sequential stages: requirements → design → coding → testing → deployment.",
-            "Iterative": "Repeated cycles of development.",
-            "Agile": "Short sprints with continuous feedback.",
-            "TDD": "Write tests before writing code."
-        },
-        "glossary": {
-            "Sprint": "Short development cycle.",
-            "Beta Testing": "User environment testing."
-        },
-        "keywords": ["Waterfall", "Agile", "Iterative", "TDD", "Sprint"]
-    },
-
-    "Spreadsheets": {
-        "summary": "Tools for data storage, analysis, and calculations using formulas and functions.",
-        "detailed_notes": {
-            "Basics": "Cells (A1), ranges (A1:C3), formulas start with =.",
-            "References": ["Relative", "Absolute", "Mixed"],
-            "Functions": {
-                "Logical": ["IF", "AND", "OR", "NOT"],
-                "Math": ["SUM", "AVERAGE", "COUNT", "MAX", "MIN"],
-                "Lookup": ["VLOOKUP", "HLOOKUP", "INDEX", "MATCH"],
-                "Text": ["LEFT", "RIGHT", "MID", "LEN"]
-            }
-        },
-        "glossary": {
-            "Formula": "Equation that calculates a value.",
-            "Absolute Reference": "Cell reference that does not change.",
-            "VLOOKUP": "Vertical lookup function."
-        },
-        "keywords": ["Formula", "VLOOKUP", "Functions", "Cell Reference", "Goal Seek"]
+        "keywords": ["Algorithm", "Variables", "Loops", "Functions", "Operators"]
     },
 
     "Computer Networks": {
-        "summary": "Interconnected devices exchanging data through communication channels.",
+        "summary": "Systems of interconnected devices that communicate to exchange data.",
         "detailed_notes": {
-            "Types": ["LAN", "MAN", "WAN"],
-            "Topologies": ["Star", "Mesh"],
-            "Hardware": ["Router", "Switch", "Modem", "NIC", "WAP"],
-            "Addressing": {
-                "MAC": "48-bit permanent address.",
-                "IP": ["IPv4 (32-bit)", "IPv6 (128-bit)"]
+            "Network Types": ["LAN", "MAN", "WAN"],
+            "Topologies": ["Star", "Bus", "Ring", "Mesh"],
+            "Hardware": {
+                "Router": "Routes data between networks.",
+                "Switch": "Connects devices within LAN.",
+                "NIC": "Provides network connectivity.",
+                "WAP": "Wireless connection point."
             },
-            "Protocols": "Rules governing data transmission (TCP/IP)."
+            "Protocols": {
+                "TCP/IP": "Core internet communication protocol.",
+                "HTTP/HTTPS": "Web data transfer.",
+                "FTP": "File transfer."
+            },
+            "Addressing": {
+                "MAC": "Permanent physical address.",
+                "IPv4": "32-bit address.",
+                "IPv6": "128-bit address."
+            }
         },
         "glossary": {
-            "Router": "Forwards data between networks.",
-            "Switch": "Connects devices within LAN.",
+            "Router": "Directs data packets.",
             "Protocol": "Communication rules."
         },
-        "keywords": ["LAN", "Router", "Switch", "IP Address", "MAC Address", "TCP/IP"]
+        "keywords": ["LAN", "WAN", "Router", "Switch", "TCP/IP", "IP Address"]
     },
 
     "Security and Privacy": {
-        "summary": "Protection of data confidentiality, integrity, and availability.",
+        "summary": "Techniques to protect data, systems, and users from digital threats.",
         "detailed_notes": {
-            "Threats": ["Malware", "Phishing", "Pharming", "Spyware", "Adware"],
-            "Defenses": ["Anti-malware", "Firewalls", "Encryption", "MFA", "PDPA"],
-            "Good Practices": ["Strong passwords", "Backups", "MFA", "Scam awareness"]
+            "Threats": {
+                "Malware": ["Virus", "Worm", "Trojan", "Ransomware", "Spyware"],
+                "Social Engineering": ["Phishing", "Pharming", "Shoulder Surfing"]
+            },
+            "Protection Methods": {
+                "Encryption": "Scrambles data into unreadable form.",
+                "Firewall": "Filters network traffic.",
+                "Authentication": ["Passwords", "Biometrics", "MFA"]
+            },
+            "Data Protection": {
+                "PDPA": "Singapore Personal Data Protection Act."
+            }
         },
         "glossary": {
-            "Encryption": "Encoding data for security.",
-            "Phishing": "Fake messages to steal information.",
-            "MFA": "Multi-Factor Authentication."
+            "Encryption": "Data scrambling process.",
+            "Firewall": "Network security barrier."
         },
-        "keywords": ["Security", "Encryption", "Firewall", "Phishing", "MFA", "PDPA"]
-    },
-
-    "Intellectual Property": {
-        "summary": "Legal rights protecting digital creations.",
-        "detailed_notes": {
-            "Copyright": "Controls usage and distribution.",
-            "Licenses": ["Proprietary", "Freeware", "Shareware", "FOSS", "Public Domain"],
-            "Piracy": "Illegal copying or distribution of software.",
-            "Plagiarism": "Claiming others' work as your own."
-        },
-        "glossary": {
-            "FOSS": "Free and Open-Source Software.",
-            "Plagiarism": "Ethical offense."
-        },
-        "keywords": ["Copyright", "FOSS", "Piracy", "License", "Plagiarism"]
+        "keywords": ["Malware", "Encryption", "Firewall", "MFA", "Phishing", "PDPA"]
     },
 
     "Emerging Technologies": {
-        "summary": "Advanced computing technologies shaping the future.",
+        "summary": "Advanced computing innovations shaping future systems and applications.",
         "detailed_notes": {
-            "Artificial Intelligence": "Systems capable of autonomous learning and decision making.",
-            "Machine Learning": "AI method that learns patterns from data.",
-            "Blockchain": "Decentralized, immutable digital ledger.",
-            "Quantum Computing": "Computing using qubits, superposition, and entanglement.",
-            "VR & AR": "Immersive and augmented digital environments."
+            "Artificial Intelligence": {
+                "Definition": "Systems that simulate human intelligence.",
+                "Applications": ["Chatbots", "Image Recognition", "Speech Processing"]
+            },
+            "Machine Learning": {
+                "Definition": "AI technique that learns patterns from data.",
+                "Types": ["Supervised", "Unsupervised", "Reinforcement"]
+            },
+            "Blockchain": {
+                "Definition": "Decentralized immutable digital ledger.",
+                "Features": ["Distributed", "Secure", "Transparent"]
+            },
+            "Quantum Computing": {
+                "Qubit": "Quantum bit using superposition.",
+                "Entanglement": "Linked quantum states.",
+                "Speed": "Solves certain problems exponentially faster."
+            },
+            "VR & AR": {
+                "VR": "Fully immersive digital environments.",
+                "AR": "Overlay of digital objects on real world."
+            }
         },
         "glossary": {
-            "Qubit": "Quantum bit that exists as 0 and 1 simultaneously.",
-            "Superposition": "Ability to exist in multiple states.",
+            "Qubit": "Quantum data unit.",
+            "Superposition": "Multiple states simultaneously.",
             "Entanglement": "Linked quantum states."
         },
-        "keywords": ["AI", "Machine Learning", "Blockchain", "Quantum Computing", "Qubit", "VR", "AR"]
+        "keywords": ["AI", "Machine Learning", "Blockchain", "Quantum", "VR", "AR"]
     }
-
 }
 # 2. Define Helper Functions
 def load_textbook_data():
@@ -391,65 +371,67 @@ if mode == "Review":
                 st.session_state.current_mode = "Quiz"
                 st.rerun()
 elif mode == "AI bot":
-    st.title("Ai bot")
-    system_message_content= f"""
+    st.title("🤖 AI Computing Tutor")
 
-    You are a robotic, highly efficient GCE Computing assistant.
-    Your goal is to provide precise, technical answers based on the provided textbook context.
+    # --- Get filtered textbook context ---
+    tb_content = get_filtered_context(
+        st.session_state.selected_topic,
+        raw_data
+    )
 
-    TEXTBOOK CONTEXT:
-    {tb_content}
+    system_message_content = f"""
+You are a robotic, highly precise GCE Computing assistant.
 
-    List of content:
-    {STATIONERY_DATA}
+PRIMARY KNOWLEDGE SOURCE:
+{tb_content}
 
-    RULES:
-    Use the exact keywords from the context and content to answer the user's question.
-    1. Use the provided context to answer the user's question.
-    2. Maintain a robotic, neutral tone. No emotions, no fluff.
-    3. Keep answers concise and structured (use bullet points for processes).
-    5. Primary Source: Use the provided textbook context and the list of content.
-    6. Secondary Source: If the topic is clearly about Computing (e.g., Privacy, Hardware, Internet) but not in the context, use your general knowledge to answer.
-    7. Decline: Only decline if the user asks about non-computing topics (e.g., "How do I bake a cake?").
+STRUCTURED NOTES DATABASE:
+{json.dumps(STATIONERY_DATA[st.session_state.selected_topic], indent=2)}
 
-    EXAMPLES:
+RULES:
+1. Always prioritise the textbook context.
+2. Use the structured notes if textbook context is insufficient.
+3. Maintain a technical, neutral tone.
+4. Keep answers concise and accurate.
+5. Use bullet points for processes and lists.
+6. Only answer computing-related questions.
+"""
 
-    <Examples>
-    User: What is a bit?
-    Assistant: A bit is the smallest unit of data in a computer, representing a binary value of 0 or 1.
-    </Examples>
-    """
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-    if "openai_model" not in st.session_state:
-      st.session_state["openai_model"] = "gpt-4o-mini"
-
     if "messages" not in st.session_state:
-      st.session_state.messages = []
-      st.session_state.messages.append({"role": "system", "content": system_message_content})
+        st.session_state.messages = [
+            {"role": "system", "content": system_message_content}
+        ]
 
+    # --- Chat history display ---
     for message in st.session_state.messages:
-      if message["role"] in ["user", "assistant"]:
-          with st.chat_message(message["role"]):
-              st.markdown(message["content"])
+        if message["role"] != "system":
+            with st.chat_message(message["role"]):
+                st.markdown(message["content"])
 
-    if prompt := st.chat_input("What is up?"):
-      st.session_state.messages.append({"role": "user", "content": prompt })
-      with st.chat_message("user"):
-          st.markdown(prompt)
+    # --- User input ---
+    if prompt := st.chat_input("Ask a computing question..."):
+        st.session_state.messages.append(
+            {"role": "user", "content": prompt}
+        )
 
-      with st.chat_message("assistant"):
-          stream = client.chat.completions.create(
-              model="gpt-4o-mini",
-              messages=[
-                  {"role": m["role"], "content": m["content"]}
-                  for m in st.session_state.messages
-              ],
-              temperature=0,
-              stream=True,
-          )
-          response = st.write_stream(stream)
-      st.session_state.messages.append({"role": "assistant", "content": response})
+        with st.chat_message("user"):
+            st.markdown(prompt)
+
+        with st.chat_message("assistant"):
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=st.session_state.messages,
+                temperature=0
+            )
+
+            answer = response.choices[0].message.content
+            st.markdown(answer)
+
+        st.session_state.messages.append(
+            {"role": "assistant", "content": answer}
+        )
 elif mode == "Quiz":
     st.header(f"AI Generated Quiz: {topic}")
     
