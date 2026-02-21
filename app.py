@@ -7,6 +7,8 @@ import json
 st.set_page_config(page_title="Computing Companion", layout="wide")
 JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
+topic = "Computer Architecture" 
+tb_content = get_filtered_context(topic)
 def load_textbook_data():
     try:
         with open(JSON_PATH, 'r', encoding='utf-8') as f:
