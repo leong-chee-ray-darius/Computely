@@ -178,7 +178,7 @@ elif mode == "Dynamic Quiz":
     st.sidebar.divider()
     st.sidebar.subheader("Quiz Settings")
     num_questions = st.sidebar.slider("Number of questions", 1, 10, 3)
-    difficulty = st.sidebar.select_slider("Difficulty", options=["Easy", "Medium", "Hard"])
+    difficulty = st.sidebar.select_slider("Difficulty", options=["Easy", "Medium", "Hard(Out of syllabus)"])
     quiz_type = st.sidebar.selectbox("Question Type", ["Multiple Choice", "True/False"])
 
     quiz_key = f"quiz_questions_{topic}"
