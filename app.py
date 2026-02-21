@@ -211,36 +211,77 @@ def get_filtered_context(selected_topic):
     return "\n\n".join(matches[:10])
 
 tb_content = get_filtered_context(topic)
-# --- REVIEW MODE (FIXED) ---
-if mode == "Review":
-    st.title("Computing Study Companion")
-    st.header(f"📖 Study Notes: {topic}")
-    st.info(STATIONERY_DATA[topic]["summary"])
-    
-    col_notes, col_action = st.columns([2, 1])
-    
-    with col_notes:
-        st.subheader("Key Concepts")
-        notes_list = STATIONERY_DATA[topic].get("detailed_notes", [])
-        if notes_list:
-            for note in notes_list:
-                st.markdown(f"- {note}")
-        else:
-            st.write("No detailed notes available yet.")
+# --- HELPER FUNCTION TO DISPLAY NESTED NOTES NICELY ---
+def display_nested_notes(data, level=0):
+    """Recursively displays dictionary content as nested markdown."""
+    if isinstance(data, dict):
+        for key, value in data.items():
+            # Format the key into a nice title (e.g., 'si_prefixes' -> 'Si Prefixes')
+            clean_key = key.replace("_", " ").title()
+            if level == 0:
+                st.subheader(f"📍 {clean_key}")
+            else:
+                st.markdown(f"{'  ' * level}**{clean_key}:**")
+            
+            display_nested_notes(value, level + 1)
+    elif isinstance(data, list):
+        for item in data:
+            st.markdown(f"{'  ' * level}- {item}")
+    else:
+        st.markdown(f"{'  ' * level}{data}")
 
-    with col_action:
-        st.subheader("Reference Material")
-        with st.container(border=True):
-            st.write("Full Textbook Access")
-            st.link_button("📂 Open PDF in Drive", TEXTBOOK_DRIVE_LINK)
-            st.caption("Tip: Use the chapter titles to navigate the PDF.")
+# --- REVIEW MODE (IMPROVED) ---
+if mode == "Review":
+    st.title("🚀 Computing Study Companion")
+    
+    # Header area with summary
+    st.header(f"Chapter: {topic}")
+    st.info(STATIONERY_DATA[topic]["summary"])
+
+    # Create Tabs for better organization
+    tab_notes, tab_keywords, tab_reference = st.tabs(["📝 Detailed Notes", "🏷️ Key Terms", "📂 Resources"])
+
+    with tab_notes:
+        # Fetch the nested notes dictionary
+        detailed_data = STATIONERY_DATA[topic].get("detailed_notes", {})
+        
+        if detailed_data:
+            display_nested_notes(detailed_data)
+        else:
+            st.warning("No detailed notes available for this section yet.")
+
+    with tab_keywords:
+        st.subheader("Vocabulary & Keywords")
+        keywords = STATIONERY_DATA[topic].get("keywords", [])
+        if keywords:
+            # Display keywords as a clean comma-separated list or custom "tags"
+            st.write(" | ".join([f"`{word}`" for word in keywords]))
+        else:
+            st.write("No keywords listed.")
+
+    with tab_reference:
+        col1, col2 = st.columns(2)
+        with col1:
+            st.subheader("Official Textbook")
+            with st.container(border=True):
+                st.write("Access the complete source PDF for deeper reading.")
+                st.link_button("📂 Open Google Drive", TEXTBOOK_DRIVE_LINK)
+                st.caption("Pro Tip: Search the PDF for chapter titles to find specific pages.")
+        
+        with col2:
+            st.subheader("Study Status")
+            with st.container(border=True):
+                st.checkbox("Mark this chapter as Reviewed", key=f"check_{topic}")
+                st.progress(65, text="Topic Mastery") # You can make this dynamic later
 
     st.divider()
-    with st.expander("🔍 View AI-Extracted Context from Textbook"):
+    
+    # Expandable Textbook Context
+    with st.expander("🔍 Deep Dive: AI-Extracted Textbook Context"):
         if tb_content:
             st.markdown(tb_content)
         else:
-            st.warning(f"No specific textbook context found for '{topic}'.")
+            st.write(f"No additional context found for '{topic}'. Use the Reference tab to view the full PDF.")
 elif mode == "AI bot":
     st.title("Ai bot")
     system_message_content= f"""
