@@ -17,17 +17,11 @@ STATIONERY_DATA = {
         "summary": "The study of how computer systems are structured, how hardware components interact, and how data is processed and transferred inside a computer.",
         "detailed_notes": {
             "Overview": {
-                "Computer System": "An electronic device that accepts input, processes data according to stored instructions, stores data, and produces output.",
-                "Von Neumann Architecture": "A design model where program instructions and data share the same memory.",
-                "Fetch-Decode-Execute Cycle": {
-                    "Fetch": "Instruction retrieved from memory using the Program Counter (PC).",
-                    "Decode": "Control Unit interprets the instruction.",
-                    "Execute": "ALU or other components perform the required operation."
+                "Computer System": "An electronic device that accepts input, processes data according to stored instructions, stores data, and produces output."
                 }
             },
             "Units of Data": {
                 "Bit": "Smallest unit of data represented as 0 or 1.",
-                "Nibble": "4 bits.",
                 "Byte": "8 bits.",
                 "Word": "Group of bits processed together by CPU (e.g., 32-bit or 64-bit).",
                 "Storage Measurement": {
