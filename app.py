@@ -258,24 +258,23 @@ selected_mode = st.sidebar.radio("Activity:", modes, index=mode_index)
 if selected_mode != st.session_state.current_mode:
     st.session_state.current_mode = selected_mode
     st.rerun()
-
-# 5. Fetch Content for AI Bot/Review (After topic is defined)
-tb_content = get_filtered_context(topic, raw_data)
-# --- UTILITY FUNCTIONS ---
+# 5. Fetch Content for AI Bot/Review (Ater topic is defined)
 def display_nested_notes(data, level=0):
+    """Recursively displays dictionary content as nested markdown."""
     if isinstance(data, dict):
         for key, value in data.items():
+            # Format the key into a nice title (e.g., 'si_prefixes' -> 'Si Prefixes')
+            clean_key = key.replace("_", " ").title()
             if level == 0:
-                st.subheader(f"📍 {key}")
+                st.subheader(f"📍 {clean_key}")
             else:
-                st.markdown(f"{'  ' * level}**{key}:**")
+                st.markdown(f"{'  ' * level}**{clean_key}:**")
             display_nested_notes(value, level + 1)
     elif isinstance(data, list):
         for item in data:
             st.markdown(f"{'  ' * level}- {item}")
     else:
         st.markdown(f"{'  ' * level}{data}")
-
 # --- MAIN INTERFACE ---
 mode = st.session_state.current_mode
 
