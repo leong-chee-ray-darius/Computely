@@ -13,72 +13,194 @@ TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZE
 
 STATIONERY_DATA = {
     "Computer Architecture": {
-        [cite_start]"summary": "The design and organization of a computer system's components and their connections[cite: 2].",
+        [cite_start]"summary": "Describes how a computer is designed, built, organized, and how its various parts are connected to function. [cite: 2]",
         "detailed_notes": {
             "Units of Data": {
-                "Bit & Byte": "A bit is the smallest unit (0 or 1); 8 bits make a byte.",
+                [cite_start]"Digital System": "Computers perform calculations using binary data (0 or 1). [cite: 3]",
                 "Measurement": [
-                    "SI Prefixes (Power 1000): kB, MB, GB, TB, PB.",
-                    "Binary Prefixes (Power 1024): KiB, MiB, GiB, TiB, PiB."
+                    [cite_start]"SI Prefixes (Power 1000): kB, MB, GB, TB, PB. [cite: 4]",
+                    [cite_start]"Binary Prefixes (Power 1024): KiB, MiB, GiB, TiB, PiB. [cite: 4]"
                 ]
             },
             "Hardware Components": {
-                [cite_start]"CPU": "Processes data and executes instructions, measured in MHz or GHz[cite: 6].",
-                [cite_start]"RAM": "Volatile memory where each byte has a unique address[cite: 8].",
-                [cite_start]"Storage": "Non-volatile storage includes Magnetic (high capacity), Optical (laser-based), and Solid State (fast/durable)[cite: 10, 11].",
-                "Buses": "Data Bus (bi-directional) and Address Bus (uni-directional)."
+                [cite_start]"CPU": "Processes data and executes instructions; speed is measured in MHz or GHz. [cite: 6]",
+                [cite_start]"Main Memory": "RAM is volatile (loses data without power) and each byte has a unique address. [cite: 8] [cite_start]ROM is non-volatile and stores startup instructions. [cite: 8]",
+                [cite_start]"Storage": "Magnetic (high capacity, low cost), Optical (laser-based), and Solid State (fast, durable, no moving parts). [cite: 10, 11]",
+                "Buses": "Data Bus is bi-directional; [cite_start]Address Bus is uni-directional. [cite: 12]"
             },
-            [cite_start]"Interfaces": "Includes USB (external), HDMI (AV output), and PCIe (internal expansion using lanes)[cite: 14, 15]."
+            [cite_start]"Interfaces": "Includes USB (external), HDMI (AV output), and PCIe (internal expansion using lanes x1 to x16). [cite: 14, 15]"
         },
         "glossary": {
-            [cite_start]"CPU": "Central Processing Unit; executes instructions[cite: 6].",
-            [cite_start]"Volatile": "Memory that loses data when power is off, like RAM[cite: 8].",
-            "Address Bus": "Transports memory addresses in one direction only.",
-            [cite_start]"PCIe": "Internal motherboard expansion interface using lanes x1 to x16[cite: 15]."
+            [cite_start]"Computer Architecture": "The organization and connection of computer parts. [cite: 2]",
+            [cite_start]"Volatile": "Memory that loses data when power is off, like RAM. [cite: 8]",
+            [cite_start]"Address Bus": "Transports memory addresses in one direction only. [cite: 12]"
         },
         "keywords": ["CPU", "RAM", "Data Bus", "Address Bus", "PCIe", "Solid State"]
     },
     "Data Representation": {
-        [cite_start]"summary": "Representing information using electronic switches (bits) that are either ON (1) or OFF (0)[cite: 16].",
+        [cite_start]"summary": "All information is represented using electronic switches that are either ON (1) or OFF (0). [cite: 16]",
         "detailed_notes": {
             "Number Systems": {
-                [cite_start]"Binary": "Base-2 (0 and 1)[cite: 19].",
-                "Hexadecimal": "Base-16 (0-9, A-F). [cite_start]One hex digit maps to 4 binary bits[cite: 23, 24]."
+                [cite_start]"Binary": "Base-2 (0 and 1). [cite: 19]",
+                "Hexadecimal": "Base-16 (0-9, A-F). [cite_start]One hex digit maps to 4 binary bits. [cite: 23, 24]"
             },
             "Negative Numbers": {
-                [cite_start]"Two's Complement": "Standard method; flip all bits and add 1[cite: 26, 27].",
-                "Sign Bit": "The MSB (Most Significant Bit) is 0 for positive and 1 for negative.",
-                [cite_start]"Overflow": "Error when a result exceeds bit-length limits[cite: 28]."
+                [cite_start]"Two's Complement": "Standard method; flip all bits and add 1. [cite: 26, 27]",
+                [cite_start]"Sign Bit": "The MSB (Most Significant Bit) is 0 for positive and 1 for negative. [cite: 26]"
             },
-            "Text": [
-                [cite_start]"ASCII: 7-bit (128 chars) or Extended 8-bit (256 chars)[cite: 30].",
-                [cite_start]"Unicode: 8–32 bits, supports global languages[cite: 31]."
+            "Text Encoding": [
+                [cite_start]"ASCII: 7-bit (128 chars) or Extended 8-bit (256 chars). [cite: 29, 30]",
+                [cite_start]"Unicode: 8–32 bits, supports over a million global characters. [cite: 31]"
             ]
         },
         "glossary": {
-            [cite_start]"Two's Complement": "A system for representing negative numbers in binary[cite: 26].",
-            [cite_start]"MSB": "Most Significant Bit; the sign bit in Two's Complement (1 = negative)[cite: 26].",
-            [cite_start]"Overflow": "Occurs when a calculation exceeds the bit-length limit[cite: 28]."
+            [cite_start]"Two's Complement": "A system for representing negative numbers in binary. [cite: 26]",
+            [cite_start]"Overflow": "Error when a calculation result exceeds bit-length limits. [cite: 28]",
+            [cite_start]"MSB": "Most Significant Bit; the sign bit in Two's Complement. [cite: 26]"
         },
         "keywords": ["Binary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode"]
     },
-    "Computer Networks": {
-        [cite_start]"summary": "Two or more devices connected to exchange data[cite: 132].",
+    "Boolean Logic": {
+        [cite_start]"summary": "Processor operations based on Boolean values (True/False) processed as bits. [cite: 33]",
         "detailed_notes": {
-            [cite_start]"Scope": "LAN (local/home), MAN (city-scale), and WAN (Internet)[cite: 137, 138, 139].",
-            "Hardware": [
-                [cite_start]"Modem: Converts digital data for long-distance transmission[cite: 148].",
-                [cite_start]"Switch: Connects devices in a LAN using MAC addresses[cite: 150].",
-                [cite_start]"Router: Forwards packets between networks using IP addresses[cite: 151]."
-            ],
-            [cite_start]"Error Detection": "Parity bits (single-bit errors), Checksums (mathematical), and Echo checks[cite: 144, 145, 146]."
+            [cite_start]"Truth Tables": "Shows output for every input combination; row count is 2^n. [cite: 33]",
+            "Logic Gates": {
+                [cite_start]"Basic": "AND (Q=A·B), OR (Q=A+B), NOT (Q=¬A). [cite: 35-38]",
+                [cite_start]"Advanced": "NAND, NOR, and XOR (Q=A⊕B). [cite: 39-41]"
+            },
+            [cite_start]"Laws": "Includes Double Negation, De Morgan's Theorem, and Absorption ($A \cdot (A + B) = A$). [cite: 44-46]"
         },
         "glossary": {
-            [cite_start]"Modem": "Hardware that converts digital data for long-distance transmission[cite: 148].",
-            [cite_start]"Switch": "LAN device that forwards data using permanent 48-bit MAC addresses[cite: 150].",
-            [cite_start]"IP Address": "Hierarchical address (IPv4 32-bit or IPv6 128-bit) for network routing[cite: 152, 153]."
+            [cite_start]"Truth Table": "A table showing all possible logic gate inputs and outputs. [cite: 33]",
+            [cite_start]"XOR": "Exclusive OR; output is 1 only when exactly one input is 1. [cite: 41]"
         },
-        "keywords": ["LAN", "WAN", "Modem", "Switch", "Router", "MAC Address", "IP Address"]
+        "keywords": ["Truth Table", "NAND", "XOR", "De Morgan's Theorem", "Logic Circuits"]
+    },
+    "Programming Concepts": {
+        [cite_start]"summary": "Algorithms (step-by-step instructions) converted into source code for execution. [cite: 52]",
+        "detailed_notes": {
+            [cite_start]"Variables": "Named identifiers referencing memory addresses (id() function). [cite: 55, 56]",
+            [cite_start]"Data Types": "bool, int, float, str, list (mutable/ordered), and dict (key-value pairs). [cite: 59, 60]",
+            "Control Flow": {
+                [cite_start]"Sequence": "Fixed order. [cite: 68]",
+                [cite_start]"Selection": "if-elif-else branching. [cite: 68]",
+                [cite_start]"Iteration": "while and for loops. [cite: 68]"
+            }
+        },
+        "glossary": {
+            [cite_start]"Algorithm": "Step-by-step instructions to solve a problem. [cite: 52]",
+            [cite_start]"Scope": "The accessibility of variables (local vs global). [cite: 70]"
+        },
+        "keywords": ["Variables", "List", "Dictionary", "Loops", "Functions", "Scope"]
+    },
+    "Validation and Testing": {
+        [cite_start]"summary": "Techniques to ensure data integrity and identify program bugs. [cite: 74, 86]",
+        "detailed_notes": {
+            [cite_start]"Validation Checks": "Includes Length, Range, Presence, Format, and Existence checks. [cite: 77-81]",
+            "Program Errors": [
+                [cite_start]"Syntax: Violation of language rules (spelling, punctuation). [cite: 87, 88]",
+                [cite_start]"Logic: Incorrect results (wrong formulas or sequencing). [cite: 90, 91]",
+                [cite_start]"Run-time: Errors during execution (division by zero). [cite: 92]"
+            ],
+            [cite_start]"Testing": "Comparing actual vs expected output under normal, boundary, and error conditions. [cite: 94, 95]"
+        },
+        "glossary": {
+            [cite_start]"Check Digit": "Extra digit added to detect manual entry errors. [cite: 83]",
+            [cite_start]"Debugging": "Process of identifying and removing program defects. [cite: 86]"
+        },
+        "keywords": ["Validation", "Syntax Error", "Logic Error", "Debugging", "Test Case"]
+    },
+    "Development Models": {
+        [cite_start]"summary": "Structured approaches to software creation and management. [cite: 109]",
+        "detailed_notes": {
+            [cite_start]"Waterfall Model": "Sequential stages from gathering requirements to deployment. [cite: 109-118]",
+            "Modern Models": [
+                [cite_start]"Iterative: Revisiting stages as requirements change. [cite: 119]",
+                [cite_start]"Agile: Small increments with continuous feedback and sprints. [cite: 120]",
+                [cite_start]"TDD: Write tests first, then code to pass them. [cite: 121]"
+            ]
+        },
+        "glossary": {
+            [cite_start]"Beta Testing": "Testing in the user environment. [cite: 115]",
+            [cite_start]"Sprint": "Short development cycle in Agile. [cite: 120]"
+        },
+        "keywords": ["Waterfall", "Agile", "Iterative", "TDD", "Sprints", "Requirements"]
+    },
+    "Spreadsheets": {
+        [cite_start]"summary": "Tools for data analysis using formulas and logical functions. [cite: 122]",
+        "detailed_notes": {
+            [cite_start]"Basics": "Cells (A1) and Ranges (A1:C3); formulas start with =. [cite: 122]",
+            [cite_start]"References": "Relative (A1), Absolute ($A$1), and Mixed (A$1 or $A1). [cite: 123]",
+            "Functions": [
+                [cite_start]"Lookup: VLOOKUP, HLOOKUP, and INDEX+MATCH. [cite: 128, 130]",
+                [cite_start]"Logical: IF, AND, OR, NOT. [cite: 124, 125]",
+                [cite_start]"Math: SUMIF, AVERAGEIF, COUNTIF. [cite: 126]"
+            ]
+        },
+        "glossary": {
+            [cite_start]"Absolute Reference": "A cell reference that stays locked when copied. [cite: 123]",
+            [cite_start]"VLOOKUP": "Function used to search for data in columns. [cite: 128]"
+        },
+        "keywords": ["Formulas", "VLOOKUP", "Absolute Reference", "IF Function", "Goal Seek"]
+    },
+    "Computer Networks": {
+        [cite_start]"summary": "Devices connected via transmission media to exchange data. [cite: 132]",
+        "detailed_notes": {
+            [cite_start]"Types": "LAN (local), MAN (city), and WAN (Internet). [cite: 136-139]",
+            "Hardware": [
+                [cite_start]"Modem: Converts digital data for long-distance media. [cite: 147]",
+                [cite_start]"Switch: Connects LAN devices using MAC addresses. [cite: 149]",
+                [cite_start]"Router: Forwards packets between networks using IP addresses. [cite: 151]"
+            ],
+            [cite_start]"Addressing": "MAC (48-bit, permanent) and IP (IPv4 32-bit or IPv6 128-bit). [cite: 151-153]"
+        },
+        "glossary": {
+            [cite_start]"Protocol": "Rules governing communication (e.g., TCP/IP). [cite: 143]",
+            [cite_start]"Parity Bit": "Error detection method adding a bit to make 1-bits even or odd. [cite: 144]"
+        },
+        "keywords": ["LAN", "Router", "Switch", "IP Address", "MAC Address", "TCP/IP"]
+    },
+    "Security and Privacy": {
+        [cite_start]"summary": "Protecting data confidentiality, integrity, and availability. [cite: 154]",
+        "detailed_notes": {
+            [cite_start]"Threats": "Malware (adware, spyware), phishing, and pharming. [cite: 157, 158]",
+            [cite_start]"Defenses": "Anti-malware, firewalls, encryption, and MFA (Something you know, own, or are). [cite: 159-161]",
+            [cite_start]"Legal": "Singapore's PDPA requires consent and limited data retention. [cite: 159]"
+        },
+        "glossary": {
+            [cite_start]"Phishing": "Deceptive emails used to trick users into revealing data. [cite: 158]",
+            [cite_start]"MFA": "Multi-Factor Authentication using multiple verification types. [cite: 160]"
+        },
+        "keywords": ["Encryption", "Firewall", "Phishing", "MFA", "PDPA", "Malware"]
+    },
+    "Intellectual Property": {
+        [cite_start]"summary": "Legal protections for original digital creations. [cite: 164]",
+        "detailed_notes": {
+            "Copyright": "Control over use/distribution; [cite_start]AI-generated content is not copyrightable in Singapore. [cite: 165-167]",
+            "Software Licenses": [
+                [cite_start]"Proprietary: Source code secret; no copying. [cite: 168]",
+                [cite_start]"FOSS: Users can copy, modify, and share source code. [cite: 171]",
+                [cite_start]"Freeware vs Shareware: Free forever vs evaluation demos. [cite: 169, 170]"
+            ]
+        },
+        "glossary": {
+            [cite_start]"Plagiarism": "Ethical offense of passing off others' work as your own. [cite: 175]",
+            [cite_start]"FOSS": "Free and Open-Source Software. [cite: 171]"
+        },
+        "keywords": ["Copyright", "FOSS", "Software Piracy", "License", "Plagiarism"]
+    },
+    "Emerging Technologies": {
+        [cite_start]"summary": "Advanced technologies including AI, Blockchain, and Quantum Computing. [cite: 194]",
+        "detailed_notes": {
+            "AI & ML": "Autonomy and adaptivity; [cite_start]ML derives rules from data patterns. [cite: 194, 198]",
+            [cite_start]"Blockchain": "Decentralized, immutable ledger linked via hashes. [cite: 204]",
+            [cite_start]"Quantum": "Uses Qubits (superposition) and Entanglement to solve problems faster. [cite: 207-209]"
+        },
+        "glossary": {
+            [cite_start]"Qubit": "A quantum bit that can exist as 0 and 1 simultaneously. [cite: 207]",
+            [cite_start]"Superposition": "The ability of a qubit to be in multiple states at once. [cite: 207]"
+        },
+        "keywords": ["Artificial Intelligence", "Blockchain", "Quantum Computing", "Qubit", "Machine Learning"]
     }
 }
 
