@@ -17,9 +17,8 @@ STATIONERY_DATA = {
         "detailed_notes": {
             "Overview": {
                 "Computer System": "An electronic device that accepts input, processes data according to stored instructions, stores data, and produces output."
-                }
             },
-        "Units of Data": {
+            "Units of Data": {
                 "Bit": "Smallest unit of data represented as 0 or 1.",
                 "Byte": "8 bits.",
                 "Word": "Group of bits processed together by CPU (e.g., 32-bit or 64-bit).",
@@ -28,7 +27,7 @@ STATIONERY_DATA = {
                     "Binary": ["KiB", "MiB", "GiB", "TiB", "PiB"]
                 }
             },
-        "Hardware Components": {
+            "Hardware Components": {
                 "CPU": {
                     "Description": "Processes instructions and performs calculations.",
                     "Components": ["ALU", "Control Unit", "Registers", "Cache"],
@@ -51,14 +50,14 @@ STATIONERY_DATA = {
                     "Control Bus": "Transfers control signals."
                 }
             },
-        "Interfaces": {
+            "Interfaces": {
                 "USB": "Universal connection for peripherals.",
                 "HDMI": "High-definition video and audio transmission.",
                 "PCIe": "High-speed internal expansion interface.",
                 "Ethernet": "Wired network communication."
             }
         },
-    "glossary": {
+        "glossary": {
             "CPU": "Central Processing Unit responsible for executing instructions.",
             "ALU": "Performs arithmetic and logical operations.",
             "Register": "Extremely fast storage inside CPU.",
@@ -66,8 +65,9 @@ STATIONERY_DATA = {
             "ROM": "Permanent memory storing boot data."
         },
         "keywords": ["CPU", "ALU", "Registers", "RAM", "ROM", "Fetch Decode Execute", "Buses", "Cache"]
-    },
-"Data Representation": {
+    }, # This brace now correctly closes "Computer Architecture"
+    
+    "Data Representation": {
         "summary": "All computer data is stored and processed using binary numbers and encoding systems.",
         "detailed_notes": {
             "Number Systems": {
@@ -109,7 +109,8 @@ STATIONERY_DATA = {
         },
         "keywords": ["Binary", "Denary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode", "Resolution", "Sampling"]
     },
-"Boolean Logic": {
+
+    "Boolean Logic": {
         "summary": "Logical operations used inside computers to make decisions and control data flow.",
         "detailed_notes": {
             "Logic Levels": ["1 / True / On", "0 / False / Off"],
@@ -135,7 +136,8 @@ STATIONERY_DATA = {
         },
         "keywords": ["AND", "OR", "NOT", "XOR", "Truth Table", "Boolean Algebra"]
     },
-"Programming Concepts": {
+    
+    "Programming Concepts": {
         "summary": "Core programming principles used to design, write, and test programs.",
         "detailed_notes": {
             "Algorithms": "Step-by-step solution to a problem.",
@@ -160,7 +162,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["Algorithm", "Variables", "Loops", "Functions", "Operators"]
     },
-    # 5
+
     "Validation and Testing": {
         "summary": "Methods used to ensure correctness of input data and to detect, prevent, and fix program errors.",
         "detailed_notes": {
@@ -199,7 +201,6 @@ STATIONERY_DATA = {
         "keywords": ["Validation", "Verification", "Syntax Error", "Logic Error", "Runtime Error", "Testing"]
     },
 
-    # 6
     "Development Models": {
         "summary": "Structured approaches used to plan, build, test, and maintain software systems.",
         "detailed_notes": {
@@ -227,7 +228,6 @@ STATIONERY_DATA = {
         "keywords": ["Waterfall", "Agile", "Iterative", "TDD", "Sprint"]
     },
 
-    # 7
     "Spreadsheets": {
         "summary": "Spreadsheet tools used for calculation, modelling, and data analysis.",
         "detailed_notes": {
@@ -246,6 +246,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["Spreadsheet", "Formulas", "Functions", "VLOOKUP", "Goal Seek"]
     },
+
     "Computer Networks": {
         "summary": "Systems of interconnected devices that communicate to exchange data.",
         "detailed_notes": {
@@ -297,6 +298,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["Malware", "Encryption", "Firewall", "MFA", "Phishing", "PDPA"]
     },
+
     "Intellectual Property": {
         "summary": "Legal protection of digital content and creative works.",
         "detailed_notes": {
@@ -312,7 +314,6 @@ STATIONERY_DATA = {
         "keywords": ["Copyright", "FOSS", "Piracy", "License"]
     },
 
-    # 11
     "Ethics and Social Impact": {
         "summary": "Impact of computing on individuals, society, and the environment.",
         "detailed_notes": {
@@ -327,7 +328,6 @@ STATIONERY_DATA = {
         "keywords": ["Ethics", "Social Impact", "Digital Divide", "E-waste"]
     },
 
-    # 12
     "Data Management": {
         "summary": "Organising, storing, retrieving, and maintaining data efficiently.",
         "detailed_notes": {
@@ -346,7 +346,6 @@ STATIONERY_DATA = {
         "keywords": ["Database", "SQL", "Primary Key", "Foreign Key"]
     },
 
-    # 13
     "Internet Technologies": {
         "summary": "Technologies enabling communication and data exchange over the Internet.",
         "detailed_notes": {
