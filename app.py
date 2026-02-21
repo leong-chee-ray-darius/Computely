@@ -170,7 +170,92 @@ STATIONERY_DATA = {
         },
         "keywords": ["Algorithm", "Variables", "Loops", "Functions", "Operators"]
     },
+    # 5
+    "Validation and Testing": {
+        "summary": "Methods used to ensure correctness of input data and to detect, prevent, and fix program errors.",
+        "detailed_notes": {
+            "Validation": {
+                "Purpose": "Ensures data is sensible and reasonable before processing.",
+                "Checks": [
+                    "Presence Check",
+                    "Length Check",
+                    "Range Check",
+                    "Format Check",
+                    "Existence Check",
+                    "Check Digit"
+                ]
+            },
+            "Verification": {
+                "Purpose": "Ensures data entered matches original data.",
+                "Methods": ["Double Entry", "Visual Check"]
+            },
+            "Error Types": {
+                "Syntax": "Violation of language rules.",
+                "Logic": "Incorrect program behaviour.",
+                "Runtime": "Occurs during execution (e.g. divide by zero)."
+            },
+            "Testing": {
+                "Normal": "Valid values within range.",
+                "Boundary": "Values at limits.",
+                "Erroneous": "Invalid values."
+            },
+            "Debugging": "Process of locating and correcting errors."
+        },
+        "glossary": {
+            "Validation": "Checking data reasonableness.",
+            "Verification": "Checking data accuracy.",
+            "Debugging": "Fixing program errors."
+        },
+        "keywords": ["Validation", "Verification", "Syntax Error", "Logic Error", "Runtime Error", "Testing"]
+    },
 
+    # 6
+    "Development Models": {
+        "summary": "Structured approaches used to plan, build, test, and maintain software systems.",
+        "detailed_notes": {
+            "Waterfall": {
+                "Stages": ["Requirements", "Design", "Implementation", "Testing", "Deployment", "Maintenance"],
+                "Features": "Sequential, rigid, documentation-heavy."
+            },
+            "Iterative": {
+                "Features": "Repeated refinement cycles.",
+                "Advantage": "Early detection of problems."
+            },
+            "Agile": {
+                "Features": ["Sprints", "User feedback", "Incremental development"],
+                "Advantage": "Flexible and fast delivery."
+            },
+            "TDD": {
+                "Process": ["Write tests", "Write code", "Refactor"],
+                "Advantage": "Higher code reliability."
+            }
+        },
+        "glossary": {
+            "Sprint": "Short development cycle.",
+            "Prototype": "Early test version."
+        },
+        "keywords": ["Waterfall", "Agile", "Iterative", "TDD", "Sprint"]
+    },
+
+    # 7
+    "Spreadsheets": {
+        "summary": "Spreadsheet tools used for calculation, modelling, and data analysis.",
+        "detailed_notes": {
+            "Basics": ["Cells", "Ranges", "Formulas", "Functions"],
+            "Cell References": ["Relative", "Absolute", "Mixed"],
+            "Functions": {
+                "Logical": ["IF", "AND", "OR", "NOT"],
+                "Math": ["SUM", "AVERAGE", "MAX", "MIN", "COUNT"],
+                "Lookup": ["VLOOKUP", "HLOOKUP", "INDEX", "MATCH"]
+            },
+            "What-If Analysis": ["Goal Seek", "Scenario Manager"]
+        },
+        "glossary": {
+            "Formula": "Expression that calculates a value.",
+            "Absolute Reference": "Cell reference that does not change."
+        },
+        "keywords": ["Spreadsheet", "Formulas", "Functions", "VLOOKUP", "Goal Seek"]
+    },
     "Computer Networks": {
         "summary": "Systems of interconnected devices that communicate to exchange data.",
         "detailed_notes": {
@@ -221,6 +306,69 @@ STATIONERY_DATA = {
             "Firewall": "Network security barrier."
         },
         "keywords": ["Malware", "Encryption", "Firewall", "MFA", "Phishing", "PDPA"]
+    },
+    "Intellectual Property": {
+        "summary": "Legal protection of digital content and creative works.",
+        "detailed_notes": {
+            "Copyright": "Protects original digital work.",
+            "Licenses": ["Proprietary", "FOSS", "Freeware", "Shareware"],
+            "Software Piracy": "Illegal copying and distribution.",
+            "Plagiarism": "Presenting others' work as your own."
+        },
+        "glossary": {
+            "FOSS": "Free and Open Source Software.",
+            "Plagiarism": "Ethical violation."
+        },
+        "keywords": ["Copyright", "FOSS", "Piracy", "License"]
+    },
+
+    # 11
+    "Ethics and Social Impact": {
+        "summary": "Impact of computing on individuals, society, and the environment.",
+        "detailed_notes": {
+            "Ethical Issues": ["Privacy", "Surveillance", "Digital Divide"],
+            "Social Impact": ["Remote Work", "E-learning", "Social Media"],
+            "Environmental Impact": ["E-waste", "Energy Consumption", "Green Computing"]
+        },
+        "glossary": {
+            "Digital Divide": "Gap in access to technology.",
+            "E-waste": "Discarded electronic devices."
+        },
+        "keywords": ["Ethics", "Social Impact", "Digital Divide", "E-waste"]
+    },
+
+    # 12
+    "Data Management": {
+        "summary": "Organising, storing, retrieving, and maintaining data efficiently.",
+        "detailed_notes": {
+            "Databases": {
+                "Tables": "Rows and columns.",
+                "Primary Key": "Unique identifier.",
+                "Foreign Key": "Links tables."
+            },
+            "SQL": ["SELECT", "INSERT", "UPDATE", "DELETE"],
+            "Data Integrity": ["Validation", "Referential Integrity", "Constraints"]
+        },
+        "glossary": {
+            "Primary Key": "Unique table identifier.",
+            "Foreign Key": "Links database tables."
+        },
+        "keywords": ["Database", "SQL", "Primary Key", "Foreign Key"]
+    },
+
+    # 13
+    "Internet Technologies": {
+        "summary": "Technologies enabling communication and data exchange over the Internet.",
+        "detailed_notes": {
+            "Web Technologies": ["HTML", "CSS", "JavaScript"],
+            "Protocols": ["HTTP", "HTTPS", "FTP", "SMTP"],
+            "Cloud Computing": ["IaaS", "PaaS", "SaaS"]
+        },
+        "glossary": {
+            "HTTP": "HyperText Transfer Protocol.",
+            "Cloud Computing": "On-demand computing services."
+        },
+        "keywords": ["HTML", "CSS", "HTTP", "Cloud Computing"]
     },
 
     "Emerging Technologies": {
@@ -312,51 +460,57 @@ if selected_mode != st.session_state.current_mode:
     st.rerun()
 # 5. Fetch Content for AI Bot/Review (Ater topic is defined)
 def display_nested_notes(data, level=0):
-    """Recursively displays dictionary content as nested markdown."""
     if isinstance(data, dict):
         for key, value in data.items():
-            # Format the key into a nice title (e.g., 'si_prefixes' -> 'Si Prefixes')
             clean_key = key.replace("_", " ").title()
+
             if level == 0:
-                st.subheader(f"📍 {clean_key}")
+                st.markdown("---")
+                st.markdown(f"### 📌 {clean_key}")
+            elif level == 1:
+                st.markdown(f"#### 🔹 {clean_key}")
             else:
-                st.markdown(f"{'  ' * level}**{clean_key}:**")
+                st.markdown(f"**▪ {clean_key}:**")
+
             display_nested_notes(value, level + 1)
+
     elif isinstance(data, list):
         for item in data:
-            st.markdown(f"{'  ' * level}- {item}")
+            st.markdown(f"- {item}")
+
     else:
-        st.markdown(f"{'  ' * level}{data}")
+        st.markdown(f"{data}")
 # --- MAIN INTERFACE ---
 mode = st.session_state.current_mode
 
 if mode == "Review":
-    st.title("🚀 Study Portal")
-    st.header(f"Notes: {topic}")
-    st.info(STATIONERY_DATA[topic]["summary"])
+    st.markdown(f"# 📘 {topic}")
+    st.caption("GCE O-Level Computing • Structured Study Notes")
+    st.success(f"📖 **Chapter Summary:** {STATIONERY_DATA[topic]['summary']}")
     
     # Mastery Progress
     score = st.session_state.quiz_scores.get(topic, 0)
     st.write(f"**Topic Mastery:** {score}%")
     st.progress(score / 100)
     
-    tab_notes, tab_glossary, tab_resources = st.tabs(["📝 Detailed Notes", "🔍 Key Terms", "📂 Resources"])
+    tab_notes, tab_glossary, tab_resources = st.tabs([
+    "📝 Learn",
+    "📚 Key Terms",
+    "📂 Resources"
+    ])
 
     with tab_notes:
         display_nested_notes(STATIONERY_DATA[topic].get("detailed_notes", {}))
 
     with tab_glossary:
-        st.subheader("Interactive Glossary")
-        st.write("Click a term to see the textbook definition.")
-        glossary = STATIONERY_DATA[topic].get("glossary", {})
-        if glossary:
-            cols = st.columns(3)
-            for i, (term, definition) in enumerate(glossary.items()):
-                with cols[i % 3]:
-                    with st.popover(term, use_container_width=True):
-                        st.write(definition)
-        else:
-            st.warning("No glossary available for this chapter.")
+    st.subheader("📚 Interactive Glossary")
+    glossary = STATIONERY_DATA[topic].get("glossary", {})
+    if glossary:
+        for term, definition in glossary.items():
+            with st.expander(f"🔹 {term}"):
+                st.write(definition)
+    else:
+        st.warning("No glossary available.")
 
     with tab_resources:
         col_ref, col_quiz = st.columns(2)
