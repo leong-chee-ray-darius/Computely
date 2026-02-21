@@ -475,8 +475,12 @@ def display_nested_notes(data, level=0):
             display_nested_notes(value, level + 1)
 
     elif isinstance(data, list):
-        for item in data:
-            st.markdown(f"- {item}")
+        # Horizontal layout for short lists
+        if len(data) <= 6 and all(isinstance(i, str) for i in data):
+            st.markdown(" • ".join(data))
+        else:
+            for item in data:
+                st.markdown(f"- {item}")
 
     else:
         st.markdown(f"{data}")
