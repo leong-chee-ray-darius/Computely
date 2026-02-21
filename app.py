@@ -18,71 +18,71 @@ if "selected_topic" not in st.session_state:
     st.session_state["selected_topic"] = "Computer Architecture"
 STATIONERY_DATA = {
     "Computer Architecture": {
-        "summary": "Describes how a computer is designed, built, and organized, focusing on processing units and connectivity[cite: 1].",
+        "summary": "The design and organization of a computer system's components and their connections[cite: 2].",
         "detailed_notes": {
             "Units of Data": {
-                "Bit": "Smallest unit of data (0 or 1)[cite: 1].",
-                "Byte": "8 bits[cite: 1].",
-                "Measurement Units": {
-                    "SI Prefixes (Power 1000)": ["Kilobyte (kB)", "Megabyte (MB)", "Gigabyte (GB)", "Terabyte (TB)"],
-                    "Binary Prefixes (Power 1024)": ["Kibibyte (KiB)", "Mebibyte (MiB)", "Gibibyte (GiB)", "Tebibyte (TiB)"]
-                }
+                "Bit & Byte": "A bit is the smallest unit (0 or 1); 8 bits make a byte.",
+                "Measurement": [
+                    "SI Prefixes (Power 1000): kB, MB, GB, TB, PB.",
+                    "Binary Prefixes (Power 1024): KiB, MiB, GiB, TiB, PiB."
+                ]
             },
-            "Key Components": {
-                "CPU": "Processes data and executes instructions (measured in MHz/GHz)[cite: 2].",
-                "RAM": "Volatile memory storing data with unique addresses[cite: 3].",
-                "Buses": "Data Bus (bi-directional) and Address Bus (uni-directional)[cite: 6]."
-            }
+            "Hardware Components": {
+                "CPU": "Processes data and executes instructions, measured in MHz or GHz[cite: 6].",
+                "RAM": "Volatile memory where each byte has a unique address[cite: 8].",
+                "Storage": "Non-volatile storage includes Magnetic (high capacity), Optical (laser-based), and Solid State (fast/durable)[cite: 10, 11].",
+                "Buses": "Data Bus (bi-directional) and Address Bus (uni-directional)."
+            },
+            "Interfaces": "Includes USB (external), HDMI (AV output), and PCIe (internal expansion using lanes)[cite: 14, 15]."
         },
         "glossary": {
-            "CPU": "Central Processing Unit; the 'brain' that executes instructions[cite: 2].",
-            "Volatile": "Memory that loses its contents when power is lost (e.g., RAM)[cite: 3].",
-            "Address Bus": "A uni-directional bus used to transport memory addresses[cite: 6].",
-            "Solid State": "A storage type with no moving parts, known for speed and durability[cite: 4]."
+            "CPU": "Central Processing Unit; executes instructions[cite: 6].",
+            "Volatile": "Memory that loses data when power is off, like RAM[cite: 8].",
+            "Address Bus": "Transports memory addresses in one direction only.",
+            "PCIe": "Internal motherboard expansion interface using lanes x1 to x16[cite: 15]."
         },
-        "keywords": ["CPU", "RAM", "Bit", "Byte", "Data Bus", "Address Bus"]
+        "keywords": ["CPU", "RAM", "Data Bus", "Address Bus", "PCIe", "Solid State"]
     },
     "Data Representation": {
-        "summary": "The method of representing all information using electronic switches called bits[cite: 7].",
+        "summary": "Representing information using electronic switches (bits) that are either ON (1) or OFF (0)[cite: 16].",
         "detailed_notes": {
             "Number Systems": {
-                "Binary": "Base-2 system using 0 and 1[cite: 9].",
-                "Hexadecimal": "Base-16 system (0-9, A-F); 1 hex digit = 4 bits[cite: 11]."
+                "Binary": "Base-2 (0 and 1)[cite: 19].",
+                "Hexadecimal": "Base-16 (0-9, A-F). One hex digit maps to 4 binary bits[cite: 23, 24]."
             },
             "Negative Numbers": {
-                "Two's Complement": "Standard method for signed integers; flip bits and add 1[cite: 12].",
-                "Overflow": "Error when a calculation exceeds the bit-length limits[cite: 13]."
+                "Two's Complement": "Standard method; flip all bits and add 1[cite: 26, 27].",
+                "Overflow": "Error when a result exceeds bit-length limits[cite: 28]."
             },
-            "Text": {
-                "ASCII": "7-bit (128 chars) or 8-bit (256 chars) encoding[cite: 14].",
-                "Unicode": "Supports global languages using 8–32 bits[cite: 15]."
-            }
+            "Text": [
+                "ASCII: 7-bit (128 chars) or Extended 8-bit (256 chars)[cite: 30].",
+                "Unicode: 8–32 bits, supports global languages[cite: 31]."
+            ]
         },
         "glossary": {
-            "Hexadecimal": "A base-16 number system used for compact binary representation[cite: 11].",
-            "Two's Complement": "A system used by computers to represent negative numbers[cite: 12].",
-            "Unicode": "A universal character encoding standard supporting global languages[cite: 15].",
-            "MSB": "Most Significant Bit; the leftmost bit in a binary number[cite: 12]."
+            "Two's Complement": "A system for representing negative numbers in binary[cite: 26].",
+            "MSB": "Most Significant Bit; the sign bit in Two's Complement (1 = negative)[cite: 26].",
+            "Overflow": "Occurs when a calculation exceeds the bit-length limit[cite: 28]."
         },
         "keywords": ["Binary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode"]
     },
-    "Boolean Logic": {
-        "summary": "Boolean values and logic gates used by the processor to perform operations[cite: 16].",
+    "Computer Networks": {
+        "summary": "Two or more devices connected to exchange data[cite: 132].",
         "detailed_notes": {
-            "Truth Tables": "Shows output for every input combination (Rows = 2^n)[cite: 16].",
-            "Logic Gates": ["AND (Q = A·B)", "OR (Q = A+B)", "NOT (Q = ¬A)", "NAND", "NOR", "XOR [cite: 17-22]"],
-            "Laws": {
-                "Double Negation": "¬(¬A) = A[cite: 24].",
-                "De Morgan's Theorem": ["¬(A·B) = ¬A + ¬B", "¬(A+B) = ¬A·¬B [cite: 24]"]
-            }
+            "Scope": "LAN (local/home), MAN (city-scale), and WAN (Internet)[cite: 137, 138, 139].",
+            "Hardware": [
+                "Modem: Converts digital data for long-distance transmission[cite: 148].",
+                "Switch: Connects devices in a LAN using MAC addresses[cite: 150].",
+                "Router: Forwards packets between networks using IP addresses[cite: 151]."
+            ],
+            "Error Detection": "Parity bits (single-bit errors), Checksums (mathematical), and Echo checks[cite: 144, 145, 146]."
         },
         "glossary": {
-            "Truth Table": "A table showing the output for all possible combinations of inputs[cite: 16].",
-            "XOR": "Exclusive OR; output is 1 only if exactly one input is 1[cite: 22].",
-            "NAND": "Not AND; output is 0 only when both inputs are 1[cite: 20].",
-            "De Morgan's": "Theorems used to simplify complex Boolean expressions[cite: 24]."
+            "Modem": "Hardware that converts digital data for long-distance transmission[cite: 148].",
+            "Switch": "LAN device that forwards data using permanent 48-bit MAC addresses[cite: 150].",
+            "IP Address": "Hierarchical address (IPv4 32-bit or IPv6 128-bit) for network routing[cite: 152, 153]."
         },
-        "keywords": ["AND", "OR", "NOT", "NAND", "NOR", "XOR", "De Morgan"]
+        "keywords": ["LAN", "WAN", "Modem", "Switch", "Router", "MAC Address", "IP Address"]
     }
 }
 
@@ -93,11 +93,15 @@ if "quiz_scores" not in st.session_state:
 if "selected_topic" not in st.session_state:
     st.session_state.selected_topic = "Computer Architecture"
 
-# --- SIDEBAR ---
+# Initialize activity mode if not present
+if "current_mode" not in st.session_state:
+    st.session_state.current_mode = "Review"
+
+# --- SIDEBAR NAVIGATION (THE FIX) ---
 st.sidebar.title("🔍 Computing Companion")
 
 # Search Logic
-search_query = st.sidebar.text_input("Search term (e.g., 'Two's Complement')")
+search_query = st.sidebar.text_input("Quick search (e.g., 'Two's Complement')")
 if search_query:
     st.sidebar.subheader("Results:")
     for t_name, t_data in STATIONERY_DATA.items():
@@ -105,18 +109,25 @@ if search_query:
             if st.sidebar.button(f"Go to {t_name}", key=f"search_{t_name}"):
                 st.session_state.selected_topic = t_name
 
-# Topic Selection
+# Chapter Selection
 topic_list = list(STATIONERY_DATA.keys())
 topic_index = topic_list.index(st.session_state.selected_topic)
 topic = st.sidebar.selectbox("Select Chapter:", topic_list, index=topic_index)
 st.session_state.selected_topic = topic
 
-# Activity Selection (Using 'key' to allow remote updates from buttons)
-mode = st.sidebar.radio("Activity:", ["Review", "AI bot", "Quiz"], key="activity_mode")
+# THE FIX: We use a separate state variable and the 'index' parameter 
+# to avoid the StreamlitAPIException.
+modes = ["Review", "AI bot", "Quiz"]
+mode_index = modes.index(st.session_state.current_mode)
+selected_mode = st.sidebar.radio("Activity:", modes, index=mode_index)
+
+# If the user changes the radio selection, update our internal state
+if selected_mode != st.session_state.current_mode:
+    st.session_state.current_mode = selected_mode
+    st.rerun()
 
 # --- UTILITY FUNCTIONS ---
 def display_nested_notes(data, level=0):
-    """Recursively displays dictionary content as nested markdown[cite: 1, 101]."""
     if isinstance(data, dict):
         for key, value in data.items():
             if level == 0:
@@ -131,15 +142,16 @@ def display_nested_notes(data, level=0):
         st.markdown(f"{'  ' * level}{data}")
 
 # --- MAIN INTERFACE ---
+mode = st.session_state.current_mode
 
 if mode == "Review":
-    st.title("🚀 Study Companion")
+    st.title("🚀 Study Portal")
     st.header(f"Notes: {topic}")
     st.info(STATIONERY_DATA[topic]["summary"])
     
-    # --- DYNAMIC MASTERY PROGRESS ---
+    # Mastery Progress
     score = st.session_state.quiz_scores.get(topic, 0)
-    st.write(f"**Current Mastery:** {score}%")
+    st.write(f"**Topic Mastery:** {score}%")
     st.progress(score / 100)
     
     tab_notes, tab_glossary, tab_resources = st.tabs(["📝 Detailed Notes", "🔍 Key Terms", "📂 Resources"])
@@ -149,30 +161,28 @@ if mode == "Review":
 
     with tab_glossary:
         st.subheader("Interactive Glossary")
-        st.write("Click a term to see its textbook definition[cite: 164].")
+        st.write("Click a term to see the textbook definition.")
         glossary = STATIONERY_DATA[topic].get("glossary", {})
         if glossary:
-            # Display terms in a grid using columns
             cols = st.columns(3)
             for i, (term, definition) in enumerate(glossary.items()):
                 with cols[i % 3]:
-                    # Clickable Popover
                     with st.popover(term, use_container_width=True):
                         st.write(definition)
         else:
-            st.warning("No glossary terms available.")
+            st.warning("No glossary available for this chapter.")
 
     with tab_resources:
         col_ref, col_quiz = st.columns(2)
         with col_ref:
-            st.subheader("Textbook")
-            st.link_button("📂 Open PDF in Drive", "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing")
+            st.subheader("Reference")
+            st.link_button("📂 Open Full PDF", "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing")
         
         with col_quiz:
-            st.subheader("Mastery")
-            # --- WORKING QUIZ BUTTON ---
-            if st.button("🏁 Start Topic Quiz", use_container_width=True):
-                st.session_state.activity_mode = "Quiz"
+            st.subheader("Assessment")
+            # This button will now work correctly without an exception
+            if st.button("🏁 Start Quiz Now", use_container_width=True):
+                st.session_state.current_mode = "Quiz"
                 st.rerun()
 elif mode == "AI bot":
     st.title("Ai bot")
