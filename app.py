@@ -90,7 +90,7 @@ STATIONERY_DATA = {
 
 st.title("Computing Study Companion")
 topic = st.sidebar.selectbox("Select a Chapter:", list(STATIONERY_DATA.keys()))
-mode = st.sidebar.radio("Activity:", ["Review", "Active Recall", "AI bot", "Dynamic Quiz"])
+mode = st.sidebar.radio("Activity:", ["Review", "AI bot", "Dynamic Quiz"])
 def get_filtered_context(selected_topic):
     keywords = STATIONERY_DATA[selected_topic].get("keywords", [])
     matches = []
@@ -106,11 +106,6 @@ if mode == "Review":
     st.header(f"Study Notes: {topic}")
     st.info(STATIONERY_DATA[topic]["summary"])
     st.button("View Textbook Page")
-elif mode == "Active Recall":
-    st.header("Flashcards")
-    for i, item in enumerate(STATIONERY_DATA[topic]["quiz"]):
-        with st.expander(f"Question {i+1}: {item['q']}"):
-            st.success(f"Answer: {item['a']}")
 elif mode == "AI bot":
     st.title("Ai bot")
     system_message_content= f"""
