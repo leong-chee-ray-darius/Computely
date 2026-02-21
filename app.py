@@ -12,7 +12,6 @@ JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
 
 STATIONERY_DATA = {
-
     "Computer Architecture": {
         "summary": "The study of how computer systems are structured, how hardware components interact, and how data is processed and transferred inside a computer.",
         "detailed_notes": {
@@ -20,7 +19,7 @@ STATIONERY_DATA = {
                 "Computer System": "An electronic device that accepts input, processes data according to stored instructions, stores data, and produces output."
                 }
             },
-            "Units of Data": {
+        "Units of Data": {
                 "Bit": "Smallest unit of data represented as 0 or 1.",
                 "Byte": "8 bits.",
                 "Word": "Group of bits processed together by CPU (e.g., 32-bit or 64-bit).",
@@ -29,7 +28,7 @@ STATIONERY_DATA = {
                     "Binary": ["KiB", "MiB", "GiB", "TiB", "PiB"]
                 }
             },
-            "Hardware Components": {
+        "Hardware Components": {
                 "CPU": {
                     "Description": "Processes instructions and performs calculations.",
                     "Components": ["ALU", "Control Unit", "Registers", "Cache"],
@@ -52,14 +51,14 @@ STATIONERY_DATA = {
                     "Control Bus": "Transfers control signals."
                 }
             },
-            "Interfaces": {
+        "Interfaces": {
                 "USB": "Universal connection for peripherals.",
                 "HDMI": "High-definition video and audio transmission.",
                 "PCIe": "High-speed internal expansion interface.",
                 "Ethernet": "Wired network communication."
             }
         },
-        "glossary": {
+    "glossary": {
             "CPU": "Central Processing Unit responsible for executing instructions.",
             "ALU": "Performs arithmetic and logical operations.",
             "Register": "Extremely fast storage inside CPU.",
@@ -68,8 +67,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["CPU", "ALU", "Registers", "RAM", "ROM", "Fetch Decode Execute", "Buses", "Cache"]
     },
-
-    "Data Representation": {
+"Data Representation": {
         "summary": "All computer data is stored and processed using binary numbers and encoding systems.",
         "detailed_notes": {
             "Number Systems": {
@@ -111,8 +109,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["Binary", "Denary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode", "Resolution", "Sampling"]
     },
-
-    "Boolean Logic": {
+"Boolean Logic": {
         "summary": "Logical operations used inside computers to make decisions and control data flow.",
         "detailed_notes": {
             "Logic Levels": ["1 / True / On", "0 / False / Off"],
@@ -138,8 +135,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["AND", "OR", "NOT", "XOR", "Truth Table", "Boolean Algebra"]
     },
-
-    "Programming Concepts": {
+"Programming Concepts": {
         "summary": "Core programming principles used to design, write, and test programs.",
         "detailed_notes": {
             "Algorithms": "Step-by-step solution to a problem.",
