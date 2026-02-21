@@ -90,7 +90,7 @@ STATIONERY_DATA = {
 
 st.title("Computing Study Companion")
 topic = st.sidebar.selectbox("Select a Chapter:", list(STATIONERY_DATA.keys()))
-mode = st.sidebar.radio("Activity:", ["Review", "Active Recall", "AI bot"])
+mode = st.sidebar.radio("Activity:", ["Review", "Active Recall", "AI bot", "Dynamic Quiz"])
 def get_filtered_context(selected_topic):
     keywords = STATIONERY_DATA[selected_topic].get("keywords", [])
     matches = []
@@ -106,7 +106,6 @@ if mode == "Review":
     st.header(f"Study Notes: {topic}")
     st.info(STATIONERY_DATA[topic]["summary"])
     st.button("View Textbook Page")
-
 elif mode == "Active Recall":
     st.header("Flashcards")
     for i, item in enumerate(STATIONERY_DATA[topic]["quiz"]):
@@ -130,7 +129,7 @@ elif mode == "AI bot":
     1. Use the provided context to answer the user's question.
     2. Maintain a robotic, neutral tone. No emotions, no fluff.
     3. Keep answers concise and structured (use bullet points for processes).
-    5. Primary Source: Use the provided textbook context.
+    5. Primary Source: Use the provided textbook context and the list of content.
     6. Secondary Source: If the topic is clearly about Computing (e.g., Privacy, Hardware, Internet) but not in the context, use your general knowledge to answer.
     7. Decline: Only decline if the user asks about non-computing topics (e.g., "How do I bake a cake?").
 
@@ -172,3 +171,51 @@ elif mode == "AI bot":
           )
           response = st.write_stream(stream)
       st.session_state.messages.append({"role": "assistant", "content": response})
+  elif mode == "Dynamic Quiz":
+    st.header(f"⚡ AI-Generated Quiz: {topic}")
+    if f"quiz_questions_{topic}" not in st.session_state:
+        st.session_state[f"quiz_questions_{topic}"] = None
+    if st.button("Generate New Quiz"):
+        with st.spinner("Generating questions..."):
+            client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
+            
+            prompt = f"""
+            Generate 3 multiple-choice questions for the computing topic: {topic}.
+            Context summary: {STATIONERY_DATA[topic]['summary']}
+            Return ONLY a JSON list of objects with keys: 'question', 'options', 'answer'.
+            'options' should be a list of 4 strings. 'answer' must be the exact string from the options.
+            """
+            
+            response = client.chat.completions.create(
+                model="gpt-4o-mini",
+                messages=[{"role": "user", "content": prompt}],
+                response_format={ "type": "json_object" }
+            )
+            
+            quiz_data = json.loads(response.choices[0].message.content)
+            st.session_state[f"quiz_questions_{topic}"] = quiz_data.get("questions", [])
+            st.rerun()
+    if st.session_state[f"quiz_questions_{topic}"]:
+        quiz = st.session_state[f"quiz_questions_{topic}"]
+        
+        with st.form("quiz_form"):
+            user_answers = []
+            for i, q in enumerate(quiz):
+                st.write(f"**Q{i+1}: {q['question']}**")
+                choice = st.radio("Select an answer:", q['options'], key=f"q_{topic}_{i}")
+                user_answers.append(choice)
+            
+            submitted = st.form_submit_state = st.form_submit_button("Submit Answers")
+            
+            if submitted:
+                score = 0
+                for i, q in enumerate(quiz):
+                    if user_answers[i] == q['answer']:
+                        score += 1
+                        st.success(f"Q{i+1}: Correct!")
+                    else:
+                        st.error(f"Q{i+1}: Incorrect. The correct answer was: {q['answer']}")
+                
+                st.metric("Final Score", f"{score}/{len(quiz)}")
+    else:
+        st.info("Click the button above to generate a custom quiz for this topic.")
