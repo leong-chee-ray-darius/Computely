@@ -503,8 +503,8 @@ if mode == "Review":
         display_nested_notes(STATIONERY_DATA[topic].get("detailed_notes", {}))
 
     with tab_glossary:
-    st.subheader("📚 Interactive Glossary")
-    glossary = STATIONERY_DATA[topic].get("glossary", {})
+        st.subheader("📚 Interactive Glossary")
+        glossary = STATIONERY_DATA[topic].get("glossary", {})
     if glossary:
         for term, definition in glossary.items():
             with st.expander(f"🔹 {term}"):
