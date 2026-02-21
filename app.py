@@ -12,206 +12,269 @@ JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
 
 STATIONERY_DATA = {
+
     "Computer Architecture": {
-        "summary": "Describes how a computer is designed, built, organized, and how its various parts are connected to function.",
+        "summary": "Study of how computers are designed, built, organized, and how their components interact to process data.",
         "detailed_notes": {
+            "Overview": {
+                "Computer System": "A device that receives, processes, and outputs data according to instructions.",
+                "Historical Context": "Early computers used mechanical parts such as gears, pulleys, and levers before electronics."
+            },
             "Units of Data": {
-                "Digital System": "Computers perform calculations using binary data (0 or 1).",
+                "Digital System": "Computers use binary (0 and 1).",
+                "Bit": "Smallest unit of data (0 or 1).",
+                "Byte": "8 bits.",
                 "Measurement": [
-                    "SI Prefixes (Power 1000): kB, MB, GB, TB, PB.",
-                    "Binary Prefixes (Power 1024): KiB, MiB, GiB, TiB, PiB."
+                    "SI Prefixes (1000): kB, MB, GB, TB, PB",
+                    "Binary Prefixes (1024): KiB, MiB, GiB, TiB, PiB"
                 ]
             },
             "Hardware Components": {
-                "CPU": "Processes data and executes instructions; speed is measured in MHz or GHz.",
-                "Main Memory": "RAM is volatile (loses data without power) and each byte has a unique address. ROM is non-volatile and stores startup instructions.",
-                "Storage": "Magnetic (high capacity, low cost), Optical (laser-based), and Solid State (fast, durable, no moving parts).",
-                "Buses": "Data Bus is bi-directional; Address Bus is uni-directional."
+                "CPU": "Processes data and executes instructions. Speed measured in MHz or GHz. Multi-core CPUs can execute multiple instructions simultaneously.",
+                "GPU": "Specialized processor for graphics and AI tasks.",
+                "Main Memory": "RAM is volatile and stores running programs. ROM is non-volatile and stores startup instructions.",
+                "Storage": {
+                    "Magnetic": "High capacity, low cost, vulnerable to shock and magnets.",
+                    "Optical": "Laser-based, portable, scratch-sensitive.",
+                    "Solid State": "Fast, durable, no moving parts, higher cost."
+                },
+                "Buses": {
+                    "Data Bus": "Bi-directional, transfers data.",
+                    "Address Bus": "Uni-directional, transfers memory addresses."
+                }
             },
-            "Interfaces": "Includes USB (external), HDMI (AV output), and PCIe (internal expansion using lanes x1 to x16)."
-        },
-        "glossary": {
-            "Computer Architecture": "The organization and connection of computer parts.",
-            "Volatile": "Memory that loses data when power is off, like RAM.",
-            "Address Bus": "Transports memory addresses in one direction only."
-        },
-        "keywords": ["CPU", "RAM", "Data Bus", "Address Bus", "PCIe", "Solid State"]
-    },
-
-    "Data Representation": {
-        "summary": "All information is represented using electronic switches that are either ON (1) or OFF (0).",
-        "detailed_notes": {
-            "Number Systems": {
-                "Binary": "Base-2 (0 and 1).",
-                "Hexadecimal": "Base-16 (0-9, A-F). One hex digit maps to 4 binary bits."
-            },
-            "Negative Numbers": {
-                "Two's Complement": "Standard method; flip all bits and add 1.",
-                "Sign Bit": "The MSB (Most Significant Bit) is 0 for positive and 1 for negative."
-            },
-            "Text Encoding": [
-                "ASCII: 7-bit (128 chars) or Extended 8-bit (256 chars).",
-                "Unicode: 8–32 bits, supports over a million global characters."
-            ]
-        },
-        "glossary": {
-            "Two's Complement": "A system for representing negative numbers in binary.",
-            "Overflow": "Error when a calculation result exceeds bit-length limits.",
-            "MSB": "Most Significant Bit; the sign bit in Two's Complement."
-        },
-        "keywords": ["Binary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode"]
-    },
-
-    "Boolean Logic": {
-        "summary": "Processor operations based on Boolean values (True/False) processed as bits.",
-        "detailed_notes": {
-            "Truth Tables": "Shows output for every input combination; row count is 2^n.",
-            "Logic Gates": {
-                "Basic": "AND (Q=A·B), OR (Q=A+B), NOT (Q=¬A).",
-                "Advanced": "NAND, NOR, and XOR (Q=A⊕B)."
-            },
-            "Laws": "Includes Double Negation, De Morgan's Theorem, and Absorption (A · (A + B) = A)."
-        },
-        "glossary": {
-            "Truth Table": "A table showing all possible logic gate inputs and outputs.",
-            "XOR": "Exclusive OR; output is 1 only when exactly one input is 1."
-        },
-        "keywords": ["Truth Table", "NAND", "XOR", "De Morgan's Theorem", "Logic Circuits"]
-    },
-
-    "Programming Concepts": {
-        "summary": "Algorithms (step-by-step instructions) converted into source code for execution.",
-        "detailed_notes": {
-            "Variables": "Named identifiers referencing memory addresses.",
-            "Data Types": "bool, int, float, str, list (mutable/ordered), and dict (key-value pairs).",
-            "Control Flow": {
-                "Sequence": "Fixed order.",
-                "Selection": "if-elif-else branching.",
-                "Iteration": "while and for loops."
+            "Interfaces": {
+                "USB": "External device connection (480 Mbit/s – 80 Gbit/s).",
+                "HDMI": "High-definition audio/video output.",
+                "PCIe": "Internal expansion using lanes x1 to x16."
             }
         },
         "glossary": {
-            "Algorithm": "Step-by-step instructions to solve a problem.",
-            "Scope": "The accessibility of variables (local vs global)."
+            "CPU": "Central Processing Unit that executes instructions.",
+            "Volatile": "Memory that loses data when power is lost.",
+            "ROM": "Non-volatile memory storing startup instructions.",
+            "Data Bus": "Transfers data between components.",
+            "Address Bus": "Transfers memory addresses."
         },
-        "keywords": ["Variables", "List", "Dictionary", "Loops", "Functions", "Scope"]
+        "keywords": ["CPU", "RAM", "ROM", "GPU", "Data Bus", "Address Bus", "PCIe", "Solid State"]
+    },
+
+    "Data Representation": {
+        "summary": "All data in computers is represented using binary numbers (0 and 1).",
+        "detailed_notes": {
+            "Number Systems": {
+                "Denary": "Base-10 using digits 0–9.",
+                "Binary": "Base-2 using digits 0 and 1.",
+                "Hexadecimal": "Base-16 using digits 0–9 and A–F."
+            },
+            "Conversions": {
+                "Binary ↔ Denary": "Use place values or repeated division.",
+                "Binary ↔ Hex": "Group binary into 4-bit sections.",
+                "Largest Number": "2^N - 1"
+            },
+            "Negative Numbers": {
+                "System": "Two's Complement",
+                "Sign Bit": "MSB determines sign (0 positive, 1 negative).",
+                "Range": "-2^(N-1) to 2^(N-1) - 1",
+                "Steps": [
+                    "Convert to binary",
+                    "Add leading zeros",
+                    "Invert bits",
+                    "Add 1"
+                ]
+            },
+            "Text Encoding": {
+                "ASCII": "7-bit (128 chars), Extended 8-bit (256 chars).",
+                "Unicode": "8–32 bits, supports global languages."
+            }
+        },
+        "glossary": {
+            "Binary": "Base-2 number system.",
+            "Hexadecimal": "Base-16 number system.",
+            "Two's Complement": "Binary system for negative numbers.",
+            "MSB": "Most Significant Bit.",
+            "Overflow": "Result exceeds allowed bit size."
+        },
+        "keywords": ["Binary", "Denary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode"]
+    },
+
+    "Boolean Logic": {
+        "summary": "Uses logical values and gates to perform decision-making operations in computers.",
+        "detailed_notes": {
+            "Boolean Values": ["True/False", "1/0", "On/Off"],
+            "Truth Tables": "Shows output for all input combinations. Rows = 2^n.",
+            "Logic Gates": {
+                "AND": "Output 1 only if both inputs are 1.",
+                "OR": "Output 1 if any input is 1.",
+                "NOT": "Inverts input.",
+                "NAND": "NOT AND.",
+                "NOR": "NOT OR.",
+                "XOR": "Output 1 only when inputs differ."
+            },
+            "Boolean Laws": {
+                "Double Negation": "¬(¬A) = A",
+                "De Morgan": ["¬(A · B) = ¬A + ¬B", "¬(A + B) = ¬A · ¬B"],
+                "Absorption": ["A · (A + B) = A", "A + (A · B) = A"]
+            },
+            "Logic Circuits": "Built by connecting logic gates to perform tasks."
+        },
+        "glossary": {
+            "Truth Table": "Table showing outputs for all input combinations.",
+            "Logic Gate": "Electronic circuit performing logical operations.",
+            "XOR": "Exclusive OR gate."
+        },
+        "keywords": ["Truth Table", "Logic Gates", "XOR", "NAND", "Boolean Algebra"]
+    },
+
+    "Programming Concepts": {
+        "summary": "Algorithms and programming techniques used to create computer programs.",
+        "detailed_notes": {
+            "Algorithms": "Step-by-step solution to a problem.",
+            "Variables": "Named storage locations referencing memory.",
+            "Data Types": ["bool", "int", "float", "str", "list", "dict"],
+            "Operators": ["+", "-", "*", "/", "//", "%", "**"],
+            "Control Flow": {
+                "Sequence": "Statements run in order.",
+                "Selection": "if / elif / else branching.",
+                "Iteration": ["while loop", "for loop"]
+            },
+            "Functions": "Reusable blocks of code.",
+            "Scope": {
+                "Local": "Inside function.",
+                "Global": "Outside function."
+            }
+        },
+        "glossary": {
+            "Algorithm": "Step-by-step instructions.",
+            "Variable": "Stores changeable values.",
+            "Function": "Reusable code block.",
+            "Scope": "Where variables can be accessed."
+        },
+        "keywords": ["Algorithm", "Variables", "Loops", "Functions", "Data Types", "Scope"]
     },
 
     "Validation and Testing": {
-        "summary": "Techniques to ensure data integrity and identify program bugs.",
+        "summary": "Methods to ensure correct data input and program correctness.",
         "detailed_notes": {
-            "Validation Checks": "Includes Length, Range, Presence, Format, and Existence checks.",
-            "Program Errors": [
-                "Syntax: Violation of language rules (spelling, punctuation).",
-                "Logic: Incorrect results (wrong formulas or sequencing).",
-                "Run-time: Errors during execution (division by zero)."
-            ],
-            "Testing": "Comparing actual vs expected output under normal, boundary, and error conditions."
+            "Validation Checks": ["Length", "Range", "Presence", "Format", "Existence", "Check Digit"],
+            "Error Types": {
+                "Syntax": "Language rule violations.",
+                "Logic": "Incorrect output.",
+                "Run-time": "Errors during execution."
+            },
+            "Testing": "Compare actual output with expected output using normal, boundary, and error cases.",
+            "Debugging": "Identifying and removing bugs."
         },
         "glossary": {
-            "Check Digit": "Extra digit added to detect manual entry errors.",
-            "Debugging": "Process of identifying and removing program defects."
+            "Validation": "Ensuring correct input.",
+            "Debugging": "Removing errors.",
+            "Test Case": "Input + expected output."
         },
-        "keywords": ["Validation", "Syntax Error", "Logic Error", "Debugging", "Test Case"]
+        "keywords": ["Validation", "Debugging", "Syntax Error", "Logic Error", "Test Case"]
     },
 
     "Development Models": {
-        "summary": "Structured approaches to software creation and management.",
+        "summary": "Structured approaches to software development.",
         "detailed_notes": {
-            "Waterfall Model": "Sequential stages from gathering requirements to deployment.",
-            "Modern Models": [
-                "Iterative: Revisiting stages as requirements change.",
-                "Agile: Small increments with continuous feedback and sprints.",
-                "TDD: Write tests first, then code to pass them."
-            ]
+            "Waterfall": "Sequential stages: requirements → design → coding → testing → deployment.",
+            "Iterative": "Repeated cycles of development.",
+            "Agile": "Short sprints with continuous feedback.",
+            "TDD": "Write tests before writing code."
         },
         "glossary": {
-            "Beta Testing": "Testing in the user environment.",
-            "Sprint": "Short development cycle in Agile."
+            "Sprint": "Short development cycle.",
+            "Beta Testing": "User environment testing."
         },
-        "keywords": ["Waterfall", "Agile", "Iterative", "TDD", "Sprints", "Requirements"]
+        "keywords": ["Waterfall", "Agile", "Iterative", "TDD", "Sprint"]
     },
 
     "Spreadsheets": {
-        "summary": "Tools for data analysis using formulas and logical functions.",
+        "summary": "Tools for data storage, analysis, and calculations using formulas and functions.",
         "detailed_notes": {
-            "Basics": "Cells (A1) and Ranges (A1:C3); formulas start with =.",
-            "References": "Relative (A1), Absolute ($A$1), and Mixed (A$1 or $A1).",
-            "Functions": [
-                "Lookup: VLOOKUP, HLOOKUP, and INDEX+MATCH.",
-                "Logical: IF, AND, OR, NOT.",
-                "Math: SUMIF, AVERAGEIF, COUNTIF."
-            ]
+            "Basics": "Cells (A1), ranges (A1:C3), formulas start with =.",
+            "References": ["Relative", "Absolute", "Mixed"],
+            "Functions": {
+                "Logical": ["IF", "AND", "OR", "NOT"],
+                "Math": ["SUM", "AVERAGE", "COUNT", "MAX", "MIN"],
+                "Lookup": ["VLOOKUP", "HLOOKUP", "INDEX", "MATCH"],
+                "Text": ["LEFT", "RIGHT", "MID", "LEN"]
+            }
         },
         "glossary": {
-            "Absolute Reference": "A cell reference that stays locked when copied.",
-            "VLOOKUP": "Function used to search for data in columns."
+            "Formula": "Equation that calculates a value.",
+            "Absolute Reference": "Cell reference that does not change.",
+            "VLOOKUP": "Vertical lookup function."
         },
-        "keywords": ["Formulas", "VLOOKUP", "Absolute Reference", "IF Function", "Goal Seek"]
+        "keywords": ["Formula", "VLOOKUP", "Functions", "Cell Reference", "Goal Seek"]
     },
 
     "Computer Networks": {
-        "summary": "Devices connected via transmission media to exchange data.",
+        "summary": "Interconnected devices exchanging data through communication channels.",
         "detailed_notes": {
-            "Types": "LAN (local), MAN (city), and WAN (Internet).",
-            "Hardware": [
-                "Modem: Converts digital data for long-distance media.",
-                "Switch: Connects LAN devices using MAC addresses.",
-                "Router: Forwards packets between networks using IP addresses."
-            ],
-            "Addressing": "MAC (48-bit, permanent) and IP (IPv4 32-bit or IPv6 128-bit)."
+            "Types": ["LAN", "MAN", "WAN"],
+            "Topologies": ["Star", "Mesh"],
+            "Hardware": ["Router", "Switch", "Modem", "NIC", "WAP"],
+            "Addressing": {
+                "MAC": "48-bit permanent address.",
+                "IP": ["IPv4 (32-bit)", "IPv6 (128-bit)"]
+            },
+            "Protocols": "Rules governing data transmission (TCP/IP)."
         },
         "glossary": {
-            "Protocol": "Rules governing communication (e.g., TCP/IP).",
-            "Parity Bit": "Error detection method adding a bit to make 1-bits even or odd."
+            "Router": "Forwards data between networks.",
+            "Switch": "Connects devices within LAN.",
+            "Protocol": "Communication rules."
         },
         "keywords": ["LAN", "Router", "Switch", "IP Address", "MAC Address", "TCP/IP"]
     },
 
     "Security and Privacy": {
-        "summary": "Protecting data confidentiality, integrity, and availability.",
+        "summary": "Protection of data confidentiality, integrity, and availability.",
         "detailed_notes": {
-            "Threats": "Malware (adware, spyware), phishing, and pharming.",
-            "Defenses": "Anti-malware, firewalls, encryption, and MFA (Something you know, own, or are).",
-            "Legal": "Singapore's PDPA requires consent and limited data retention."
+            "Threats": ["Malware", "Phishing", "Pharming", "Spyware", "Adware"],
+            "Defenses": ["Anti-malware", "Firewalls", "Encryption", "MFA", "PDPA"],
+            "Good Practices": ["Strong passwords", "Backups", "MFA", "Scam awareness"]
         },
         "glossary": {
-            "Phishing": "Deceptive emails used to trick users into revealing data.",
-            "MFA": "Multi-Factor Authentication using multiple verification types."
+            "Encryption": "Encoding data for security.",
+            "Phishing": "Fake messages to steal information.",
+            "MFA": "Multi-Factor Authentication."
         },
-        "keywords": ["Encryption", "Firewall", "Phishing", "MFA", "PDPA", "Malware"]
+        "keywords": ["Security", "Encryption", "Firewall", "Phishing", "MFA", "PDPA"]
     },
 
     "Intellectual Property": {
-        "summary": "Legal protections for original digital creations.",
+        "summary": "Legal rights protecting digital creations.",
         "detailed_notes": {
-            "Copyright": "Control over use/distribution; AI-generated content is not copyrightable in Singapore.",
-            "Software Licenses": [
-                "Proprietary: Source code secret; no copying.",
-                "FOSS: Users can copy, modify, and share source code.",
-                "Freeware vs Shareware: Free forever vs evaluation demos."
-            ]
+            "Copyright": "Controls usage and distribution.",
+            "Licenses": ["Proprietary", "Freeware", "Shareware", "FOSS", "Public Domain"],
+            "Piracy": "Illegal copying or distribution of software.",
+            "Plagiarism": "Claiming others' work as your own."
         },
         "glossary": {
-            "Plagiarism": "Ethical offense of passing off others' work as your own.",
-            "FOSS": "Free and Open-Source Software."
+            "FOSS": "Free and Open-Source Software.",
+            "Plagiarism": "Ethical offense."
         },
-        "keywords": ["Copyright", "FOSS", "Software Piracy", "License", "Plagiarism"]
+        "keywords": ["Copyright", "FOSS", "Piracy", "License", "Plagiarism"]
     },
 
     "Emerging Technologies": {
-        "summary": "Advanced technologies including AI, Blockchain, and Quantum Computing.",
+        "summary": "Advanced computing technologies shaping the future.",
         "detailed_notes": {
-            "AI & ML": "Autonomy and adaptivity; ML derives rules from data patterns.",
-            "Blockchain": "Decentralized, immutable ledger linked via hashes.",
-            "Quantum": "Uses Qubits (superposition) and Entanglement to solve problems faster."
+            "Artificial Intelligence": "Systems capable of autonomous learning and decision making.",
+            "Machine Learning": "AI method that learns patterns from data.",
+            "Blockchain": "Decentralized, immutable digital ledger.",
+            "Quantum Computing": "Computing using qubits, superposition, and entanglement.",
+            "VR & AR": "Immersive and augmented digital environments."
         },
         "glossary": {
-            "Qubit": "A quantum bit that can exist as 0 and 1 simultaneously.",
-            "Superposition": "The ability of a qubit to be in multiple states at once."
+            "Qubit": "Quantum bit that exists as 0 and 1 simultaneously.",
+            "Superposition": "Ability to exist in multiple states.",
+            "Entanglement": "Linked quantum states."
         },
-        "keywords": ["Artificial Intelligence", "Blockchain", "Quantum Computing", "Qubit", "Machine Learning"]
+        "keywords": ["AI", "Machine Learning", "Blockchain", "Quantum Computing", "Qubit", "VR", "AR"]
     }
+
 }
 # 2. Define Helper Functions
 def load_textbook_data():
