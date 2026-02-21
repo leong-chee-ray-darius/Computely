@@ -18,86 +18,155 @@ if "selected_topic" not in st.session_state:
     st.session_state["selected_topic"] = "Computer Architecture"
 STATIONERY_DATA = {
     "Computer Architecture": {
-        "summary": "Covers the CPU, RAM, secondary storage, and data/address buses.",
+        [cite_start]"summary": "Describes how a computer is designed, built, and organized, focusing on processing and data movement[cite: 1, 2].",
         "detailed_notes": [
-            "**CPU Components:** Contains the ALU for calculations and the CU for instruction management.",
-            "**Buses:** Address Bus (unidirectional) and Data Bus (bidirectional).",
-            "**FDE Cycle:** Fetch-Decode-Execute cycle is the basic operation.",
-            "**Memory:** RAM is volatile; ROM is non-volatile."
+            "**Units of Data:** A bit is the smallest unit (0 or 1); [cite_start]8 bits make a byte[cite: 4].",
+            [cite_start]"**CPU:** Processes data and executes instructions; speed is measured in MHz or GHz[cite: 6, 7].",
+            [cite_start]"**RAM:** Volatile memory that temporarily stores data for the CPU; each byte has a unique address[cite: 8, 9].",
+            [cite_start]"**Secondary Storage:** Long-term non-volatile storage (Magnetic, Optical, and Solid State)[cite: 10, 11].",
+            "**Buses:** Data Bus is bi-directional (transports data); [cite_start]Address Bus is uni-directional (transports memory addresses)[cite: 12, 13].",
+            [cite_start]"**Interfaces:** Includes USB (external), HDMI (AV output), and PCIe (internal expansion)[cite: 15]."
         ],
-        "keywords": ["processor", "CPU", "RAM", "memory", "storage", "bus", "USB", "HDMI"],
-        "quiz": [{"q": "What is the function of the address bus?", "a": "Transports memory locations from the processor to memory."}]
+        "keywords": ["CPU", "RAM", "Bit", "Byte", "Magnetic", "Optical", "Solid State", "Data Bus", "Address Bus", "USB", "PCIe"],
+        "quiz": [{"q": "What is the function of the address bus?", "a": "Transports memory addresses (uni-directional)."}]
     },
     "Data Representation": {
-        "summary": "Number systems (Binary, Denary, Hexadecimal) and text representation.",
+        [cite_start]"summary": "How all information is represented using electronic switches (bits)[cite: 16, 17].",
         "detailed_notes": [
-            "**Binary:** Base-2 system (0 and 1).",
-            "**Hexadecimal:** Base-16 system used for MAC addresses.",
-            "**Units:** 8 bits = 1 Byte; 1000 Bytes = 1 Kilobyte.",
-            "**Characters:** ASCII and Unicode."
+            [cite_start]"**Number Systems:** Denary (Base-10), Binary (Base-2), and Hexadecimal (Base-16)[cite: 18, 19, 23].",
+            [cite_start]"**Hexadecimal:** Each hex digit maps to exactly 4 binary bits[cite: 24].",
+            [cite_start]"**Negative Numbers:** Represented via Two's Complement; involves flipping bits and adding 1[cite: 26, 27].",
+            [cite_start]"**Text:** ASCII (7 or 8 bits) and Unicode (8–32 bits, supports global languages)[cite: 30, 31, 32]."
         ],
-        "keywords": ["binary", "denary", "hexadecimal", "ASCII", "bit", "byte", "negative numbers"],
-        "quiz": [{"q": "How many bits are in a byte?", "a": "8"}]
+        "keywords": ["Binary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode", "MSB", "Overflow"],
+        "quiz": [{"q": "How many bits are in an extended ASCII character?", "a": "8"}]
     },
-    "Logic Gates": {
-        "summary": "Boolean logic, truth tables, and logic circuits.",
-        "detailed_notes": ["**AND:** 1 if both 1.", "**OR:** 1 if either 1.", "**NOT:** Inverts input.", "**XOR:** 1 if inputs differ."],
-        "keywords": ["AND", "OR", "NOT", "XOR", "truth table", "Boolean", "logic circuit"]
+    "Boolean Logic": {
+        [cite_start]"summary": "Boolean values and logic gates used by the processor to perform operations[cite: 33].",
+        "detailed_notes": [
+            [cite_start]"**Truth Tables:** Shows output for every input combination; number of rows is 2^n[cite: 34].",
+            [cite_start]"**Logic Gates:** AND (Q=A·B), OR (Q=A+B), NOT (Q=¬A), NAND, NOR, and XOR[cite: 36, 37, 38, 42].",
+            [cite_start]"**Laws:** De Morgan's Theorem (¬(A·B) = ¬A+¬B) and Double Negation (¬(¬A) = A)[cite: 45].",
+            [cite_start]"**Order of Ops:** Parentheses, NOT, AND, then OR[cite: 43]."
+        ],
+        "keywords": ["AND", "OR", "NOT", "NAND", "NOR", "XOR", "De Morgan", "Truth Table"],
+        "quiz": [{"q": "What is the Boolean expression for an AND gate?", "a": "Q = A · B"}]
     },
-    "Programming": {
-        "summary": "Python basics, data types, control flow, and functions.",
-        "detailed_notes": ["**Types:** Int, Float, String, Boolean.", "**Loops:** For and While.", "**Logic:** If/Elif/Else."],
-        "keywords": ["python", "variable", "list", "loop", "function"]
+    "Algorithms and Programming": {
+        [cite_start]"summary": "Step-by-step instructions translated into source code for processor execution[cite: 52, 53].",
+        "detailed_notes": [
+            [cite_start]"**Variables:** Named identifiers storing changeable values; must follow specific naming rules[cite: 55].",
+            [cite_start]"**Data Types:** bool, int (unlimited size), float (precision errors), str (immutable), list (mutable), dict[cite: 60, 61, 63, 65].",
+            [cite_start]"**Control Flow:** Sequence, Selection (if-elif-else), and Iteration (while, for-in)[cite: 68].",
+            [cite_start]"**UDFs:** User-Defined Functions allow modular design and follow the DRY (Don't Repeat Yourself) principle[cite: 70, 71]."
+        ],
+        "keywords": ["Algorithm", "Variable", "Literal", "Iteration", "Selection", "Mutable", "DRY", "Scope"],
+        "quiz": [{"q": "Which data type is an ordered, mutable sequence?", "a": "list"}]
     },
-    "Input Validation": {
-        "summary": "Techniques to ensure data entered by users is sensible and secure.",
-        "detailed_notes": ["**Checks:** Range, Type, Presence, and Format checks."],
-        "keywords": ["validation", "range check", "type check"]
+    "Validation and Error Handling": {
+        [cite_start]"summary": "Techniques to ensure input data is sensible and prevent program crashes[cite: 74].",
+        "detailed_notes": [
+            [cite_start]"**Common Checks:** Length, Range, Presence (not empty), and Format (e.g., HH:MM)[cite: 77, 78, 79, 80].",
+            [cite_start]"**Existence Checks:** Verifying if data is or is not in a collection (e.g., unique username)[cite: 81, 82].",
+            [cite_start]"**Check Digits:** Extra digit to detect manual entry errors (e.g., UPC-A)[cite: 84]."
+        ],
+        "keywords": ["Validation", "Range check", "Length check", "Presence check", "Format check", "Check digit"],
+        "quiz": [{"q": "What check ensures a numeric input is within boundaries?", "a": "Range check"}]
     },
-    "Testing and Debugging": {
-        "summary": "Identifying bugs, error types, and designing test cases.",
-        "detailed_notes": ["**Errors:** Syntax (grammar), Logic (wrong result), Runtime (crash)."],
-        "keywords": ["bug", "syntax error", "logic error", "debugging"]
+    "Bugs and Testing": {
+        [cite_start]"summary": "Identifying and removing defects (bugs) that cause unintended behavior[cite: 86].",
+        "detailed_notes": [
+            [cite_start]"**Error Types:** Syntax (grammar rules), Logic (incorrect results), and Run-time (execution crash)[cite: 88, 90, 93].",
+            [cite_start]"**Test Cases:** Should include Normal, Boundary, and Error conditions[cite: 95].",
+            [cite_start]"**Techniques:** Trace tables for dry runs and incremental testing[cite: 97, 98]."
+        ],
+        "keywords": ["Bug", "Syntax Error", "Logic Error", "Trace Table", "Boundary Condition"],
+        "quiz": [{"q": "Which error type is caught before the program runs?", "a": "Syntax Error"}]
     },
     "Algorithm Design": {
-        "summary": "Decomposition, generalisation, and solving common problems.",
-        "detailed_notes": ["**Decomposition:** Breaking problems down.", "**Abstraction:** Hiding complexity."],
-        "keywords": ["decomposition", "abstraction", "algorithm", "pseudocode"]
+        [cite_start]"summary": "Formulating problems into algorithmic solutions using computational thinking[cite: 99, 100].",
+        "detailed_notes": [
+            [cite_start]"**Decomposition:** Breaking complex problems into manageable modular or incremental parts[cite: 101, 102].",
+            [cite_start]"**Generalisation:** Identifying patterns to create generic, reusable algorithms[cite: 103, 104].",
+            [cite_start]"**Solutions:** Finding Min/Max (assume first is min/max) and Linear Search[cite: 106, 107]."
+        ],
+        "keywords": ["Decomposition", "Generalisation", "Computational Thinking", "Linear Search", "Extraction"],
+        "quiz": [{"q": "What is the process of breaking a problem down called?", "a": "Decomposition"}]
     },
-    "Software Engineering": {
-        "summary": "Development stages and alternative methodologies.",
-        "detailed_notes": ["**SDLC:** Analysis, Design, Implementation, Testing, Maintenance."],
-        "keywords": ["SDLC", "waterfall", "agile", "testing"]
+    "Program Development Models": {
+        [cite_start]"summary": "Structured approaches to managing the software development lifecycle[cite: 109].",
+        "detailed_notes": [
+            [cite_start]"**Waterfall:** Sequential stages from requirements to deployment[cite: 110, 118].",
+            [cite_start]"**Agile:** Incremental development using 'sprints' and 'user stories' for continuous feedback[cite: 120].",
+            [cite_start]"**TDD:** Test-Driven Development; writing tests before the minimum code needed to pass them[cite: 121].",
+            [cite_start]"**User Testing:** Alpha (developer site) and Beta (user environment)[cite: 116]."
+        ],
+        "keywords": ["Waterfall", "Agile", "Sprints", "TDD", "Alpha testing", "Beta testing", "Version Control"],
+        "quiz": [{"q": "What is testing in the user environment called?", "a": "Beta testing"}]
     },
     "Spreadsheets": {
-        "summary": "Using cell references, formulas, and complex functions.",
-        "detailed_notes": ["**References:** Absolute ($A$1) vs Relative (A1).", "**VLOOKUP:** Search table arrays."],
-        "keywords": ["formula", "vlookup", "spreadsheet"]
+        [cite_start]"summary": "Using cell references, formulas, and functions for data analysis[cite: 122].",
+        "detailed_notes": [
+            [cite_start]"**References:** Relative (A1), Absolute ($A$1), and Mixed[cite: 123].",
+            [cite_start]"**Functions:** IF (logic), VLOOKUP/HLOOKUP (search), and INDEX+MATCH (advanced lookup)[cite: 125, 128, 130].",
+            [cite_start]"**Data Types:** Numbers < Text < Logical < Error[cite: 125].",
+            [cite_start]"**Tools:** Goal Seek for what-if analysis and Conditional Formatting[cite: 131]."
+        ],
+        "keywords": ["Absolute reference", "VLOOKUP", "IF function", "Goal Seek", "Conditional Formatting"],
+        "quiz": [{"q": "What symbol is used to lock a cell reference?", "a": "$"}]
     },
-    "Networking": {
-        "summary": "Types of networks, protocols, and the Internet.",
-        "detailed_notes": ["**LAN/WAN:** Local vs Wide area.", "**Protocols:** TCP/IP, HTTP, DNS."],
-        "keywords": ["LAN", "WAN", "protocol", "packet switching"]
+    "Computer Networks": {
+        [cite_start]"summary": "Devices connected by transmission media for exchanging data and sharing resources[cite: 132, 133].",
+        "detailed_notes": [
+            [cite_start]"**Geographical Scope:** LAN (local), MAN (city), and WAN (wide/Internet)[cite: 137, 138, 139].",
+            [cite_start]"**Error Detection:** Parity bits, Checksums, and Echo checks[cite: 145, 146, 147].",
+            [cite_start]"**Hardware:** Modem (long-distance), Switch (MAC-based LAN forwarding), and Router (IP-based)[cite: 148, 150, 151].",
+            [cite_start]"**Addressing:** MAC (48-bit permanent) and IP (IPv4 32-bit or IPv6 128-bit)[cite: 152, 153]."
+        ],
+        "keywords": ["LAN", "WAN", "Protocol", "MAC address", "IP address", "Checksum", "Switch", "Router"],
+        "quiz": [{"q": "Which device connects devices within a LAN using MAC addresses?", "a": "Switch"}]
     },
     "Security and Privacy": {
-        "summary": "Threats (malware, phishing) and defenses (encryption, firewalls).",
-        "detailed_notes": ["**Malware:** Viruses, Trojans.", "**Defense:** Encryption and Firewalls."],
-        "keywords": ["malware", "phishing", "encryption", "firewall"]
+        [cite_start]"summary": "Protecting data confidentiality, integrity, and availability[cite: 154].",
+        "detailed_notes": [
+            [cite_start]"**Threats:** Malware (adware, spyware), Phishing (deceptive emails), and Pharming (URL redirection)[cite: 158].",
+            [cite_start]"**Defenses:** Firewalls (packet filtering), Encryption (meaningless without key), and MFA[cite: 159, 161].",
+            [cite_start]"**Legal:** PDPA (Singapore law regulating personal data consent and retention)[cite: 160]."
+        ],
+        "keywords": ["Confidentiality", "Integrity", "Phishing", "Pharming", "Encryption", "Firewall", "PDPA", "MFA"],
+        "quiz": [{"q": "What does PDPA stand for?", "a": "Personal Data Protection Act"}]
     },
     "Intellectual Property": {
-        "summary": "Copyright, software licenses, and piracy.",
-        "detailed_notes": ["**Copyright:** Legal ownership.", "**Licenses:** Open Source vs Proprietary."],
-        "keywords": ["copyright", "license", "piracy"]
+        [cite_start]"summary": "Legal protections for original digital creations of the mind[cite: 164].",
+        "detailed_notes": [
+            [cite_start]"**Copyright:** Control over use/distribution; only humans are recognized authors in Singapore[cite: 165, 166].",
+            [cite_start]"**Software Licenses:** Proprietary (secret code), Freeware, FOSS (open source), and Public Domain[cite: 169, 172, 173].",
+            [cite_start]"**Piracy:** Illegal copying or using cracks to bypass license detection[cite: 175].",
+            [cite_start]"**Plagiarism:** Ethical offense of passing off others' work as your own[cite: 176]."
+        ],
+        "keywords": ["Copyright", "License", "Proprietary", "FOSS", "Freeware", "Piracy", "Plagiarism"],
+        "quiz": [{"q": "Is AI-generated content copyrightable in Singapore?", "a": "No (requires a human author)"}]
     },
     "Impact of Computing": {
-        "summary": "How computing affects industries and the spread of falsehoods.",
-        "detailed_notes": ["**Automation:** Machines replacing labor.", "**Divide:** Digital access gap."],
-        "keywords": ["automation", "falsehoods", "ethics"]
+        [cite_start]"summary": "Transformation of society across industries and the spread of online falsehoods[cite: 178].",
+        "detailed_notes": [
+            [cite_start]"**Industries:** Communications (globalization), Education (personalized learning), and Retail (e-commerce)[cite: 181, 183, 189].",
+            [cite_start]"**Falsehoods:** Filter bubbles created by social media algorithms increase misinformation[cite: 191].",
+            [cite_start]"**POFMA:** Singapore law to combat fake news harming public interest[cite: 192, 193]."
+        ],
+        "keywords": ["Globalisation", "Digital Literacy", "Filter Bubble", "Misinformation", "POFMA"],
+        "quiz": [{"q": "What Singapore law is used to issue correction directions for fake news?", "a": "POFMA"}]
     },
     "Emerging Technologies": {
-        "summary": "Artificial Intelligence, machine learning, and new innovations.",
-        "detailed_notes": ["**AI:** Machine intelligence.", "**ML:** Learning from patterns."],
-        "keywords": ["AI", "machine learning", "blockchain"]
+        [cite_start]"summary": "Innovations like AI, Blockchain, and Quantum Computing that improve performance autonomously[cite: 194, 195].",
+        "detailed_notes": [
+            [cite_start]"**AI:** Narrow AI (specialized) vs. AGI (human-level)[cite: 197].",
+            [cite_start]"**ML:** Detects patterns in data to produce models for inference[cite: 198, 199].",
+            [cite_start]"**Blockchain:** Decentralized, immutable ledger linked via cryptographic hashes[cite: 204, 205].",
+            [cite_start]"**Quantum:** Uses Qubits (superposition of 0 and 1) and Entanglement to solve problems exponentially faster[cite: 208, 209]."
+        ],
+        "keywords": ["Artificial Intelligence", "Machine Learning", "Blockchain", "Quantum Computing", "Qubit", "Superposition"],
+        "quiz": [{"q": "What is the state where a qubit exists as both 0 and 1 simultaneously?", "a": "Superposition"}]
     }
 }
 # --- SEARCH LOGIC ---
@@ -118,7 +187,6 @@ if search_query:
         st.sidebar.write("No matches found.")
 
 # --- SIDEBAR NAV ---
-# Connect selectbox to session state
 topic_list = list(STATIONERY_DATA.keys())
 try:
     topic_index = topic_list.index(st.session_state["selected_topic"])
@@ -128,32 +196,27 @@ except ValueError:
 topic = st.sidebar.selectbox("Select a Chapter:", topic_list, index=topic_index)
 st.session_state["selected_topic"] = topic
 
-mode = st.sidebar.radio("Activity:", ["Review", "AI bot", "Dynamic Quiz"])
+mode = st.sidebar.radio("Activity:", ["Review", "AI bot", "Quiz"])
 
 # --- FILTERING LOGIC ---
 def get_filtered_context(selected_topic):
     if not raw_data:
         return ""
-    # Use both keywords and the topic name for better matching
     search_terms = STATIONERY_DATA[selected_topic].get("keywords", []) + [selected_topic]
     matches = []
     for page in raw_data:
-        content = page.get('content', '')
+        content = str(page) # Adjust based on your JSON structure
         if any(term.lower() in content.lower() for term in search_terms):
             matches.append(content)
     return "\n\n".join(matches[:10])
 
 tb_content = get_filtered_context(topic)
-
 # --- REVIEW MODE (FIXED) ---
 if mode == "Review":
     st.title("Computing Study Companion")
     st.header(f"📖 Study Notes: {topic}")
-    
-    # Use a container for the summary
     st.info(STATIONERY_DATA[topic]["summary"])
     
-    # Split layout for notes and quick actions
     col_notes, col_action = st.columns([2, 1])
     
     with col_notes:
@@ -173,13 +236,11 @@ if mode == "Review":
             st.caption("Tip: Use the chapter titles to navigate the PDF.")
 
     st.divider()
-    
-    # Context section
     with st.expander("🔍 View AI-Extracted Context from Textbook"):
         if tb_content:
             st.markdown(tb_content)
         else:
-            st.warning(f"No specific textbook context found for '{topic}' in your JSON file.")
+            st.warning(f"No specific textbook context found for '{topic}'.")
 elif mode == "AI bot":
     st.title("Ai bot")
     system_message_content= f"""
@@ -240,8 +301,8 @@ elif mode == "AI bot":
           )
           response = st.write_stream(stream)
       st.session_state.messages.append({"role": "assistant", "content": response})
-elif mode == "Dynamic Quiz":
-    st.header(f"⚡ AI-Generated Quiz: {topic}")
+elif mode == "Quiz":
+    st.header(f"AI Generated Quiz: {topic}")
     
     # --- QUIZ SETTINGS SIDEBAR ---
     st.sidebar.divider()
