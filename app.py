@@ -174,24 +174,31 @@ elif mode == "AI bot":
 elif mode == "Dynamic Quiz":
     st.header(f"⚡ AI-Generated Quiz: {topic}")
     
-    # Initialize session state for this specific topic's quiz
-    quiz_key = f"quiz_questions_{topic}"
-    if quiz_key not in st.session_state:
-        st.session_state[quiz_key] = None
+    # --- QUIZ SETTINGS SIDEBAR ---
+    st.sidebar.divider()
+    st.sidebar.subheader("Quiz Settings")
+    num_questions = st.sidebar.slider("Number of questions", 1, 10, 3)
+    difficulty = st.sidebar.select_slider("Difficulty", options=["Easy", "Medium", "Hard"])
+    quiz_type = st.sidebar.selectbox("Question Type", ["Multiple Choice", "True/False"])
 
+    quiz_key = f"quiz_questions_{topic}"
+    
+    # Button to generate/regenerate the quiz
     if st.button("Generate New Quiz"):
-        with st.spinner("Generating questions..."):
+        with st.spinner(f"Generating {difficulty} {quiz_type} questions..."):
             client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-            # IMPROVED PROMPT: Explicit JSON instructions and schema
+            # Logic to adjust prompt based on settings
+            type_instruction = "multiple-choice questions with 4 options" if quiz_type == "Multiple Choice" else "True/False questions with exactly 2 options (True and False)"
+            
             prompt = f"""
-            Generate 3 multiple-choice questions for the computing topic: {topic}.
+            Generate {num_questions} {difficulty} level {type_instruction} for the computing topic: {topic}.
             Context summary: {STATIONERY_DATA[topic]['summary']}
             
             Return ONLY a JSON object with a key "questions" containing a list of objects.
             Each object must have:
             - "question": The question text
-            - "options": A list of 4 possible answers
+            - "options": A list of strings for the choices
             - "answer": The exact string from "options" that is correct.
             """
 
@@ -199,44 +206,39 @@ elif mode == "Dynamic Quiz":
                 response = client.chat.completions.create(
                     model="gpt-4o-mini",
                     messages=[{"role": "user", "content": prompt}],
-                    response_format={"type": "json_object"} # Required for JSON mode
+                    response_format={"type": "json_object"}
                 )
 
                 content = json.loads(response.choices[0].message.content)
-                # Safeguard: ensure the 'questions' key exists
                 st.session_state[quiz_key] = content.get("questions", [])
                 st.rerun()
             except Exception as e:
                 st.error(f"Failed to generate quiz: {e}")
 
-    # Display the quiz if data exists
-    if st.session_state[quiz_key]:
+    # --- DISPLAY QUIZ ---
+    if st.session_state.get(quiz_key):
         quiz = st.session_state[quiz_key]
-
-        # Use a form to prevent the app from refreshing every time a radio button is clicked
+        
         with st.form(key=f"form_{topic}"):
             user_answers = []
             for i, q in enumerate(quiz):
                 st.write(f"### Q{i+1}: {q['question']}")
-                # Unique key for each radio button to avoid state collisions
-                choice = st.radio("Choose one:", q['options'], key=f"radio_{topic}_{i}")
+                choice = st.radio("Select your answer:", q['options'], key=f"radio_{topic}_{i}")
                 user_answers.append(choice)
 
-            submitted = st.form_submit_button("Check My Score")
+            submitted = st.form_submit_button("Submit Results")
 
             if submitted:
                 score = 0
                 for i, q in enumerate(quiz):
                     if user_answers[i] == q['answer']:
                         score += 1
-                        st.success(f"**Question {i+1}: Correct!** ✅")
+                        st.success(f"**Q{i+1}: Correct!**")
                     else:
-                        st.error(f"**Question {i+1}: Incorrect.** ❌ The correct answer was: {q['answer']}")
+                        st.error(f"**Q{i+1}: Incorrect.** Correct: {q['answer']}")
                 
-                # Visual score feedback
-                st.divider()
-                st.metric("Final Results", f"{score} / {len(quiz)}")
+                st.metric("Final Score", f"{score} / {len(quiz)}")
                 if score == len(quiz):
                     st.balloons()
     else:
-        st.info("Ready to test your knowledge? Click 'Generate New Quiz' to start.")
+        st.info("Adjust settings in the sidebar and click 'Generate' to start.")
