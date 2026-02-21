@@ -4,34 +4,16 @@ import pandas as pd
 import io
 import time
 import json
+
 st.set_page_config(page_title="Computing Companion", layout="wide")
+
+# 1. Define Constants and Data First
 JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
-topic = "Computer Architecture" 
-tb_content = get_filtered_context(topic)
-def load_textbook_data():
-    try:
-        with open(JSON_PATH, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except:
-        return []
-raw_data = load_textbook_data()
-def get_filtered_context(selected_topic):
-    if not raw_data:
-        return ""
-    search_terms = STATIONERY_DATA[selected_topic].get("keywords", []) + [selected_topic]
-    matches = []
-    for page in raw_data:
-        content = str(page) # Adjust based on your JSON structure
-        if any(term.lower() in content.lower() for term in search_terms):
-            matches.append(content)
-    return "\n\n".join(matches[:10])
-tb_content = get_filtered_context(topic)
-if "selected_topic" not in st.session_state:
-    st.session_state["selected_topic"] = "Computer Architecture"
+
 STATIONERY_DATA = {
     "Computer Architecture": {
-        "summary": "The design and organization of a computer system's components and their connections[cite: 2].",
+        [cite_start]"summary": "The design and organization of a computer system's components and their connections[cite: 2].",
         "detailed_notes": {
             "Units of Data": {
                 "Bit & Byte": "A bit is the smallest unit (0 or 1); 8 bits make a byte.",
@@ -41,79 +23,99 @@ STATIONERY_DATA = {
                 ]
             },
             "Hardware Components": {
-                "CPU": "Processes data and executes instructions, measured in MHz or GHz[cite: 6].",
-                "RAM": "Volatile memory where each byte has a unique address[cite: 8].",
-                "Storage": "Non-volatile storage includes Magnetic (high capacity), Optical (laser-based), and Solid State (fast/durable)[cite: 10, 11].",
+                [cite_start]"CPU": "Processes data and executes instructions, measured in MHz or GHz[cite: 6].",
+                [cite_start]"RAM": "Volatile memory where each byte has a unique address[cite: 8].",
+                [cite_start]"Storage": "Non-volatile storage includes Magnetic (high capacity), Optical (laser-based), and Solid State (fast/durable)[cite: 10, 11].",
                 "Buses": "Data Bus (bi-directional) and Address Bus (uni-directional)."
             },
-            "Interfaces": "Includes USB (external), HDMI (AV output), and PCIe (internal expansion using lanes)[cite: 14, 15]."
+            [cite_start]"Interfaces": "Includes USB (external), HDMI (AV output), and PCIe (internal expansion using lanes)[cite: 14, 15]."
         },
         "glossary": {
-            "CPU": "Central Processing Unit; executes instructions[cite: 6].",
-            "Volatile": "Memory that loses data when power is off, like RAM[cite: 8].",
+            [cite_start]"CPU": "Central Processing Unit; executes instructions[cite: 6].",
+            [cite_start]"Volatile": "Memory that loses data when power is off, like RAM[cite: 8].",
             "Address Bus": "Transports memory addresses in one direction only.",
-            "PCIe": "Internal motherboard expansion interface using lanes x1 to x16[cite: 15]."
+            [cite_start]"PCIe": "Internal motherboard expansion interface using lanes x1 to x16[cite: 15]."
         },
         "keywords": ["CPU", "RAM", "Data Bus", "Address Bus", "PCIe", "Solid State"]
     },
     "Data Representation": {
-        "summary": "Representing information using electronic switches (bits) that are either ON (1) or OFF (0)[cite: 16].",
+        [cite_start]"summary": "Representing information using electronic switches (bits) that are either ON (1) or OFF (0)[cite: 16].",
         "detailed_notes": {
             "Number Systems": {
-                "Binary": "Base-2 (0 and 1)[cite: 19].",
-                "Hexadecimal": "Base-16 (0-9, A-F). One hex digit maps to 4 binary bits[cite: 23, 24]."
+                [cite_start]"Binary": "Base-2 (0 and 1)[cite: 19].",
+                "Hexadecimal": "Base-16 (0-9, A-F). [cite_start]One hex digit maps to 4 binary bits[cite: 23, 24]."
             },
             "Negative Numbers": {
-                "Two's Complement": "Standard method; flip all bits and add 1[cite: 26, 27].",
-                "Overflow": "Error when a result exceeds bit-length limits[cite: 28]."
+                [cite_start]"Two's Complement": "Standard method; flip all bits and add 1[cite: 26, 27].",
+                "Sign Bit": "The MSB (Most Significant Bit) is 0 for positive and 1 for negative.",
+                [cite_start]"Overflow": "Error when a result exceeds bit-length limits[cite: 28]."
             },
             "Text": [
-                "ASCII: 7-bit (128 chars) or Extended 8-bit (256 chars)[cite: 30].",
-                "Unicode: 8–32 bits, supports global languages[cite: 31]."
+                [cite_start]"ASCII: 7-bit (128 chars) or Extended 8-bit (256 chars)[cite: 30].",
+                [cite_start]"Unicode: 8–32 bits, supports global languages[cite: 31]."
             ]
         },
         "glossary": {
-            "Two's Complement": "A system for representing negative numbers in binary[cite: 26].",
-            "MSB": "Most Significant Bit; the sign bit in Two's Complement (1 = negative)[cite: 26].",
-            "Overflow": "Occurs when a calculation exceeds the bit-length limit[cite: 28]."
+            [cite_start]"Two's Complement": "A system for representing negative numbers in binary[cite: 26].",
+            [cite_start]"MSB": "Most Significant Bit; the sign bit in Two's Complement (1 = negative)[cite: 26].",
+            [cite_start]"Overflow": "Occurs when a calculation exceeds the bit-length limit[cite: 28]."
         },
         "keywords": ["Binary", "Hexadecimal", "Two's Complement", "ASCII", "Unicode"]
     },
     "Computer Networks": {
-        "summary": "Two or more devices connected to exchange data[cite: 132].",
+        [cite_start]"summary": "Two or more devices connected to exchange data[cite: 132].",
         "detailed_notes": {
-            "Scope": "LAN (local/home), MAN (city-scale), and WAN (Internet)[cite: 137, 138, 139].",
+            [cite_start]"Scope": "LAN (local/home), MAN (city-scale), and WAN (Internet)[cite: 137, 138, 139].",
             "Hardware": [
-                "Modem: Converts digital data for long-distance transmission[cite: 148].",
-                "Switch: Connects devices in a LAN using MAC addresses[cite: 150].",
-                "Router: Forwards packets between networks using IP addresses[cite: 151]."
+                [cite_start]"Modem: Converts digital data for long-distance transmission[cite: 148].",
+                [cite_start]"Switch: Connects devices in a LAN using MAC addresses[cite: 150].",
+                [cite_start]"Router: Forwards packets between networks using IP addresses[cite: 151]."
             ],
-            "Error Detection": "Parity bits (single-bit errors), Checksums (mathematical), and Echo checks[cite: 144, 145, 146]."
+            [cite_start]"Error Detection": "Parity bits (single-bit errors), Checksums (mathematical), and Echo checks[cite: 144, 145, 146]."
         },
         "glossary": {
-            "Modem": "Hardware that converts digital data for long-distance transmission[cite: 148].",
-            "Switch": "LAN device that forwards data using permanent 48-bit MAC addresses[cite: 150].",
-            "IP Address": "Hierarchical address (IPv4 32-bit or IPv6 128-bit) for network routing[cite: 152, 153]."
+            [cite_start]"Modem": "Hardware that converts digital data for long-distance transmission[cite: 148].",
+            [cite_start]"Switch": "LAN device that forwards data using permanent 48-bit MAC addresses[cite: 150].",
+            [cite_start]"IP Address": "Hierarchical address (IPv4 32-bit or IPv6 128-bit) for network routing[cite: 152, 153]."
         },
         "keywords": ["LAN", "WAN", "Modem", "Switch", "Router", "MAC Address", "IP Address"]
     }
 }
 
-# --- SESSION STATE INITIALIZATION ---
-if "quiz_scores" not in st.session_state:
-    st.session_state.quiz_scores = {topic: 0 for topic in STATIONERY_DATA.keys()}
+# 2. Define Helper Functions
+def load_textbook_data():
+    try:
+        with open(JSON_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except:
+        return []
+
+def get_filtered_context(selected_topic, data_source):
+    if not data_source:
+        return ""
+    search_terms = STATIONERY_DATA[selected_topic].get("keywords", []) + [selected_topic]
+    matches = []
+    for page in data_source:
+        content = str(page)
+        if any(term.lower() in content.lower() for term in search_terms):
+            matches.append(content)
+    return "\n\n".join(matches[:10])
+
+# 3. Load Data and Initialize Session State
+raw_data = load_textbook_data()
 
 if "selected_topic" not in st.session_state:
-    st.session_state.selected_topic = "Computer Architecture"
+    st.session_state["selected_topic"] = "Computer Architecture"
 
-# Initialize activity mode if not present
 if "current_mode" not in st.session_state:
     st.session_state.current_mode = "Review"
 
-# --- SIDEBAR NAVIGATION (THE FIX) ---
+if "quiz_scores" not in st.session_state:
+    st.session_state.quiz_scores = {topic: 0 for topic in STATIONERY_DATA.keys()}
+
+# 4. Sidebar Logic
 st.sidebar.title("🔍 Computing Companion")
 
-# Search Logic
 search_query = st.sidebar.text_input("Quick search (e.g., 'Two's Complement')")
 if search_query:
     st.sidebar.subheader("Results:")
@@ -122,23 +124,21 @@ if search_query:
             if st.sidebar.button(f"Go to {t_name}", key=f"search_{t_name}"):
                 st.session_state.selected_topic = t_name
 
-# Chapter Selection
 topic_list = list(STATIONERY_DATA.keys())
 topic_index = topic_list.index(st.session_state.selected_topic)
 topic = st.sidebar.selectbox("Select Chapter:", topic_list, index=topic_index)
 st.session_state.selected_topic = topic
 
-# THE FIX: We use a separate state variable and the 'index' parameter 
-# to avoid the StreamlitAPIException.
 modes = ["Review", "AI bot", "Quiz"]
 mode_index = modes.index(st.session_state.current_mode)
 selected_mode = st.sidebar.radio("Activity:", modes, index=mode_index)
 
-# If the user changes the radio selection, update our internal state
 if selected_mode != st.session_state.current_mode:
     st.session_state.current_mode = selected_mode
     st.rerun()
 
+# 5. Fetch Content for AI Bot/Review (After topic is defined)
+tb_content = get_filtered_context(topic, raw_data)
 # --- UTILITY FUNCTIONS ---
 def display_nested_notes(data, level=0):
     if isinstance(data, dict):
