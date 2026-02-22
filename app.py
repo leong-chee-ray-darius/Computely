@@ -174,6 +174,17 @@ EXAMPLES OF CORRECT MAPPING:
 
 - User: "How does the brain of the computer work?"
 - Assistant: "The 'brain' is the Central Processing Unit (CPU). It follows the Fetch-Decode-Execute cycle to process instructions..."
+
+- User: "How to print?"
+- Assistant: "Please specify: Are you asking about the (1) Python 'print()' function or (2) the mechanical operation of Laser/Inkjet printers?"
+
+- User: "Explain printing."
+- Assistant: "In Computing, this refers to two areas:
+  1. Output: The `print()` function in Python sends data to the standard output device (monitor). 
+     Example: `print('Hello World')`.
+  2. Hardware: The mechanical process of transferring data to paper. 
+     - Inkjet: Uses piezoelectric crystals or thermal bubbles to spray liquid ink.
+     - Laser: Uses a rotating drum, static electricity, and a fuser to bond toner to paper."
 """
 
     client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
