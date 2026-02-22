@@ -1,4 +1,9 @@
 # Computely
+
+Computely is an all in one study program designed to help students study and revise Computing through structed notes, an AI that explains concepts and customisable quizzes.
+
+---
+
 <a name="Access"><h2>Access</h2></a>
 
 Enter the link: https://computely.streamlit.app/
