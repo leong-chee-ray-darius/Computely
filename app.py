@@ -1099,6 +1099,10 @@ STATIONERY_DATA = {
         "keywords": ["AI", "Machine Learning", "Blockchain", "Quantum Computing", "VR", "AR"]
     }
 }
+with open("stationery_data.json", "w") as f:
+    json.dump(STATIONERY_DATA, f, indent=4)
+
+print("File converted successfully!")
 
 def load_textbook_data():
     try:
