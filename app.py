@@ -16,13 +16,11 @@ STATIONERY_DATA = {
     "Computer Architecture": {
         "summary": "Study of how computers are designed, built, organised, and how their components work together to process data.",
         "detailed_notes": {
-
             "Introduction": {
                 "Computer System": "A device that receives and processes data according to set instructions to produce processed data as a result.",
                 "Computer Architecture": "Describes how a computer is designed, built, organized, and how its various parts are connected to function.",
                 "Historical Context": "Early mechanical computers used cranks, gears, pulleys, and levers to perform computations without electricity."
             },
-
             "Units of Data": {
                 "Digital System": "Computers perform calculations using binary data.",
                 "Bit": "Smallest unit of data (0 or 1).",
@@ -32,16 +30,13 @@ STATIONERY_DATA = {
                     "Binary (Power of 1024)": ["KiB", "MiB", "GiB", "TiB", "PiB"]
                 }
             },
-
             "Key Components": {
-
                 "CPU": {
                     "Function": "Processes data and executes instructions.",
                     "Speed Units": ["MHz", "GHz"],
                     "Multi-core": "Dual-core and quad-core processors can execute multiple instructions simultaneously.",
                     "Specialized Units": "GPU handles graphics and AI tasks more efficiently than CPU."
                 },
-
                 "Main Memory": {
                     "RAM": {
                         "Function": "Temporarily stores data and instructions for CPU use.",
@@ -53,19 +48,16 @@ STATIONERY_DATA = {
                         "Purpose": "Stores startup instructions."
                     }
                 },
-
                 "Secondary Storage": {
                     "Magnetic": "High capacity, low cost per GB, vulnerable to magnets and impact.",
                     "Optical": "Laser-based, portable, vulnerable to scratches.",
                     "Solid State": "Fastest and most durable, no moving parts, higher cost per GB."
                 },
-
                 "Buses": {
                     "Data Bus": "Bi-directional, transports actual data.",
                     "Address Bus": "Uni-directional, transports memory addresses.",
                     "Operation": "Both buses are used simultaneously when writing to memory."
                 },
-
                 "Interfaces": {
                     "Input": "Data received for processing (e.g., keyboard, camera).",
                     "Output": "Processed results (e.g., monitor, printer).",
@@ -75,31 +67,63 @@ STATIONERY_DATA = {
                 }
             }
         },
-
+        "glossary": {
+            "Computer System": "A device that receives and processes data according to instructions to produce output.",
+            "Computer Architecture": "The design, structure, organization, and interconnection of a computer system.",
+            "Digital System": "A system that processes data using binary (0 and 1).",
+            "Bit": "The smallest unit of data, represented as 0 or 1.",
+            "Byte": "A group of 8 bits.",
+            "Kilobyte (kB)": "1000 bytes.",
+            "Megabyte (MB)": "1000 kilobytes.",
+            "Gigabyte (GB)": "1000 megabytes.",
+            "Terabyte (TB)": "1000 gigabytes.",
+            "Petabyte (PB)": "1000 terabytes.",
+            "Kibibyte (KiB)": "1024 bytes.",
+            "Mebibyte (MiB)": "1024 kibibytes.",
+            "Gibibyte (GiB)": "1024 mebibytes.",
+            "Tebibyte (TiB)": "1024 gibibytes.",
+            "Pebibyte (PiB)": "1024 tebibytes.",
+            "CPU": "Central Processing Unit that processes data and executes instructions.",
+            "Clock Speed": "The speed at which a processor executes instructions, measured in MHz or GHz.",
+            "Megahertz (MHz)": "One million cycles per second.",
+            "Gigahertz (GHz)": "One billion cycles per second.",
+            "Multi-core Processor": "A CPU with multiple processing cores that can execute tasks simultaneously.",
+            "GPU": "Graphics Processing Unit that handles graphics rendering and AI tasks efficiently.",
+            "RAM": "Volatile memory that temporarily stores data and instructions currently in use.",
+            "ROM": "Non-volatile memory that stores startup instructions.",
+            "Volatile Memory": "Memory that loses its contents when power is switched off.",
+            "Non-volatile Memory": "Memory that retains data even when power is switched off.",
+            "Secondary Storage": "Long-term storage for data and programs.",
+            "Magnetic Storage": "Storage using magnetic fields, high capacity, low cost, but sensitive to impact.",
+            "Optical Storage": "Laser-based storage that is portable but vulnerable to scratches.",
+            "Solid-State Storage": "Fast and durable storage with no moving parts.",
+            "Data Bus": "Transfers actual data between components.",
+            "Address Bus": "Transfers memory addresses.",
+            "Input Device": "Hardware used to enter data into a computer.",
+            "Output Device": "Hardware used to display or produce processed results.",
+            "USB": "Universal Serial Bus used to connect external devices.",
+            "HDMI": "High-Definition Multimedia Interface used to transmit audio and video signals.",
+            "PCIe": "Peripheral Component Interconnect Express used for internal hardware expansion."
+        },
         "keywords": [
             "Computer System", "Bit", "Byte", "CPU", "RAM", "ROM",
             "Secondary Storage", "Data Bus", "Address Bus", "USB", "HDMI", "PCIe"
         ]
     },
-
     "Data Representation": {
         "summary": "Representation of all information using binary digits (bits).",
         "detailed_notes": {
-
             "Introduction": {
                 "Definition": "All information is represented using bits (0 and 1).",
                 "Reason": "Computer memory consists of electronic switches that can only be ON (1) or OFF (0)."
             },
-
             "Number Systems": {
-
                 "Denary": {
                     "Base": 10,
                     "Digits": "0–9",
                     "Place Values": "10^N",
                     "Leading Zeros": "Do not change value but maintain consistent digit length."
                 },
-
                 "Binary": {
                     "Base": 2,
                     "Digits": "0 and 1",
@@ -112,7 +136,6 @@ STATIONERY_DATA = {
                     },
                     "Largest Number": "2^N - 1"
                 },
-
                 "Hexadecimal": {
                     "Base": 16,
                     "Digits": "0–9 and A–F",
@@ -125,7 +148,6 @@ STATIONERY_DATA = {
                     }
                 }
             },
-
             "Negative Numbers": {
                 "System": "Two's Complement",
                 "Sign Bit": "MSB (0 = positive, 1 = negative)",
@@ -138,7 +160,6 @@ STATIONERY_DATA = {
                 ],
                 "Overflow": "Occurs when result exceeds bit-length limits causing wrap-around."
             },
-
             "Text Representation": {
                 "Character Encoding": "Maps characters to numeric codes.",
                 "ASCII": {
@@ -149,11 +170,35 @@ STATIONERY_DATA = {
                 "Unicode": "Uses 8–32 bits and supports over a million characters."
             }
         },
-
+        "glossary": {
+            "Data Representation": "The method of storing, processing, and transmitting information in computers using binary digits (0 and 1).",
+            "Bit": "The smallest unit of data, represented as either 0 or 1.",
+            "Byte": "A group of 8 bits.",
+            "Binary": "A base-2 number system using only the digits 0 and 1.",
+            "Denary": "A base-10 number system using digits 0 to 9, commonly used by humans.",
+            "Hexadecimal": "A base-16 number system using digits 0–9 and letters A–F, used as a compact form of binary.",
+            "Place Value": "The value assigned to a digit based on its position in a number system.",
+            "Most Significant Bit (MSB)": "The leftmost bit in a binary number, often used as the sign bit in signed binary numbers.",
+            "Least Significant Bit (LSB)": "The rightmost bit in a binary number.",
+            "Binary to Denary Conversion": "A method of converting binary to denary by multiplying each bit by its place value and summing the results.",
+            "Denary to Binary Conversion": "A method of converting denary to binary using repeated division by 2 or place value subtraction.",
+            "Binary to Hexadecimal Conversion": "A method of converting binary to hexadecimal by grouping bits into sets of four.",
+            "Hexadecimal to Binary Conversion": "A method of converting each hexadecimal digit into its 4-bit binary equivalent.",
+            "Two's Complement": "A method of representing negative numbers in binary.",
+            "Sign Bit": "The most significant bit that indicates whether a number is positive (0) or negative (1).",
+            "Integer Overflow": "A condition where a calculation exceeds the maximum value that can be stored using a fixed number of bits.",
+            "Character Encoding": "A system that maps characters to numeric values so they can be stored in binary.",
+            "ASCII": "A character encoding standard using 7 or 8 bits to represent characters.",
+            "Extended ASCII": "An 8-bit version of ASCII supporting 256 characters.",
+            "Unicode": "A universal character encoding system supporting global languages using 8 to 32 bits per character.",
+            "Leading Zeros": "Extra zeros added to the front of a binary number to maintain consistent length without changing its value.",
+            "Fixed-Length Binary": "Binary numbers that use a fixed number of bits for storage and processing."
+        },
         "keywords": [
             "Binary", "Denary", "Hexadecimal", "Two's Complement",
             "ASCII", "Unicode", "Overflow"
         ]
+        
     },
     "Boolean Logic and Logic Gates": {
     "summary": "Boolean logic is used by computers to make decisions and perform operations using binary values.",
@@ -220,12 +265,32 @@ STATIONERY_DATA = {
         ]
     },
     "glossary": {
-        "Truth Table": "Table showing outputs for all input combinations.",
-        "Logic Gate": "Electronic circuit performing logical operations.",
-        "Boolean Logic": "Logic using binary values to make decisions."
+        "Boolean Logic": "A system of logic based on two values, True and False, used by computers to perform decision-making operations.",
+        "Boolean Value": "A data value that can be either True or False.",
+        "Truth Table": "A table showing the output of a logic operation for every possible combination of inputs.",
+        "Logic Gate": "An electronic circuit that performs a Boolean operation on one or more inputs to produce a single output.",
+        "AND Gate": "A logic gate that outputs 1 only when both inputs are 1.",
+        "OR Gate": "A logic gate that outputs 1 when at least one input is 1.",
+        "NOT Gate": "A logic gate that inverts its input, producing the opposite output.",
+        "NAND Gate": "A logic gate that outputs 0 only when both inputs are 1.",
+        "NOR Gate": "A logic gate that outputs 0 when at least one input is 1.",
+        "XOR Gate": "A logic gate that outputs 1 when the two inputs are different.",
+        "Boolean Expression": "A mathematical expression formed using Boolean variables and logic operators.",
+        "Boolean Operator": "A symbol used to perform logical operations such as AND, OR, and NOT.",
+        "Logic Circuit": "A system formed by combining multiple logic gates to perform complex logical operations.",
+        "Input": "A value fed into a logic gate or circuit.",
+        "Output": "The result produced by a logic gate or circuit after processing the inputs.",
+        "Sum of Products": "A method of forming a Boolean expression by combining AND terms using OR operations.",
+        "Order of Operations": "The sequence used to evaluate Boolean expressions: parentheses first, then NOT, followed by AND, then OR.",
+        "De Morgan’s Theorem": "A rule used to simplify Boolean expressions: NOT(A AND B) = (NOT A) OR (NOT B), and NOT(A OR B) = (NOT A) AND (NOT B).",
+        "Double Negation": "A Boolean rule stating that NOT(NOT A) equals A.",
+        "Commutative Law": "A Boolean law stating that the order of variables does not change the result (A AND B = B AND A, A OR B = B OR A).",
+        "Distributive Law": "A Boolean law allowing expressions to be expanded or factorised, such as A AND (B OR C) = (A AND B) OR (A AND C).",
+        "Absorption Law": "A Boolean rule stating that A AND (A OR B) = A, and A OR (A AND B) = A.",
+        "System Problem": "A real-world situation modelled using Boolean logic and logic gates to produce an automated decision or output."
     },
-    "keywords": ["Boolean Logic", "Truth Table", "AND", "OR", "NOT", "NAND", "NOR", "XOR"]
-},
+        "keywords": ["Boolean Logic", "Truth Table", "AND", "OR", "NOT", "NAND", "NOR", "XOR"]
+    },
     "Algorithms and Programming": {
         "summary": "Algorithms and programming involve designing step-by-step solutions and implementing them in computer programs.",
         "detailed_notes": {
@@ -309,10 +374,53 @@ STATIONERY_DATA = {
             }
         },
         "glossary": {
-            "Algorithm": "Step-by-step solution.",
-            "Variable": "Named memory storage.",
-            "Function": "Reusable code block.",
-            "Iteration": "Repeating a block of code."
+            "Algorithm": "A step-by-step set of instructions used to solve a problem.",
+            "Program": "An algorithm written in a programming language that a computer can execute.",
+            "Source Code": "Human-readable program instructions written in a programming language.",
+            "Machine Code": "Low-level binary instructions that can be directly executed by the CPU.",
+            "Input": "Data provided to a program for processing.",
+            "Output": "Results produced by a program after processing input.",
+            "Literal": "A fixed value written directly in source code, such as numbers or text.",
+            "Variable": "A named storage location used to store data that can change during program execution.",
+            "Identifier": "The name given to a variable, function, or object.",
+            "Initialization": "Assigning a value to a variable for the first time.",
+            "Memory Address": "The physical location in memory where data is stored.",
+            "None": "A special value representing no data or absence of a value.",
+            "del": "A command used to delete a variable and free its memory.",
+            "Function": "A reusable block of code that performs a specific task.",
+            "Method": "A function that belongs to an object and is called using dot notation.",
+            "Argument": "A value passed into a function.",
+            "Return Value": "The output produced by a function.",
+            "Operator": "A symbol that performs a mathematical or logical operation.",
+            "Boolean (bool)": "A data type that stores True or False values.",
+            "Integer (int)": "A whole number data type.",
+            "Float": "A data type used to store decimal numbers.",
+            "String (str)": "A sequence of characters representing text.",
+            "List": "An ordered and mutable collection of items.",
+            "Dictionary (dict)": "An unordered collection of key-value pairs.",
+            "Arithmetic Operators": "Operators used for mathematical calculations such as +, -, *, /, //, %, and **.",
+            "Augmented Assignment": "Operators that combine calculation and assignment such as +=, -=, *=, and /=",
+            "Type Casting": "Converting data from one type to another, such as int() or float().",
+            "Module": "A file containing reusable code, functions, and variables.",
+            "String Indexing": "Accessing individual characters in a string using position numbers.",
+            "String Slicing": "Extracting a portion of a string using index ranges.",
+            "Negative Indexing": "Accessing characters from the end of a string using negative positions.",
+            "Flowchart": "A diagram that visually represents an algorithm using standard symbols.",
+            "Terminator Symbol": "Flowchart symbol representing the start or end of a program.",
+            "Process Symbol": "Flowchart symbol representing an operation or calculation.",
+            "Decision Symbol": "Flowchart symbol representing a condition with branching outcomes.",
+            "Sequence": "Control structure where instructions execute in order.",
+            "Selection": "Control structure that chooses between paths using if, elif, and else.",
+            "Iteration": "Control structure that repeats a block of code using loops.",
+            "While Loop": "A loop that repeats while a condition is true.",
+            "For Loop": "A loop that iterates over a sequence of values.",
+            "Break": "A statement that exits a loop immediately.",
+            "Continue": "A statement that skips the current loop iteration and continues with the next one.",
+            "User-Defined Function (UDF)": "A custom function created by the programmer.",
+            "Local Scope": "Variables accessible only within a function.",
+            "Global Scope": "Variables accessible throughout the program.",
+            "with Statement": "A construct used to manage resources safely, especially file handling.",
+            "File Handling": "The process of reading from and writing to files in a program."
         },
         "keywords": ["Algorithm", "Variables", "Functions", "Loops", "Control Flow", "Data Types"]
     },
@@ -348,8 +456,24 @@ STATIONERY_DATA = {
             }
         },
         "glossary": {
-            "Validation": "Checking data reasonableness.",
-            "Check Digit": "Digit used to detect data entry errors."
+            "Validation": "The process of checking that input data is sensible, reasonable, and within required limits before processing.",
+            "Verification": "The process of checking that data entered matches the original source data.",
+            "Invalid Input": "Data that does not meet required conditions such as format, range, or presence.",
+            "Interactive Input": "Data entered directly by the user while the program is running.",
+            "Non-interactive Input": "Data read from files or external sources rather than direct user input.",
+            "while True Loop": "A loop that repeats indefinitely until a break condition is met, often used for repeated input validation.",
+            "sys.exit()": "A function used to terminate a program immediately when invalid input is detected.",
+            "Length Check": "Validation check that ensures the number of characters or items is within a specified limit.",
+            "Range Check": "Validation check that ensures a numerical value lies within an acceptable minimum and maximum range.",
+            "Presence Check": "Validation check that ensures required data is not left blank or empty.",
+            "Format Check": "Validation check that ensures data follows a specific pattern or structure (e.g., HH:MM for time).",
+            "Existence Check": "Validation check that ensures required data exists in a list, file, or database, or does not exist when uniqueness is required.",
+            "Check Digit": "An additional digit added to a number that helps detect errors during manual data entry.",
+            "Weighted Sum": "A calculation method where digits are multiplied by fixed weights and summed, often used in check digit systems.",
+            "Modulus Operation": "A mathematical operation that returns the remainder after division, often used in check digit calculations.",
+            "UPC-A": "A barcode system that uses check digits to detect manual data entry errors.",
+            "TypeError": "A runtime error that occurs when an operation is applied to an inappropriate data type.",
+            "Error Handling": "The process of managing and responding to program errors to prevent crashes and unexpected behaviour."
         },
         "keywords": [
             "Validation", "Length Check", "Range Check", "Presence Check",
@@ -412,8 +536,21 @@ STATIONERY_DATA = {
             ]
         },
         "glossary": {
-            "Bug": "Program defect.",
-            "Debugging": "Finding and fixing errors."
+            "Bug": "A defect that causes a program to behave in an unintended way.",
+            "Debugging": "The process of identifying, locating, and removing bugs from a program.",
+            "Syntax Error": "An error caused by violating the rules of a programming language, such as incorrect indentation or missing punctuation.",
+            "Logic Error": "An error where the program runs but produces incorrect output due to faulty logic.",
+            "Run-time Error": "An error that occurs while a program is running, often caused by invalid operations such as division by zero.",
+            "Testing": "The process of comparing actual program output with expected output to find errors.",
+            "Test Case": "A set of input values and the expected output used to test whether a program works correctly.",
+            "Normal Condition": "A test case using typical, valid input values.",
+            "Boundary Condition": "A test case using extreme valid values at the limits of acceptable input.",
+            "Error Condition": "A test case using invalid input to check if the program handles errors properly.",
+            "Trace Table": "A table used to manually track variable values step-by-step during program execution.",
+            "Print Debugging": "Using print() statements to display intermediate values for tracking program flow.",
+            "Backtracking": "Tracing program execution backwards from an observed error to locate its cause.",
+            "Incremental Testing": "Testing small changes in a program step-by-step to isolate bugs.",
+            "Isolation Testing": "Testing small parts of a program separately to identify the source of errors."
         },
         "keywords": [
             "Bug", "Debugging", "Syntax Error",
@@ -455,10 +592,21 @@ STATIONERY_DATA = {
             }
         },
         "glossary": {
-            "Algorithm": "Step-by-step problem solution.",
-            "Decomposition": "Breaking problems into parts.",
-            "Generalisation": "Creating reusable solutions."
-        },
+            "Algorithm": "A step-by-step set of instructions used to solve a problem.",
+            "Solution": "An algorithm that always produces correct output for valid input.",
+            "Computational Thinking": "A problem-solving approach where solutions are expressed as algorithms.",
+            "Decomposition": "Breaking a complex problem into smaller, more manageable parts.",
+            "Generalisation": "Identifying common patterns to create a generic solution.",
+            "Modular Approach": "Dividing a problem into independent components or modules.",
+            "Incremental Approach": "Solving a small version of a problem first and gradually extending the solution.",
+            "DRY Principle": "Don't Repeat Yourself – reducing duplicated code by using reusable solutions.",
+            "Linear Search": "Searching through items one by one until the target item is found.",
+            "Extraction": "Selecting and collecting data items that meet specific conditions.",
+            "Minimum Value": "The smallest value in a dataset.",
+            "Maximum Value": "The largest value in a dataset.",
+            "Iteration": "Repeating a sequence of instructions using loops.",
+            "Reusable Function": "A function designed to be used multiple times to avoid repeated code."
+          },
         "keywords": [
             "Algorithm", "Computational Thinking",
             "Decomposition", "Generalisation", "DRY"
@@ -520,8 +668,23 @@ STATIONERY_DATA = {
             }
         },
         "glossary": {
-            "Sprint": "Short development cycle.",
-            "Version Control": "Tracks and manages changes to code."
+            "Program Development Model": "A structured process used to design, develop, test, and deploy software systems.",
+            "Waterfall Model": "A linear development model where each stage must be completed before moving to the next.",
+            "Requirements Gathering": "The process of collecting and defining what a program must do.",
+            "System Design": "The stage where algorithms, flowcharts, and solutions are planned before coding.",
+            "Implementation": "The process of writing and coding the program.",
+            "Testing": "The process of running test cases to find and fix errors in a program.",
+            "Deployment": "The process of installing and releasing the completed software to users.",
+            "User Acceptance Testing (UAT)": "Testing performed by users to verify the system meets their requirements.",
+            "Alpha Testing": "Testing conducted at the developer’s site.",
+            "Beta Testing": "Testing conducted in the real user environment.",
+            "Iterative Development": "A development approach that allows stages to be revisited and refined repeatedly.",
+            "Agile Development": "A development approach that uses short cycles and continuous user feedback.",
+            "User Stories": "Short descriptions of system features written from the user’s perspective.",
+            "Sprint": "A short development cycle in agile development.",
+            "Test-Driven Development (TDD)": "A development approach where test cases are written before writing program code.",
+            "Version Control": "A system that tracks changes made to program code over time (e.g., Git).",
+            "Refactoring": "Improving the structure of code without changing its functionality."
         },
         "keywords": ["Waterfall", "Iterative", "Agile", "TDD", "Sprint", "Version Control"]
     },
@@ -574,8 +737,25 @@ STATIONERY_DATA = {
             }
         },
         "glossary": {
-            "Formula": "Expression used to calculate values.",
-            "Absolute Reference": "Cell reference that does not change when copied."
+            "Spreadsheet": "An application used to organize, calculate, and analyze data using cells arranged in rows and columns.",
+            "Cell": "The intersection of a row and column in a spreadsheet (e.g., A1).",
+            "Range": "A group of adjacent cells in a spreadsheet.",
+            "Formula": "An expression used to perform calculations in a spreadsheet, starting with '='.",
+            "Relative Cell Reference": "A reference that changes automatically when copied to another cell.",
+            "Absolute Cell Reference": "A fixed reference that does not change when copied, using the $ symbol.",
+            "Mixed Cell Reference": "A reference where either the row or column is fixed.",
+            "Function": "A predefined formula that performs specific calculations.",
+            "Logical Function": "A function that performs logical comparisons, such as AND(), OR(), and IF().",
+            "IF Function": "A function that performs different actions depending on whether a condition is true or false.",
+            "Mathematical Function": "A function that performs numeric calculations such as SUM(), AVERAGE(), and ROUND().",
+            "Statistical Function": "A function that analyzes data sets, such as COUNT(), MAX(), and MIN().",
+            "Text Function": "A function that manipulates text, such as LEFT(), RIGHT(), and MID().",
+            "Lookup Function": "A function that searches for data within a table, such as VLOOKUP() and HLOOKUP().",
+            "MATCH Function": "A function that finds the position of a value in a range.",
+            "INDEX Function": "A function that returns the value at a specific position in a range.",
+            "Conditional Formatting": "A feature that automatically formats cells based on their values.",
+            "What-If Analysis": "A technique used to test different values to see how they affect results.",
+            "Goal Seek": "A tool that finds the input value needed to achieve a specific output."
         },
         "keywords": ["Cells", "Formulas", "Functions", "VLOOKUP", "INDEX", "Goal Seek"]
     },
@@ -644,9 +824,34 @@ STATIONERY_DATA = {
             }
         },
         "glossary": {
-            "Protocol": "Communication rules.",
-            "Router": "Forwards data between networks."
-        },
+            "Computer Network": "A system of two or more devices connected by a transmission medium to exchange data.",
+            "Transmission Medium": "The physical or wireless path used to transfer data between devices.",
+            "LAN": "Local Area Network that connects devices in a small area such as a home, school, or office.",
+            "MAN": "Metropolitan Area Network that spans a city or large campus.",
+            "WAN": "Wide Area Network that spans large geographical distances, such as the Internet.",
+            "Wired Network": "A network where devices are connected using physical cables such as Ethernet or fibre.",
+            "Wireless Network": "A network where devices connect using radio or electromagnetic waves, such as Wi-Fi.",
+            "Client-Server Network": "A network architecture where a central server manages resources and services.",
+            "Peer-to-Peer Network": "A network architecture where all devices have equal roles and share resources directly.",
+            "Star Topology": "A network layout where all devices connect to a central unit.",
+            "Mesh Topology": "A network layout where devices are interconnected, providing multiple data paths.",
+            "Protocol": "A set of rules governing communication between network devices.",
+            "TCP/IP": "Core communication protocol suite used on the Internet.",
+            "Packet": "A small unit of data transmitted across a network.",
+            "Parity Bit": "An extra bit added to data to detect single-bit transmission errors.",
+            "Checksum": "A calculated value used to verify data integrity during transmission.",
+            "Echo Check": "An error detection method where data is sent back to the sender for verification.",
+            "Automatic Repeat Request (ARQ)": "A system that automatically resends data if transmission errors are detected.",
+            "Modem": "A device that converts digital data for transmission over long-distance media.",
+            "NIC": "Network Interface Controller that connects a device to a network.",
+            "Switch": "A device that connects multiple devices within a LAN and forwards data using MAC addresses.",
+            "WAP": "Wireless Access Point that allows wireless devices to connect to a network.",
+            "Router": "A device that forwards data packets between different networks using IP addresses.",
+            "MAC Address": "A permanent 48-bit physical address used to identify devices in a network.",
+            "IP Address": "A logical address used to identify devices on a network.",
+            "IPv4": "A 32-bit addressing system written in four denary numbers separated by dots.",
+            "IPv6": "A 128-bit addressing system using hexadecimal numbers separated by colons."
+        }
         "keywords": ["LAN", "WAN", "Router", "IP Address", "Protocols", "Topology"]
     },
     "Security and Privacy": {
@@ -687,6 +892,26 @@ STATIONERY_DATA = {
                 "Backups": "Regularly store copies of important files."
             }
         },
+        "glossary": {
+            "Security": "The protection of data and systems to ensure confidentiality, integrity, and availability.",
+            "Privacy": "The protection and control of personal data and how it is collected, used, and shared.",
+            "Confidentiality": "Ensuring that data is accessed only by authorized individuals.",
+            "Integrity": "Ensuring that data is accurate and not altered without authorization.",
+            "Availability": "Ensuring that data and systems are accessible when needed.",
+            "Adware": "Malicious software that installs unwanted advertisements without user consent.",
+            "Spyware": "Malicious software that secretly collects and transmits user information.",
+            "Cookies": "Small files stored by browsers to track user preferences and activity.",
+            "Phishing": "A social engineering attack that tricks users into revealing sensitive information using fake emails or websites.",
+            "Pharming": "An attack that redirects users from legitimate websites to fake websites even when the correct URL is entered.",
+            "Anti-malware": "Software that detects, prevents, and removes malicious programs.",
+            "Firewall": "A security system that monitors and controls incoming and outgoing network traffic.",
+            "Encryption": "The process of converting data into unreadable form to prevent unauthorized access.",
+            "PDPA": "Singapore Personal Data Protection Act that governs the collection, use, and storage of personal data.",
+            "Strong Password": "A password containing a mix of letters, numbers, and symbols to reduce unauthorized access.",
+            "Multi-Factor Authentication": "A security method requiring two or more verification factors to access a system.",
+            "Backup": "A copy of important data stored separately to prevent loss.",
+            "Social Engineering": "Techniques that manipulate human behaviour to gain unauthorized access to information."
+        },
         "keywords": ["Security", "Privacy", "Encryption", "Firewall", "PDPA", "Malware", "Phishing"]
     },
 
@@ -709,6 +934,25 @@ STATIONERY_DATA = {
                 "Risks": ["Malware", "Viruses", "Identity Theft", "System Failure"]
             },
             "Plagiarism": "Passing off someone else's work as your own."
+        },
+        "glossary": {
+            "Intellectual Property (IP)": "Creations of the human mind that have value and exist digitally, such as software, designs, text, images, and music.",
+            "Originality": "The requirement that a work must be independently created and not copied from existing works.",
+            "Fixation": "The requirement that a work must be recorded in a tangible medium, such as a digital file.",
+            "Ownership": "The legal recognition of a human creator as the author of intellectual property.",
+            "Copyright": "The legal right that gives creators control over how their work is used, copied, and distributed.",
+            "License": "An official description of what users are allowed or not allowed to do with software or digital content.",
+            "Proprietary Software": "Commercial software where the source code is kept secret and modification or redistribution is illegal.",
+            "Freeware": "Proprietary software that can be used free of charge but cannot be modified or redistributed.",
+            "Shareware": "Software distributed for free trial but requires payment after an evaluation period.",
+            "FOSS": "Free and Open Source Software that allows users to copy, modify, study, and share both the software and its source code.",
+            "Public Domain": "Software or content that is not protected by copyright and can be freely used, modified, and distributed.",
+            "Creative Commons": "Licensing system that allows creators to specify how their work can be shared and reused.",
+            "Software Piracy": "Illegal copying, distribution, or use of copyrighted software.",
+            "Crack": "A tool used to bypass software licensing or security checks illegally.",
+            "Copyright Infringement": "Using copyrighted material without permission from the copyright owner.",
+            "Plagiarism": "Presenting another person's work or ideas as one’s own without acknowledgment.",
+            "End User License Agreement (EULA)": "A legal agreement between the software provider and the user outlining permitted usage."
         },
         "keywords": ["Copyright", "Licenses", "Piracy", "Plagiarism", "FOSS"]
     },
@@ -749,6 +993,26 @@ STATIONERY_DATA = {
                     "Actions": ["Correction orders", "Content removal", "Legal penalties"]
                 }
             }
+        },
+        "glossary": {
+            "Digitalisation": "The conversion of analogue information into digital form for easier processing and transmission.",
+            "Compression": "Reducing file size for faster data transmission.",
+            "Globalisation": "The ability to communicate and collaborate across borders using computing technologies.",
+            "Mobile Computing": "The use of portable devices such as smartphones and laptops for computing on the move.",
+            "Collaboration Tools": "Online platforms that allow people to work together remotely.",
+            "Adaptive Learning": "Learning systems that adjust content based on a learner’s ability and progress.",
+            "Navigation Systems": "Digital systems that provide route guidance using GPS and real-time traffic data.",
+            "Autonomous Vehicles": "Vehicles capable of operating with minimal or no human intervention using sensors and AI.",
+            "Inventory Management": "Using computing systems to track goods and stock levels in real time.",
+            "E-commerce": "The buying and selling of goods and services online.",
+            "Misinformation": "False or misleading information spread regardless of intent.",
+            "Deepfake": "AI-generated media that realistically imitates real people, often used for deception.",
+            "Filter Bubble": "A state where users are shown content matching their beliefs, limiting exposure to opposing views.",
+            "Algorithm": "A set of rules used by platforms to determine what content users see.",
+            "Engagement Rate": "Measurement of user interaction such as likes, shares, and comments.",
+            "POFMA": "Protection from Online Falsehoods and Manipulation Act, a Singapore law to counter harmful fake news.",
+            "Correction Direction": "Legal instruction requiring false information to be corrected publicly.",
+            "Online Manipulation": "The deliberate spreading of misleading information to influence opinions or behavior."
         },
         "keywords": ["Digitalisation", "E-learning", "E-commerce", "POFMA", "Falsehoods"]
     },
@@ -806,6 +1070,31 @@ STATIONERY_DATA = {
                 "Entanglement": "Linked quantum states.",
                 "Impact": "Solves specific problems exponentially faster."
             }
+        },
+        "glossary": {
+            "Artificial Intelligence (AI)": "Technology that enables computers to perform tasks that normally require human intelligence.",
+            "Autonomy": "The ability of AI systems to operate independently without constant human input.",
+            "Adaptivity": "The ability of AI systems to improve performance as they receive more data.",
+            "Narrow AI": "AI designed to perform specific tasks.",
+            "Artificial General Intelligence (AGI)": "Future AI capable of performing any intellectual task a human can.",
+            "Machine Learning (ML)": "A branch of AI that enables systems to learn patterns from data without explicit programming.",
+            "Model": "A trained mathematical representation used by ML systems to make predictions.",
+            "Inference": "The process of applying a trained model to new data.",
+            "Overfitting": "When a model performs well on training data but poorly on unseen data.",
+            "Bias": "Systematic error in AI outcomes due to unbalanced or incomplete training data.",
+            "Deepfake": "AI-generated fake images, videos, or audio that appear realistic.",
+            "Blockchain": "A decentralized digital ledger where records cannot be altered once added.",
+            "Hash": "A cryptographic value linking blocks together in a blockchain.",
+            "Decentralization": "No central authority controls the system.",
+            "Immutability": "Data cannot be changed once recorded.",
+            "Virtual Reality (VR)": "A fully immersive computer-generated environment.",
+            "Augmented Reality (AR)": "Technology that overlays digital objects onto the real world.",
+            "Head-Mounted Device (HMD)": "Wearable display device used in VR and AR systems.",
+            "Quantum Computing": "Computing based on quantum mechanics principles.",
+            "Qubit": "Quantum bit that can exist as 0 and 1 simultaneously.",
+            "Superposition": "The ability of a qubit to exist in multiple states at once.",
+            "Entanglement": "Quantum phenomenon where linked qubits influence each other instantly.",
+            "Cryptography Threat": "Risk posed by quantum computing to existing encryption methods."
         },
         "keywords": ["AI", "Machine Learning", "Blockchain", "Quantum Computing", "VR", "AR"]
     }
