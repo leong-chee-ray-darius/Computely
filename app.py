@@ -97,11 +97,6 @@ if mode == "Review":
     st.caption("GCE O-Level Computing • Structured Study Notes")
     st.success(f"📖 **Chapter Summary:** {STATIONERY_DATA[topic]['summary']}")
     
-    # Mastery Progress
-    score = st.session_state.quiz_scores.get(topic, 0)
-    st.write(f"**Topic Mastery:** {score}%")
-    st.progress(score / 100)
-    
     tab_notes, tab_glossary, tab_resources = st.tabs([
     "📝 Learn",
     "📚 Key Terms",
