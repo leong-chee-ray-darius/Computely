@@ -851,7 +851,7 @@ STATIONERY_DATA = {
             "IP Address": "A logical address used to identify devices on a network.",
             "IPv4": "A 32-bit addressing system written in four denary numbers separated by dots.",
             "IPv6": "A 128-bit addressing system using hexadecimal numbers separated by colons."
-        }
+        },
         "keywords": ["LAN", "WAN", "Router", "IP Address", "Protocols", "Topology"]
     },
     "Security and Privacy": {
