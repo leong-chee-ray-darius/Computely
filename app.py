@@ -5,7 +5,7 @@ import streamlit as st
 import pandas as pd
 import json
 #Setting page title
-st.set_page_config(page_title="Computing Companion", layout="wide")
+st.set_page_config(page_title="Computely", layout="wide")
 
 #Define constants and Data
 JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
@@ -68,7 +68,7 @@ if "quiz_scores" not in st.session_state:
     st.session_state.quiz_scores = {topic: 0 for topic in STATIONERY_DATA.keys()}
 
 #Sidebar
-st.sidebar.title("🔍 Computing Companion")
+st.sidebar.title("🔍 Computely")
 
 search_query = st.sidebar.text_input("Quick search (e.g., 'Two's Complement')")
 if search_query:
