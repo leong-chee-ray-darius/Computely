@@ -331,7 +331,7 @@ STATIONERY_DATA = {
             },
             "Mathematical Operations": {
                 "Operators": [" +", "-", "*", "/", "//", "%", "**"],
-                "Augmented Assignment": ["+=", "-=", "*=", "/="],
+                "Augmented Assignment": ["a+=b", "a-=b", "a*=b", "a/=b"],
                 "Type Casting": "Converting data types (e.g., int(), float())."
             },
             "Modules": {
