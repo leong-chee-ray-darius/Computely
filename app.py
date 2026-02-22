@@ -200,7 +200,7 @@ STATIONERY_DATA = {
         ]
         
     },
-    "Boolean Logic and Logic Gates": {
+    "Logic Gates": {
     "summary": "Boolean logic is used by computers to make decisions and perform operations using binary values.",
     "detailed_notes": {
         "Boolean Logic Basics": {
@@ -291,7 +291,7 @@ STATIONERY_DATA = {
     },
         "keywords": ["Boolean Logic", "Truth Table", "AND", "OR", "NOT", "NAND", "NOR", "XOR"]
     },
-    "Algorithms and Programming": {
+    "Programming": {
         "summary": "Algorithms and programming involve designing step-by-step solutions and implementing them in computer programs.",
         "detailed_notes": {
             "Algorithms": {
@@ -424,7 +424,7 @@ STATIONERY_DATA = {
         },
         "keywords": ["Algorithm", "Variables", "Functions", "Loops", "Control Flow", "Data Types"]
     },
-    "Validation and Error Handling": {
+    "Input Validation": {
         "summary": "Techniques used to ensure program correctness and handle invalid input safely.",
         "detailed_notes": {
             "Why Validation is Needed": {
@@ -481,7 +481,7 @@ STATIONERY_DATA = {
         ]
     },
 
-    "Bugs, Testing, and Debugging": {
+    "Testing and Debugging": {
         "summary": "Understanding program errors and methods used to detect and correct them.",
         "detailed_notes": {
             "Introduction": {
@@ -612,7 +612,7 @@ STATIONERY_DATA = {
             "Decomposition", "Generalisation", "DRY"
         ]
     },
-    "Program Development Models": {
+    "Software Engineering": {
         "summary": "Structured approaches used to design, build, test, and deploy software systems.",
         "detailed_notes": {
             "Waterfall Model": {
@@ -760,7 +760,7 @@ STATIONERY_DATA = {
         "keywords": ["Cells", "Formulas", "Functions", "VLOOKUP", "INDEX", "Goal Seek"]
     },
 
-    "Computer Networks": {
+    "Networking": {
         "summary": "Systems of interconnected devices used to exchange data and share resources.",
         "detailed_notes": {
             "Introduction": {
@@ -1202,7 +1202,7 @@ if mode == "Review":
         display_nested_notes(STATIONERY_DATA[topic].get("detailed_notes", {}))
 
     with tab_glossary:
-        st.subheader("📚 Interactive Glossary")
+        st.subheader("📚 Glossary")
         glossary = STATIONERY_DATA[topic].get("glossary", {})
         if glossary:
             df = pd.DataFrame(glossary.items(), columns=["Term", "Definition"])
