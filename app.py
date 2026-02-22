@@ -330,7 +330,7 @@ STATIONERY_DATA = {
                 "Dictionary": "Key-value pairs."
             },
             "Mathematical Operations": {
-                "Operators": ["+", "-", "*", "/", "//", "%", "**"],
+                "Operators": [" +", "-", "*", "/", "//", "%", "**"],
                 "Augmented Assignment": ["+=", "-=", "*=", "/="],
                 "Type Casting": "Converting data types (e.g., int(), float())."
             },
@@ -1154,21 +1154,14 @@ if selected_mode != st.session_state.current_mode:
     st.session_state.current_mode = selected_mode
     st.rerun()
 # 5. Fetch Content for AI Bot/Review (Ater topic is defined)
-def display_nested_notes(data, level=0):
-    if isinstance(data, dict):
-        for key, value in data.items():
-            clean_key = key.replace("_", " ").title()
-
-            if level == 0:
-                st.markdown("---")
-                st.markdown(f"### 📌 {clean_key}")
-            elif level == 1:
-                st.markdown(f"#### 🔹 {clean_key}")
-            else:
-                st.markdown(f"**▪ {clean_key}:**")
-
+def display_nested_notes(notes, level=0):
+    for key, value in notes.items():
+        if isinstance(value, dict):
+            st.markdown(" " * level + f"### 🔹 {key}")
             display_nested_notes(value, level + 1)
-
+        else:
+            st.markdown(f"**{key}:**")
+            display_value(value)
     elif isinstance(data, list):
         # Horizontal layout for short lists
         if len(data) <= 6 and all(isinstance(i, str) for i in data):
@@ -1179,6 +1172,15 @@ def display_nested_notes(data, level=0):
 
     else:
         st.markdown(f"{data}")
+def display_value(value):
+    if isinstance(value, list):
+        df = pd.DataFrame(value, columns=["Value"])
+        st.dataframe(df, use_container_width=True, hide_index=True)
+    elif isinstance(value, dict):
+        df = pd.DataFrame(value.items(), columns=["Item", "Description"])
+        st.dataframe(df, use_container_width=True, hide_index=True)
+    else:
+        st.write(value)
 # --- MAIN INTERFACE ---
 mode = st.session_state.current_mode
 
