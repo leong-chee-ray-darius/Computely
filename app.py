@@ -1162,7 +1162,7 @@ def display_nested_notes(notes, level=0):
         elif isinstance(value, list):
             st.markdown(f"**{key}:**")
             if len(value) <= 6 and all(isinstance(i, str) for i in value):
-                st.markdown(" • ".join(value))
+                st.markdown(" | ".join(value))
             else:
                 df = pd.DataFrame(value, columns=["Value"])
                 st.dataframe(df, use_container_width=True, hide_index=True)
