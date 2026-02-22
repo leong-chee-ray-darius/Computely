@@ -6,6 +6,7 @@ Features of our website:
 1. Notes for chapters 1 - 14 of computing 
 2. An interactive AI bot to clarify and ask questions
 3. A quiz that is generated based on the topic chosen and the number of questions, difficulty, and question type
+   
 <a name="Instructions"><h2>Instructions</h2></a>
 Open up 1 of the 14 notes on the website to study 
 Open the AI chatbot and ask it questions about computing (e.g., “What is RAM?”). The AI will then give you explanations to clarify your understanding.
