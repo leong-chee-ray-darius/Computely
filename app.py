@@ -1,15 +1,16 @@
+#Importing modules
 from openai import OpenAI
 from data import STATIONERY_DATA
 import streamlit as st
 import pandas as pd
 import json
-
+#Setting page title
 st.set_page_config(page_title="Computing Companion", layout="wide")
 
-# 1. Define Constants and Data First
+#Define Constants and Data First
 JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
-
+#Define functions
 def load_textbook_data():
     try:
         with open(JSON_PATH, 'r', encoding='utf-8') as f:
@@ -27,8 +28,36 @@ def get_filtered_context(selected_topic, data_source):
         if any(term.lower() in content.lower() for term in search_terms):
             matches.append(content)
     return "\n\n".join(matches[:10])
-
-# 3. Load Data and Initialize Session State
+def display_nested_notes(notes, level=0):
+    for key, value in notes.items():
+        if isinstance(value, dict):
+            # Calculate header level: 1 = #, 2 = ##, 3 = ###, etc.
+            header_level = min(level + 1, 4) 
+            hashes = "#" * header_level
+            st.markdown(f"{hashes} {key}") 
+            
+            # Recursively call the function, increasing the level
+            display_nested_notes(value, level + 1)
+            
+        elif isinstance(value, list):
+            st.markdown(f"**{key}:**")
+            if len(value) <= 6 and all(isinstance(i, str) for i in value):
+                st.markdown(" | ".join(value))
+            else:
+                df = pd.DataFrame(value, columns=["Value"])
+                st.dataframe(df, use_container_width=True, hide_index=True)
+        else:
+            st.markdown(f"**{key}:** {value}")
+def display_value(value):
+    if isinstance(value, list):
+        df = pd.DataFrame(value, columns=["Value"])
+        st.dataframe(df, use_container_width=True, hide_index=True)
+    elif isinstance(value, dict):
+        df = pd.DataFrame(value.items(), columns=["Item", "Description"])
+        st.dataframe(df, use_container_width=True, hide_index=True)
+    else:
+        st.write(value)
+#Load Data and Initialize Session State
 raw_data = load_textbook_data()
 
 if "selected_topic" not in st.session_state:
@@ -40,7 +69,7 @@ if "current_mode" not in st.session_state:
 if "quiz_scores" not in st.session_state:
     st.session_state.quiz_scores = {topic: 0 for topic in STATIONERY_DATA.keys()}
 
-# 4. Sidebar Logic
+#Sidebar Logic
 st.sidebar.title("🔍 Computing Companion")
 
 search_query = st.sidebar.text_input("Quick search (e.g., 'Two's Complement')")
@@ -63,38 +92,14 @@ selected_mode = st.sidebar.radio("Activity:", modes, index=mode_index)
 if selected_mode != st.session_state.current_mode:
     st.session_state.current_mode = selected_mode
     st.rerun()
-# 5. Fetch Content for AI Bot/Review (Ater topic is defined)
-def display_nested_notes(notes, level=0):
-    for key, value in notes.items():
-        if isinstance(value, dict):
-            st.markdown(f"### 🔹 {key}")
-            display_nested_notes(value, level + 1)
-        elif isinstance(value, list):
-            st.markdown(f"**{key}:**")
-            if len(value) <= 6 and all(isinstance(i, str) for i in value):
-                st.markdown(" | ".join(value))
-            else:
-                df = pd.DataFrame(value, columns=["Value"])
-                st.dataframe(df, use_container_width=True, hide_index=True)
-        else:
-            st.markdown(f"**{key}:** {value}")
-def display_value(value):
-    if isinstance(value, list):
-        df = pd.DataFrame(value, columns=["Value"])
-        st.dataframe(df, use_container_width=True, hide_index=True)
-    elif isinstance(value, dict):
-        df = pd.DataFrame(value.items(), columns=["Item", "Description"])
-        st.dataframe(df, use_container_width=True, hide_index=True)
-    else:
-        st.write(value)
-# --- MAIN INTERFACE ---
+#Fetch Content for AI Bot/Review
 mode = st.session_state.current_mode
 
 if mode == "Review":
     st.markdown(f"# 📘 {topic}")
     st.caption("GCE O-Level Computing • Structured Study Notes")
     st.success(f"📖 **Chapter Summary:** {STATIONERY_DATA[topic]['summary']}")
-    
+
     tab_notes, tab_glossary, tab_resources = st.tabs([
     "📝 Learn",
     "📚 Key Terms",
@@ -118,10 +123,9 @@ if mode == "Review":
         with col_ref:
             st.subheader("Reference")
             st.link_button("📂 Open Full PDF", "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing")
-        
+
         with col_quiz:
             st.subheader("Assessment")
-            # This button will now work correctly without an exception
             if st.button("🏁 Start Quiz Now", use_container_width=True):
                 st.session_state.current_mode = "Quiz"
                 st.rerun()
@@ -189,7 +193,7 @@ RULES:
         )
 elif mode == "Quiz":
     st.header(f"AI Generated Quiz: {topic}")
-    
+
     # --- QUIZ SETTINGS SIDEBAR ---
     st.sidebar.divider()
     st.sidebar.subheader("Quiz Settings")
@@ -198,7 +202,7 @@ elif mode == "Quiz":
     quiz_type = st.sidebar.selectbox("Question Type", ["Multiple Choice", "True/False"])
 
     quiz_key = f"quiz_questions_{topic}"
-    
+
     # Button to generate/regenerate the quiz
     if st.button("Generate New Quiz"):
         with st.spinner(f"Generating {difficulty} {quiz_type} questions..."):
@@ -206,11 +210,11 @@ elif mode == "Quiz":
 
             # Logic to adjust prompt based on settings
             type_instruction = "multiple-choice questions with 4 options" if quiz_type == "Multiple Choice" else "True/False questions with exactly 2 options (True and False)"
-            
+
             prompt = f"""
             Generate {num_questions} {difficulty} level {type_instruction} for the computing topic: {topic}.
             Context summary: {STATIONERY_DATA[topic]['summary']}
-            
+
             Return ONLY a JSON object with a key "questions" containing a list of objects.
             Each object must have:
             - "question": The question text
@@ -234,7 +238,7 @@ elif mode == "Quiz":
     # --- DISPLAY QUIZ ---
     if st.session_state.get(quiz_key):
         quiz = st.session_state[quiz_key]
-        
+
         with st.form(key=f"form_{topic}"):
             user_answers = []
             for i, q in enumerate(quiz):
@@ -252,7 +256,7 @@ elif mode == "Quiz":
                         st.success(f"**Q{i+1}: Correct!**")
                     else:
                         st.error(f"**Q{i+1}: Incorrect.** Correct: {q['answer']}")
-                
+
                 st.metric("Final Score", f"{score} / {len(quiz)}")
                 if score == len(quiz):
                     st.balloons()
