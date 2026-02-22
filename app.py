@@ -2,8 +2,6 @@ from openai import OpenAI
 from data import STATIONERY_DATA
 import streamlit as st
 import pandas as pd
-import io
-import time
 import json
 
 st.set_page_config(page_title="Computing Companion", layout="wide")
