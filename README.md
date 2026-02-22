@@ -19,4 +19,6 @@ Features of our website:
 4. Adjust the quiz settings to change the number of questions, difficulty, and question type.
 
 <a name="Contact"><h2>Contact</h2></a>
-Please contact us here:kaydan_renyi_mathenz@s2023.ssts.edu.sg , leong_chee_ray_darius@s2023.ssts.edu.sg or warren_ng_thye_jiat@s2023.ssts.edu.sg 
+* **Leong Chee Ray Darius:** [leong_chee_ray_darius@s2023.ssts.edu.sg](mailto:leong_chee_ray_darius@s2023.ssts.edu.sg)
+* **Kaydan Renyi Mathenz:** [kaydan_renyi_mathenz@s2023.ssts.edu.sg](mailto:kaydan_renyi_mathenz@s2023.ssts.edu.sg)
+* **Warren Ng Thye Jiat:** [warren_ng_thye_jiat@s2023.ssts.edu.sg](mailto:warren_ng_thye_jiat@s2023.ssts.edu.sg)
