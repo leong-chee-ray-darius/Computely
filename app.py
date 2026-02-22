@@ -1202,28 +1202,27 @@ if mode == "Review":
         display_nested_notes(STATIONERY_DATA[topic].get("detailed_notes", {}))
 
     with tab_glossary:
-    st.subheader("📚 Interactive Glossary")
-    glossary = STATIONERY_DATA[topic].get("glossary", {})
-
-    if glossary:
-        for term, definition in glossary.items():
-            st.markdown(
-                f"""
-                <div style="
-                    border: 1px solid #ddd;
-                    border-radius: 8px;
-                    padding: 12px 14px;
-                    margin-bottom: 10px;
-                    background-color: #f9fafb;
-                ">
-                    <strong style="font-size:16px;">🔹 {term}</strong><br>
-                    <span style="font-size:14px;">{definition}</span>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
-    else:
-        st.warning("No glossary available.")
+        st.subheader("📚 Interactive Glossary")
+        glossary = STATIONERY_DATA[topic].get("glossary", {})
+        if glossary:
+            for term, definition in glossary.items():
+                st.markdown(
+                    f"""
+                    <div style="
+                        border: 1px solid #ddd;
+                        border-radius: 8px;
+                        padding: 12px 14px;
+                        margin-bottom: 10px;
+                        background-color: #f9fafb;
+                    ">
+                        <strong style="font-size:16px;">🔹 {term}</strong><br>
+                        <span style="font-size:14px;">{definition}</span>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+        else:
+            st.warning("No glossary available.")
 
     with tab_resources:
         col_ref, col_quiz = st.columns(2)
