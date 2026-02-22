@@ -4,18 +4,25 @@ from data import STATIONERY_DATA
 import streamlit as st
 import pandas as pd
 import json
+import requests
 #Setting page title
 st.set_page_config(page_title="Computely", layout="wide")
 
 #Define constants and Data
-JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
+FILE_ID = "1TfTOp1h8BtFJvp4EO8r0W1YPRqeRRk0x"
+JSON_URL = f"https://drive.google.com/uc?export=download&id={FILE_ID}"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
 #Define functions
 def load_textbook_data():
     try:
-        with open(JSON_PATH, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except:
+        response = requests.get(JSON_URL)
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error("Failed to fetch data from Google Drive.")
+            return []
+    except Exception as e:
+        st.error(f"Error: {e}")
         return []
 
 def get_filtered_context(selected_topic, data_source):
