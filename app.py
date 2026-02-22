@@ -1157,21 +1157,17 @@ if selected_mode != st.session_state.current_mode:
 def display_nested_notes(notes, level=0):
     for key, value in notes.items():
         if isinstance(value, dict):
-            st.markdown(" " * level + f"### 🔹 {key}")
+            st.markdown(f"### 🔹 {key}")
             display_nested_notes(value, level + 1)
-        else:
+        elif isinstance(value, list):
             st.markdown(f"**{key}:**")
-            display_value(value)
-    elif isinstance(data, list):
-        # Horizontal layout for short lists
-        if len(data) <= 6 and all(isinstance(i, str) for i in data):
-            st.markdown(" • ".join(data))
+            if len(value) <= 6 and all(isinstance(i, str) for i in value):
+                st.markdown(" • ".join(value))
+            else:
+                df = pd.DataFrame(value, columns=["Value"])
+                st.dataframe(df, use_container_width=True, hide_index=True)
         else:
-            for item in data:
-                st.markdown(f"- {item}")
-
-    else:
-        st.markdown(f"{data}")
+            st.markdown(f"**{key}:** {value}")
 def display_value(value):
     if isinstance(value, list):
         df = pd.DataFrame(value, columns=["Value"])
