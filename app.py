@@ -7,7 +7,7 @@ import json
 #Setting page title
 st.set_page_config(page_title="Computing Companion", layout="wide")
 
-#Define Constants and Data First
+#Define constants and Data
 JSON_PATH = "/content/gdrive/My Drive/Computing/textbook_data.json"
 TEXTBOOK_DRIVE_LINK = "https://drive.google.com/file/d/1p4icGvOPN61lQhowHjzh1aZErT0fBx1j/view?usp=sharing"
 #Define functions
@@ -31,14 +31,12 @@ def get_filtered_context(selected_topic, data_source):
 def display_nested_notes(notes, level=0):
     for key, value in notes.items():
         if isinstance(value, dict):
-            # Calculate header level: 1 = #, 2 = ##, 3 = ###, etc.
-            header_level = min(level + 1, 4) 
+            # Calculate header level
+            header_level = min(level + 1, 4)
             hashes = "#" * header_level
-            st.markdown(f"{hashes} {key}") 
-            
-            # Recursively call the function, increasing the level
+            st.markdown(f"{hashes} {key}")
             display_nested_notes(value, level + 1)
-            
+
         elif isinstance(value, list):
             st.markdown(f"**{key}:**")
             if len(value) <= 6 and all(isinstance(i, str) for i in value):
@@ -57,7 +55,7 @@ def display_value(value):
         st.dataframe(df, use_container_width=True, hide_index=True)
     else:
         st.write(value)
-#Load Data and Initialize Session State
+#Load data and initialise session state
 raw_data = load_textbook_data()
 
 if "selected_topic" not in st.session_state:
@@ -69,7 +67,7 @@ if "current_mode" not in st.session_state:
 if "quiz_scores" not in st.session_state:
     st.session_state.quiz_scores = {topic: 0 for topic in STATIONERY_DATA.keys()}
 
-#Sidebar Logic
+#Sidebar
 st.sidebar.title("🔍 Computing Companion")
 
 search_query = st.sidebar.text_input("Quick search (e.g., 'Two's Complement')")
@@ -92,7 +90,7 @@ selected_mode = st.sidebar.radio("Activity:", modes, index=mode_index)
 if selected_mode != st.session_state.current_mode:
     st.session_state.current_mode = selected_mode
     st.rerun()
-#Fetch Content for AI Bot/Review
+#Fetch content for AI bot
 mode = st.session_state.current_mode
 
 if mode == "Review":
@@ -132,57 +130,49 @@ if mode == "Review":
 elif mode == "AI bot":
     st.title("🤖 AI Computing Tutor")
 
-    # --- Get filtered textbook context ---
+    #Get filtered textbook context
     tb_content = get_filtered_context(
         st.session_state.selected_topic,
         raw_data
     )
 
     system_message_content = f"""
-ROLE: Robotic GCE O-Level Computing Assistant. 
+ROLE: Robotic GCE O-Level Computing Assistant.
 TONE: Highly technical, neutral, and precise. Avoid conversational filler.
 
 ---
 RESOURCES:
-1. TEXTBOOK CONTENT (PRIORITY 1): 
+1. TEXTBOOK CONTENT (PRIORITY 1):
 {tb_content}
 
-2. STRUCTURED DATA (PRIORITY 2): 
+2. STRUCTURED DATA (PRIORITY 2):
 {json.dumps(STATIONERY_DATA[st.session_state.selected_topic], indent=2)}
 ---
 
 STRICT OPERATING RULES:
 1. SOURCE HIERARCHY: Answer using the TEXTBOOK first. If the information is missing, use the STRUCTURED DATA.
-2. SCOPE: If a query is about software, logic, hardware, or development but doesn't match your database keywords, DO NOT reject it. Instead, search for the most relevant concept (e.g., "Software Engineering" -> "Program Development Life Cycle").
-3. FORMATTING: 
+2. SCOPE: If a query is about software, logic, hardware, or development but doesn't match your database keywords, DO NOT reject it. Instead, search for the most relevant concept.
+3. FORMATTING:
    - Use Markdown bolding for key terms.
    - Use Bullet Points for processes/lists.
    - Use LaTeX for binary/denary math (e.g., $1010_2$).
-4. FUZZY MATCHING: Actively bridge the gap between student terminology and the syllabus. 
-   - "How to make an app" -> Explain the Program Development Life Cycle.
+4. FUZZY MATCHING: Actively bridge the gap between student terminology and the syllabus.
+   - "How to make an app" -> Explain the 'waterfall model'
    - "Code steps" -> Explain Analysis, Design, Coding, and Testing.
 5. NO HALLUCINATION: If the information is not in either resource, state: "Information not available in provided syllabus materials."
 EXAMPLES OF CORRECT MAPPING:
 - User: "What are the steps for software engineering?"
-- Assistant: "In the context of the GCSE syllabus, this refers to the Program Development Life Cycle. The stages are: 1. Analysis, 2. Design, 3. Coding, 4. Testing, and 5. Maintenance."
-
-- User: "How do I make a computer faster?"
-- Assistant: "Performance is determined by CPU Architecture. Key factors include: Clock Speed (MHz/GHz), Number of Cores, and Cache Size."
-
-- User: "What are the stages of making a program?"
-- Assistant: "This follows the Program Development Life Cycle: Analysis (defining requirements), Design (creating flowcharts/pseudocode), Coding, and Testing (using normal/boundary/erroneous data)."
-
-- User: "How does the brain of the computer work?"
-- Assistant: "The 'brain' is the Central Processing Unit (CPU). It follows the Fetch-Decode-Execute cycle to process instructions..."
+- Assistant: "The five stages in developing a program are: 1. Gather requirements, 2. Design solutions, 3. Write code, 4. Test & Refine Code, 5. Deploy code. This is the traditional 'waterfall model', where progress flows
+through multiple stages in a sequential manner and each stage is completed before moving on to the next stage.
 
 - User: "How to print?"
 - Assistant: "Please specify: Are you asking about the (1) Python 'print()' function or (2) the mechanical operation of Laser/Inkjet printers?"
 
 - User: "Explain printing."
 - Assistant: "In Computing, this refers to two areas:
-  1. Output: The `print()` function in Python sends data to the standard output device (monitor). 
+  1. Output: The `print()` function in Python sends data to the standard output device (monitor).
      Example: `print('Hello World')`.
-  2. Hardware: The mechanical process of transferring data to paper. 
+  2. Hardware: The mechanical process of transferring data to paper.
      - Inkjet: Uses piezoelectric crystals or thermal bubbles to spray liquid ink.
      - Laser: Uses a rotating drum, static electricity, and a fuser to bond toner to paper."
 """
@@ -194,13 +184,13 @@ EXAMPLES OF CORRECT MAPPING:
             {"role": "system", "content": system_message_content}
         ]
 
-    # --- Chat history display ---
+    #Display chat history
     for message in st.session_state.messages:
         if message["role"] != "system":
             with st.chat_message(message["role"]):
                 st.markdown(message["content"])
 
-    # --- User input ---
+    # User input
     if prompt := st.chat_input("Ask a computing question..."):
         st.session_state.messages.append(
             {"role": "user", "content": prompt}
@@ -225,7 +215,7 @@ EXAMPLES OF CORRECT MAPPING:
 elif mode == "Quiz":
     st.header(f"AI Generated Quiz: {topic}")
 
-    # --- QUIZ SETTINGS SIDEBAR ---
+    # Quiz settings
     st.sidebar.divider()
     st.sidebar.subheader("Quiz Settings")
     num_questions = st.sidebar.slider("Number of questions", 1, 10, 3)
@@ -234,12 +224,12 @@ elif mode == "Quiz":
 
     quiz_key = f"quiz_questions_{topic}"
 
-    # Button to generate/regenerate the quiz
+    # Button to generate the quiz
     if st.button("Generate New Quiz"):
         with st.spinner(f"Generating {difficulty} {quiz_type} questions..."):
             client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
-            # Logic to adjust prompt based on settings
+            # Adjust prompt based on settings
             type_instruction = "multiple-choice questions with 4 options" if quiz_type == "Multiple Choice" else "True/False questions with exactly 2 options (True and False)"
 
             prompt = f"""
@@ -266,7 +256,7 @@ elif mode == "Quiz":
             except Exception as e:
                 st.error(f"Failed to generate quiz: {e}")
 
-    # --- DISPLAY QUIZ ---
+    # Display quiz
     if st.session_state.get(quiz_key):
         quiz = st.session_state[quiz_key]
 
