@@ -12,5 +12,5 @@ Open the AI chatbot and ask it questions about computing (e.g., “What is RAM?�
 Press “Generate New Quiz” to generate a quiz based on the selected topic.
 Adjust the quiz settings to change the number of questions, difficulty, and question type.
 
-<a name="Contact"><h1>Contact</h1></a>
+<a name="Contact"><h2>Contact</h2></a>
 Please contact us here:kaydan_renyi_mathenz@s2023.ssts.edu.sg , leong_chee_ray_darius@s2023.ssts.edu.sg or warren_ng_thye_jiat@s2023.ssts.edu.sg 
